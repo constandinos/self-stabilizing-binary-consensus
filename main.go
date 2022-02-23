@@ -69,17 +69,19 @@ func main() {
 		N, _ := strconv.Atoi(args[1])
 		threshenc.GenerateKeys(N, "./keys/")
 
-	} else if len(args) == 5 {
+	} else if len(args) == 6 {
 		id, _ := strconv.Atoi(args[0])
 		n, _ := strconv.Atoi(args[1])
 		clients, _ := strconv.Atoi(args[2])
 		scenario, _ := strconv.Atoi(args[3])
 		remote, _ := strconv.Atoi(args[4])
+		init_value, _ := strconv.Atoi(args[5])
 
 		initializer(id, n, clients, scenario, remote)
 
 		//modules.BvBroadcast(1, 0)
-		go modules.BinaryConsensus(1, 1)
+		logger.OutLogger.Println("Initial estimate value: ", uint(init_value))
+		go modules.BinaryConsensus(1, uint(init_value))
 
 		done := make(chan interface{}) // To keep the server running
 		<-done
