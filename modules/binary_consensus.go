@@ -172,6 +172,7 @@ func random(id int) uint {
 
 func decide(id int, value uint) {
 	//BCAnswer[id] <- value
+	logger.OutLogger.Print("My final decision ", value, "\n")
 
 }
 

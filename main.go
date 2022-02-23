@@ -79,7 +79,7 @@ func main() {
 		initializer(id, n, clients, scenario, remote)
 
 		//modules.BvBroadcast(1, 0)
-		modules.BinaryConsensus(1, 0)
+		go modules.BinaryConsensus(1, 1)
 
 		done := make(chan interface{}) // To keep the server running
 		<-done

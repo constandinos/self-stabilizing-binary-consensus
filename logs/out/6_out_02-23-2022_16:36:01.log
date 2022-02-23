@@ -1,0 +1,105 @@
+INFO: 16:36:01.268996 main.go:29: ID:6 | N:10 | F:3 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 16:36:01.271546 messenger.go:85: Receive from Server 0 on tcp://*:4600
+INFO: 16:36:01.274398 messenger.go:102: Send to Server 0 on tcp://localhost:4006
+INFO: 16:36:01.275559 messenger.go:85: Receive from Server 1 on tcp://*:4601
+INFO: 16:36:01.275762 messenger.go:102: Send to Server 1 on tcp://localhost:4106
+INFO: 16:36:01.276418 messenger.go:85: Receive from Server 2 on tcp://*:4602
+INFO: 16:36:01.277684 messenger.go:102: Send to Server 2 on tcp://localhost:4206
+INFO: 16:36:01.281486 messenger.go:85: Receive from Server 3 on tcp://*:4603
+INFO: 16:36:01.281618 messenger.go:102: Send to Server 3 on tcp://localhost:4306
+INFO: 16:36:01.281814 messenger.go:85: Receive from Server 4 on tcp://*:4604
+INFO: 16:36:01.282049 messenger.go:102: Send to Server 4 on tcp://localhost:4406
+INFO: 16:36:01.282232 messenger.go:85: Receive from Server 5 on tcp://*:4605
+INFO: 16:36:01.282414 messenger.go:102: Send to Server 5 on tcp://localhost:4506
+INFO: 16:36:01.282597 messenger.go:85: Receive from Server 7 on tcp://*:4607
+INFO: 16:36:01.282820 messenger.go:102: Send to Server 7 on tcp://localhost:4706
+INFO: 16:36:01.283050 messenger.go:85: Receive from Server 8 on tcp://*:4608
+INFO: 16:36:01.283309 messenger.go:102: Send to Server 8 on tcp://localhost:4806
+INFO: 16:36:01.283503 messenger.go:85: Receive from Server 9 on tcp://*:4609
+INFO: 16:36:01.283736 messenger.go:102: Send to Server 9 on tcp://localhost:4906
+INFO: 16:36:01.283825 messenger.go:108: -----------------------------------------
+INFO: 16:36:01.283986 messenger.go:130: Requests from Client 0 on tcp://*:7600
+INFO: 16:36:01.284340 messenger.go:147: Response to Client 0 on tcp://*:10600
+INFO: 16:36:01.284576 messenger.go:150: -----------------------------------------
+
+INFO: 16:36:01.298683 binary_consensus.go:23: 4.BC: bcid-1 round-1
+INFO: 16:36:01.419695 messenger.go:265: SENT BVB to 8
+INFO: 16:36:01.419750 messenger.go:265: SENT BVB to 0
+INFO: 16:36:01.419782 messenger.go:265: SENT BVB to 2
+INFO: 16:36:01.422082 messenger.go:341: RECEIVED BVB from 8
+INFO: 16:36:01.422231 messenger.go:265: SENT BVB to 4
+INFO: 16:36:01.423727 messenger.go:341: RECEIVED BVB from 5
+INFO: 16:36:01.423837 messenger.go:265: SENT BVB to 3
+INFO: 16:36:01.423929 messenger.go:265: SENT BVB to 9
+INFO: 16:36:01.423999 messenger.go:265: SENT BVB to 1
+INFO: 16:36:01.437247 messenger.go:341: RECEIVED BVB from 3
+INFO: 16:36:01.437519 messenger.go:265: SENT BVB to 5
+INFO: 16:36:01.442074 messenger.go:341: RECEIVED BVB from 1
+INFO: 16:36:01.442923 messenger.go:341: RECEIVED BVB from 2
+INFO: 16:36:01.443974 messenger.go:341: RECEIVED BVB from 9
+INFO: 16:36:01.444063 binary_consensus.go:148: 4.BC: bin_values-[1]
+INFO: 16:36:01.445806 messenger.go:341: RECEIVED BVB from 0
+INFO: 16:36:01.448293 messenger.go:341: RECEIVED BVB from 7
+INFO: 16:36:01.461295 messenger.go:265: SENT BC to 2
+INFO: 16:36:01.461347 messenger.go:265: SENT BC to 3
+INFO: 16:36:01.461827 messenger.go:341: RECEIVED BC from 3
+INFO: 16:36:01.462613 messenger.go:341: RECEIVED BVB from 4
+INFO: 16:36:01.466997 messenger.go:265: SENT BC to 1
+INFO: 16:36:01.468153 messenger.go:265: SENT BC to 0
+INFO: 16:36:01.469119 messenger.go:341: RECEIVED BC from 9
+INFO: 16:36:01.469174 messenger.go:265: SENT BC to 5
+INFO: 16:36:01.473701 messenger.go:341: RECEIVED BC from 1
+INFO: 16:36:01.475821 messenger.go:341: RECEIVED BC from 5
+INFO: 16:36:01.475897 messenger.go:265: SENT BC to 4
+INFO: 16:36:01.496056 messenger.go:341: RECEIVED BC from 0
+INFO: 16:36:01.509802 messenger.go:265: SENT BVB to 7
+INFO: 16:36:01.517256 messenger.go:265: SENT BC to 8
+INFO: 16:36:01.517770 messenger.go:265: SENT BC to 7
+INFO: 16:36:01.519452 messenger.go:265: SENT BC to 9
+INFO: 16:36:01.522267 messenger.go:341: RECEIVED BC from 7
+INFO: 16:36:01.522326 binary_consensus.go:77: 4.BC: vals-[1] coin-0
+INFO: 16:36:01.522356 binary_consensus.go:23: 7.BC: bcid-1 round-2
+INFO: 16:36:01.529033 messenger.go:265: SENT BVB to 3
+INFO: 16:36:01.532161 messenger.go:265: SENT BVB to 8
+INFO: 16:36:01.532218 messenger.go:265: SENT BVB to 9
+INFO: 16:36:01.532256 messenger.go:265: SENT BVB to 1
+INFO: 16:36:01.536795 messenger.go:265: SENT BVB to 0
+INFO: 16:36:01.537018 messenger.go:341: RECEIVED BC from 8
+INFO: 16:36:01.545298 messenger.go:341: RECEIVED BVB from 1
+INFO: 16:36:01.551657 messenger.go:341: RECEIVED BVB from 9
+INFO: 16:36:01.555205 messenger.go:341: RECEIVED BVB from 3
+INFO: 16:36:01.558680 messenger.go:265: SENT BVB to 5
+INFO: 16:36:01.578855 messenger.go:341: RECEIVED BC from 4
+INFO: 16:36:01.579152 messenger.go:341: RECEIVED BC from 2
+INFO: 16:36:01.592136 messenger.go:265: SENT BVB to 4
+INFO: 16:36:01.593034 messenger.go:341: RECEIVED BVB from 5
+INFO: 16:36:01.594896 messenger.go:341: RECEIVED BVB from 8
+INFO: 16:36:01.600482 messenger.go:265: SENT BVB to 2
+INFO: 16:36:01.600944 messenger.go:265: SENT BVB to 7
+INFO: 16:36:01.612795 messenger.go:341: RECEIVED BC from 1
+INFO: 16:36:01.613363 messenger.go:341: RECEIVED BVB from 0
+INFO: 16:36:01.622895 messenger.go:341: RECEIVED BVB from 4
+INFO: 16:36:01.624140 messenger.go:341: RECEIVED BVB from 2
+INFO: 16:36:01.631599 messenger.go:341: RECEIVED BVB from 7
+INFO: 16:36:01.632184 binary_consensus.go:148: 7.BC: bin_values-[1]
+INFO: 16:36:01.635694 messenger.go:265: SENT BC to 0
+INFO: 16:36:01.640856 messenger.go:341: RECEIVED BC from 0
+INFO: 16:36:01.643332 messenger.go:341: RECEIVED BC from 4
+INFO: 16:36:01.645499 messenger.go:341: RECEIVED BC from 8
+INFO: 16:36:01.651518 messenger.go:341: RECEIVED BC from 2
+INFO: 16:36:01.653581 messenger.go:341: RECEIVED BC from 3
+INFO: 16:36:01.658817 binary_consensus.go:77: 7.BC: vals-[1] coin-1
+INFO: 16:36:01.658872 binary_consensus.go:82: 7.BC: decide-1
+INFO: 16:36:01.658880 binary_consensus.go:175: My final decision 1
+INFO: 16:36:01.659099 messenger.go:341: RECEIVED BC from 9
+INFO: 16:36:01.660525 messenger.go:265: SENT BC to 2
+INFO: 16:36:01.661592 messenger.go:265: SENT BC to 7
+INFO: 16:36:01.661594 messenger.go:265: SENT BC to 3
+INFO: 16:36:01.663351 messenger.go:265: SENT BC to 9
+INFO: 16:36:01.663481 messenger.go:265: SENT BC to 1
+INFO: 16:36:01.663482 messenger.go:265: SENT BC to 4
+INFO: 16:36:01.663533 messenger.go:265: SENT BC to 8
+INFO: 16:36:01.664099 messenger.go:265: SENT BC to 5
+INFO: 16:36:01.664431 messenger.go:341: RECEIVED BC from 5
+INFO: 16:36:01.688347 messenger.go:341: RECEIVED BC from 7
