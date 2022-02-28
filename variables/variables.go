@@ -9,6 +9,9 @@ var (
 	// N - Number of processors
 	N int
 
+	// M - Number of iterations
+	M int
+
 	// F - Number of faulty processors
 	F int
 
@@ -34,6 +37,7 @@ var (
 func Initialize(id int, n int, c int, rem int) {
 	ID = id
 	N = n
+	M = 10
 	F = (N - 1) / 3
 
 	if ID < F {
