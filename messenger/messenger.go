@@ -48,6 +48,11 @@ var (
 		From      int
 	})
 
+	SSBCChannel = make(map[int]chan struct {
+		SSBCMessage types.SSBCMessage
+		From        int
+	})
+
 	// RequestChannel - Channel to put the client requests in
 	RequestChannel = make(chan []byte, 100)
 )
@@ -384,5 +389,27 @@ func HandleMessage(msg []byte) {
 			BcMessage types.BcMessage
 			From      int
 		}{BcMessage: *bcMessage, From: message.From}
+
+	case "EST":
+		ssbcMessage := new(types.SSBCMessage)
+		buf := bytes.NewBuffer(message.Payload)
+		dec := gob.NewDecoder(buf)
+		err = dec.Decode(&ssbcMessage)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+
+		round := ssbcMessage.Round
+		if _, in := SSBCChannel[round]; !in {
+			SSBCChannel[round] = make(chan struct {
+				SSBCMessage types.SSBCMessage
+				From        int
+			})
+		}
+
+		SSBCChannel[round] <- struct {
+			SSBCMessage types.SSBCMessage
+			From        int
+		}{SSBCMessage: *ssbcMessage, From: message.From}
 	}
 }

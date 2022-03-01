@@ -81,7 +81,8 @@ func main() {
 
 		//modules.BvBroadcast(1, 0)
 		logger.OutLogger.Println("Initial estimate value: ", uint(init_value))
-		go modules.BinaryConsensus(1, uint(init_value))
+		//go modules.BinaryConsensus(1, uint(init_value))
+		modules.SelfStabilizingBinaryConsensus(int(init_value))
 
 		done := make(chan interface{}) // To keep the server running
 		<-done

@@ -80,7 +80,7 @@ func BinaryConsensus(bcid int, initVal uint) {
 					est = coin
 				} else if len(values) == 1 && values[0] == coin {
 					logger.OutLogger.Print(id, ".BC: decide-", values[0], "\n")
-					decide(bcid, values[0])
+					decide_bc(bcid, values[0])
 					return
 				} else if len(values) == 1 && values[0] != coin {
 					est = values[0]
@@ -170,7 +170,7 @@ func random(id int) uint {
 	return uint(id % 2)
 }
 
-func decide(id int, value uint) {
+func decide_bc(id int, value uint) {
 	//BCAnswer[id] <- value
 	logger.OutLogger.Print("My final decision ", value, "\n")
 

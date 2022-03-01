@@ -1,0 +1,44 @@
+INFO: 21:43:42.677896 main.go:29: ID:3 | N:10 | F:3 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 21:43:42.678452 messenger.go:90: Receive from Server 0 on tcp://*:4300
+INFO: 21:43:42.678738 messenger.go:107: Send to Server 0 on tcp://localhost:4003
+INFO: 21:43:42.678844 messenger.go:90: Receive from Server 1 on tcp://*:4301
+INFO: 21:43:42.678936 messenger.go:107: Send to Server 1 on tcp://localhost:4103
+INFO: 21:43:42.679030 messenger.go:90: Receive from Server 2 on tcp://*:4302
+INFO: 21:43:42.679097 messenger.go:107: Send to Server 2 on tcp://localhost:4203
+INFO: 21:43:42.679211 messenger.go:90: Receive from Server 4 on tcp://*:4304
+INFO: 21:43:42.679287 messenger.go:107: Send to Server 4 on tcp://localhost:4403
+INFO: 21:43:42.679360 messenger.go:90: Receive from Server 5 on tcp://*:4305
+INFO: 21:43:42.679464 messenger.go:107: Send to Server 5 on tcp://localhost:4503
+INFO: 21:43:42.679520 messenger.go:90: Receive from Server 6 on tcp://*:4306
+INFO: 21:43:42.679652 messenger.go:107: Send to Server 6 on tcp://localhost:4603
+INFO: 21:43:42.679745 messenger.go:90: Receive from Server 7 on tcp://*:4307
+INFO: 21:43:42.679810 messenger.go:107: Send to Server 7 on tcp://localhost:4703
+INFO: 21:43:42.679911 messenger.go:90: Receive from Server 8 on tcp://*:4308
+INFO: 21:43:42.679960 messenger.go:107: Send to Server 8 on tcp://localhost:4803
+INFO: 21:43:42.680061 messenger.go:90: Receive from Server 9 on tcp://*:4309
+INFO: 21:43:42.680160 messenger.go:107: Send to Server 9 on tcp://localhost:4903
+INFO: 21:43:42.680171 messenger.go:113: -----------------------------------------
+INFO: 21:43:42.680227 messenger.go:135: Requests from Client 0 on tcp://*:7300
+INFO: 21:43:42.680332 messenger.go:152: Response to Client 0 on tcp://*:10300
+INFO: 21:43:42.680400 messenger.go:155: -----------------------------------------
+
+INFO: 21:43:42.697047 main.go:83: Initial estimate value:  1
+INFO: 21:43:42.806098 messenger.go:346: RECEIVED EST from 5
+INFO: 21:43:42.810462 messenger.go:270: SENT EST to 2
+INFO: 21:43:42.841561 messenger.go:346: RECEIVED EST from 6
+INFO: 21:43:42.859857 messenger.go:346: RECEIVED EST from 7
+INFO: 21:43:42.867709 messenger.go:346: RECEIVED EST from 9
+INFO: 21:43:42.871324 messenger.go:270: SENT EST to 6
+INFO: 21:43:42.871345 messenger.go:346: RECEIVED EST from 4
+INFO: 21:43:42.927236 messenger.go:346: RECEIVED EST from 0
+INFO: 21:43:42.953819 messenger.go:346: RECEIVED EST from 2
+INFO: 21:43:42.959869 messenger.go:270: SENT EST to 7
+INFO: 21:43:42.959916 messenger.go:270: SENT EST to 8
+INFO: 21:43:42.961279 messenger.go:270: SENT EST to 9
+INFO: 21:43:42.961507 messenger.go:346: RECEIVED EST from 8
+INFO: 21:43:42.962931 messenger.go:270: SENT EST to 5
+INFO: 21:43:42.970916 messenger.go:270: SENT EST to 0
+INFO: 21:43:42.975512 messenger.go:270: SENT EST to 4
+INFO: 21:43:42.982669 messenger.go:270: SENT EST to 1
+INFO: 21:43:42.992309 messenger.go:346: RECEIVED EST from 1

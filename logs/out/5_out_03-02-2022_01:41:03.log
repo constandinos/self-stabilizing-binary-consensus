@@ -1,0 +1,26 @@
+INFO: 01:41:03.108760 main.go:29: ID:5 | N:10 | F:3 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 01:41:03.112818 messenger.go:90: Receive from Server 0 on tcp://*:4500
+INFO: 01:41:03.119864 messenger.go:107: Send to Server 0 on tcp://localhost:4005
+INFO: 01:41:03.121131 messenger.go:90: Receive from Server 1 on tcp://*:4501
+INFO: 01:41:03.122192 messenger.go:107: Send to Server 1 on tcp://localhost:4105
+INFO: 01:41:03.122782 messenger.go:90: Receive from Server 2 on tcp://*:4502
+INFO: 01:41:03.123544 messenger.go:107: Send to Server 2 on tcp://localhost:4205
+INFO: 01:41:03.126993 messenger.go:90: Receive from Server 3 on tcp://*:4503
+INFO: 01:41:03.129751 messenger.go:107: Send to Server 3 on tcp://localhost:4305
+INFO: 01:41:03.130179 messenger.go:90: Receive from Server 4 on tcp://*:4504
+INFO: 01:41:03.130873 messenger.go:107: Send to Server 4 on tcp://localhost:4405
+INFO: 01:41:03.131006 messenger.go:90: Receive from Server 6 on tcp://*:4506
+INFO: 01:41:03.131192 messenger.go:107: Send to Server 6 on tcp://localhost:4605
+INFO: 01:41:03.131321 messenger.go:90: Receive from Server 7 on tcp://*:4507
+INFO: 01:41:03.131578 messenger.go:107: Send to Server 7 on tcp://localhost:4705
+INFO: 01:41:03.138541 messenger.go:90: Receive from Server 8 on tcp://*:4508
+INFO: 01:41:03.138973 messenger.go:107: Send to Server 8 on tcp://localhost:4805
+INFO: 01:41:03.142444 messenger.go:90: Receive from Server 9 on tcp://*:4509
+INFO: 01:41:03.142768 messenger.go:107: Send to Server 9 on tcp://localhost:4905
+INFO: 01:41:03.142907 messenger.go:113: -----------------------------------------
+INFO: 01:41:03.142989 messenger.go:135: Requests from Client 0 on tcp://*:7500
+INFO: 01:41:03.143175 messenger.go:152: Response to Client 0 on tcp://*:10500
+INFO: 01:41:03.143293 messenger.go:155: -----------------------------------------
+
+INFO: 01:41:03.146033 main.go:83: Initial estimate value:  0
