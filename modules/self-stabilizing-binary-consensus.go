@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/gob"
 	"fmt"
-	"os"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
@@ -26,7 +25,7 @@ var (
 	r         int
 )
 
-func SelfStabilizingBinaryConsensus(initVal int) {
+func SelfStabilizingBinaryConsensus(v int) {
 	// Initialization
 	N = variables.N
 	M = variables.M
@@ -67,28 +66,39 @@ func SelfStabilizingBinaryConsensus(initVal int) {
 	}
 
 	// est[0][i] ← {v}
-	append_val(est[0][ID], initVal)
+	append_val(est[0][ID], v)
 
 	// do forever begin
 	for {
 		// if ((r, est, aux) != initState) then
 		if (r != 0) || !check_empty(est) || !check_empty(aux) {
+			// loop counter
+			repeat := 0
+
 			// r ← min{r+1, M+1 };
 			r = min(r+1, M+1)
-			logger.OutLogger.Print("Round:", r, "\n")
 
 			// Receive income messages in background communication
 			go receive(r)
-			zong := 0
+
 			// repeat
 			for {
-				zong++
+				// Increase loop counter
+				repeat++
+
+				// Debugging
+				logger.OutLogger.Println("round="+strconv.Itoa(r), "repeat="+strconv.Itoa(repeat))
+				if ID == 0 {
+					fmt.Println("round="+strconv.Itoa(r), "repeat="+strconv.Itoa(repeat))
+				}
+
 				// if (est[0][i] != {v})
-				/*mutex_est[0][ID].Lock()
+				mutex_est[0][ID].Lock()
 				if size(est[0][ID]) > 1 {
 					// est[0][i] ← {w} : ∃w ∈ est[0][i];
 					w := get_a_value(est[0][ID])
 					set_val(est[0][ID], w)
+					fmt.Println("Case 1")
 				}
 				mutex_est[0][ID].Unlock()
 
@@ -103,44 +113,43 @@ func SelfStabilizingBinaryConsensus(initVal int) {
 						set(est[rr][ID], est[0][ID])
 						// aux[r'][i] = x : x ∈ est[0][i]
 						x := get_a_value(est[0][ID])
-						clear(aux[rr][ID])
-						append_val(aux[rr][ID], x)
+						set_val(aux[rr][ID], x)
+						fmt.Println("Case 2")
 					}
 					mutex_est[rr][ID].Unlock()
 					mutex_aux[rr][ID].Unlock()
-				}*/
+				}
 
 				// if ((∃w ∈ binValues(r, 2t+1) ∧ (aux[r][i] = ⊥ ∨ aux[r][i] ¬∈ binValues(r, 2t+1)))
-				mutex_est[r][ID].Lock()
-				mutex_aux[r][ID].Lock()
 				binValues := bin_values(r, 2*F+1)
 				w := get_a_value(binValues)
-				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(2*F+1)+")="+arr2set(binValues),
-					"w="+strconv.Itoa(w))
+				// Debugging
+				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(2*F+1)+")="+arr2set(binValues), "w="+strconv.Itoa(w))
+				mutex_aux[r][ID].Lock()
 				if (w != -1) && ((size(aux[r][ID]) == 0) || !contains(binValues, get_a_value(aux[r][ID]))) {
 					// aux[r][i] ← w
 					set_val(aux[r][ID], w)
+					// Debugging
 					logger.OutLogger.Println("aux[" + strconv.Itoa(r) + "][" + strconv.Itoa(ID) + "]=" + strconv.Itoa(w))
 				}
 				mutex_aux[r][ID].Unlock()
-				mutex_est[r][ID].Unlock()
 
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
-				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(F+1)+")="+arr2set(bin_values(r, F+1)),
-					"w="+strconv.Itoa(w))
-				new_est := union(est[r-1][ID], bin_values(r, F+1))
+				binValues = bin_values(r, F+1)
+				new_est := union(est[r-1][ID], binValues)
 				send("EST", types.NewSSBCMessage(1, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+				// Debugging
+				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(F+1)+")="+arr2set(binValues), "w="+strconv.Itoa(w))
 				logger.OutLogger.Println("SEND flag=1 r="+strconv.Itoa(r), "est="+arr2set(new_est), "aux="+arr2set(aux[r][ID]))
-				time.Sleep(8 * time.Second)
-
-				if zong == 2 {
-					os.Exit(0)
+				time.Sleep(5 * time.Second)
+				// until infoResult() != ∅
+				infoResults := info_results()
+				// Debugging
+				logger.OutLogger.Println("infoResults()=" + arr2set(infoResults))
+				if size(infoResults) > 0 {
+					break
 				}
 
-				// until infoResult() != ∅
-				/*if size(info_results()) > 0 {
-					break
-				}*/
 			}
 
 			// tryToDecide(infoResult())
@@ -167,17 +176,6 @@ func bin_values(rr int, x int) []int {
 		counter[0] += est[rr][j][0]
 		counter[1] += est[rr][j][1]
 	}
-	if ID == 0 {
-		fmt.Println(x)
-		for j := 0; j < N; j++ {
-			fmt.Print(arr2set(est[rr][j]) + " ")
-		}
-		fmt.Println()
-		fmt.Print("counter0=", strconv.Itoa(counter[0])+" counter1="+strconv.Itoa(counter[1]))
-		fmt.Println()
-		fmt.Println()
-
-	}
 	s := make([]int, 2)
 	clear(s)
 	if counter[0] >= x {
@@ -196,9 +194,11 @@ func info_results() []int {
 	counter := [2]int{0, 0}
 	binValues := bin_values(r, 2*F+1)
 	for j := 0; j < N; j++ {
-		w := get_a_value(aux[r][j])
-		if w != -1 && contains(binValues, w) {
-			counter[w]++
+		if j != ID {
+			w := get_a_value(aux[r][j])
+			if w != -1 && contains(binValues, w) {
+				counter[w]++
+			}
 		}
 	}
 	s := make([]int, 2)
@@ -209,15 +209,6 @@ func info_results() []int {
 	if counter[1] >= (N - F) {
 		append_val(s, 1)
 	}
-	/* Debug */
-	str := ""
-	if s[0] == 1 {
-		str += "0 "
-	}
-	if s[1] == 1 {
-		str += "1 "
-	}
-	logger.OutLogger.Println("InfoResults: ", str, "counter=", counter[0])
 	return s
 }
 
@@ -242,28 +233,28 @@ func decide(x int) {
 	// foreach r' ∈ {r, . . . , M+1} do
 	for rr := r; rr <= M+1; rr++ {
 		// if (est[r'][i] = ∅ ∨ aux[r'][i] = ⊥)
+		mutex_est[rr][ID].Lock()
+		mutex_aux[rr][ID].Lock()
 		if (size(est[rr][ID]) == 0) || (size(aux[rr][ID]) == 0) {
 			/// (est[r'][i], aux[r'][i]) ← ({x}, x)
 			// est[r'][i] = {x}
-			mutex_est[rr][ID].Lock()
 			set_val(est[rr][ID], x)
-			mutex_est[rr][ID].Unlock()
 			//  aux[r'][i] = x
-			mutex_aux[rr][ID].Lock()
 			set_val(aux[rr][ID], x)
-			mutex_aux[rr][ID].Unlock()
 		}
+		mutex_est[rr][ID].Unlock()
+		mutex_aux[rr][ID].Unlock()
 	}
 	r = M + 1
-	logger.OutLogger.Print("Decision: ", x, "\n")
-	os.Exit(0)
+	logger.OutLogger.Println("decision=" + strconv.Itoa(x))
+	fmt.Println("Node", ID, "decides")
 }
 
-func try_to_decide(v []int) {
+func try_to_decide(values []int) {
 	randomBit := random_bit(r)
-	logger.OutLogger.Print("Random bit ", randomBit, "\n")
+	logger.OutLogger.Println("randomBit(" + strconv.Itoa(r) + ")=" + strconv.Itoa(randomBit))
 	// if (values != {v})
-	if size(v) != 1 {
+	if size(values) != 1 {
 		// est[r][i] ← {randomBit(r)}
 		mutex_est[r][ID].Lock()
 		set_val(est[r][ID], randomBit)
@@ -271,10 +262,10 @@ func try_to_decide(v []int) {
 	} else {
 		// est[r][i] ← {v}
 		mutex_est[r][ID].Lock()
-		set(est[r][ID], v)
+		set(est[r][ID], values)
 		mutex_est[r][ID].Unlock()
 		// if (v = randomBit(r))
-		if v[randomBit] == 1 {
+		if values[randomBit] == 1 {
 			decide(randomBit)
 		}
 	}
@@ -367,7 +358,7 @@ func union(s1 []int, s2 []int) []int {
 // random_bit generate a psedo-random number
 func random_bit(r int) int {
 	//return 0
-	return r % 2
+	return 0
 }
 
 // computeUniqIdentifier creates a unique num from (bcid,round) pair (Cantor's pairing func)
