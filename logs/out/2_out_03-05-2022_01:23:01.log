@@ -1,0 +1,26 @@
+INFO: 01:23:01.489516 main.go:29: ID:2 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 01:23:01.491031 messenger.go:90: Receive from Server 0 on tcp://*:4200
+INFO: 01:23:01.491245 messenger.go:107: Send to Server 0 on tcp://localhost:4002
+INFO: 01:23:01.491322 messenger.go:90: Receive from Server 1 on tcp://*:4201
+INFO: 01:23:01.491402 messenger.go:107: Send to Server 1 on tcp://localhost:4102
+INFO: 01:23:01.491892 messenger.go:90: Receive from Server 3 on tcp://*:4203
+INFO: 01:23:01.491975 messenger.go:107: Send to Server 3 on tcp://localhost:4302
+INFO: 01:23:01.492470 messenger.go:113: -----------------------------------------
+INFO: 01:23:01.492523 messenger.go:135: Requests from Client 0 on tcp://*:7200
+INFO: 01:23:01.492581 messenger.go:152: Response to Client 0 on tcp://*:10200
+INFO: 01:23:01.492603 messenger.go:155: -----------------------------------------
+
+INFO: 01:23:01.493160 main.go:83: Initial estimate value:  1
+INFO: 01:23:01.493210 self-stabilizing-binary-consensus.go:76: Round:1
+INFO: 01:23:01.493223 self-stabilizing-binary-consensus.go:116: binValues(1,3)={} w=-1
+INFO: 01:23:01.493228 self-stabilizing-binary-consensus.go:127: binValues(1,2)={} w=-1
+INFO: 01:23:01.508143 self-stabilizing-binary-consensus.go:131: SEND flag=1 r=1 est={1} aux={}
+INFO: 01:23:01.508295 self-stabilizing-binary-consensus.go:116: binValues(1,3)={} w=-1
+INFO: 01:23:01.508311 self-stabilizing-binary-consensus.go:127: binValues(1,2)={} w=-1
+INFO: 01:23:01.511633 self-stabilizing-binary-consensus.go:407: RECEIVE j=3 flag=1 r=1 est={1} aux={}
+INFO: 01:23:01.513315 self-stabilizing-binary-consensus.go:424: est[1][3]={1} aux[1][3]={}
+INFO: 01:23:06.522810 self-stabilizing-binary-consensus.go:431: SEND flag=0 r=1 est={1} aux={}
+INFO: 01:23:06.522847 self-stabilizing-binary-consensus.go:407: RECEIVE j=1 flag=1 r=1 est={0} aux={}
+INFO: 01:23:06.522854 self-stabilizing-binary-consensus.go:424: est[1][1]={0} aux[1][1]={}
+INFO: 01:23:11.526392 self-stabilizing-binary-consensus.go:131: SEND flag=1 r=1 est={1} aux={}

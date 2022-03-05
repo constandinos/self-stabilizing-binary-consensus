@@ -3,12 +3,15 @@ package modules
 import (
 	"bytes"
 	"encoding/gob"
+	"fmt"
 	"os"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
+	"strconv"
 	"sync"
+	"time"
 )
 
 var (
@@ -72,25 +75,29 @@ func SelfStabilizingBinaryConsensus(initVal int) {
 		if (r != 0) || !check_empty(est) || !check_empty(aux) {
 			// r ← min{r+1, M+1 };
 			r = min(r+1, M+1)
+			logger.OutLogger.Print("Round:", r, "\n")
 
 			// Receive income messages in background communication
 			go receive(r)
-
+			zong := 0
 			// repeat
 			for {
+				zong++
 				// if (est[0][i] != {v})
+				/*mutex_est[0][ID].Lock()
 				if size(est[0][ID]) > 1 {
 					// est[0][i] ← {w} : ∃w ∈ est[0][i];
 					w := get_a_value(est[0][ID])
 					set_val(est[0][ID], w)
 				}
+				mutex_est[0][ID].Unlock()
 
 				// foreach r' ∈ {1, . . . , r−1}
 				for rr := 1; rr <= r-1; rr++ {
+					mutex_est[rr][ID].Lock()
+					mutex_aux[rr][ID].Lock()
 					// if est[r'][i] = ∅ ∨ aux[r'][i] = ⊥
 					if (size(est[rr][ID]) == 0) || (size(aux[rr][ID]) == 0) {
-						mutex_est[rr][ID].Lock()
-						mutex_aux[rr][ID].Lock()
 						/// (est[r'][i], aux[r'][i]) ← (est[0][i], x) : x ∈ est[0][i];
 						// est[r'][i] = est[0][i]
 						set(est[rr][ID], est[0][ID])
@@ -98,29 +105,42 @@ func SelfStabilizingBinaryConsensus(initVal int) {
 						x := get_a_value(est[0][ID])
 						clear(aux[rr][ID])
 						append_val(aux[rr][ID], x)
-						mutex_est[rr][ID].Unlock()
-						mutex_aux[rr][ID].Unlock()
 					}
-				}
+					mutex_est[rr][ID].Unlock()
+					mutex_aux[rr][ID].Unlock()
+				}*/
 
 				// if ((∃w ∈ binValues(r, 2t+1) ∧ (aux[r][i] = ⊥ ∨ aux[r][i] ¬∈ binValues(r, 2t+1)))
+				mutex_est[r][ID].Lock()
+				mutex_aux[r][ID].Lock()
 				binValues := bin_values(r, 2*F+1)
 				w := get_a_value(binValues)
-				mutex_aux[r][ID].Lock()
+				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(2*F+1)+")="+arr2set(binValues),
+					"w="+strconv.Itoa(w))
 				if (w != -1) && ((size(aux[r][ID]) == 0) || !contains(binValues, get_a_value(aux[r][ID]))) {
 					// aux[r][i] ← w
 					set_val(aux[r][ID], w)
+					logger.OutLogger.Println("aux[" + strconv.Itoa(r) + "][" + strconv.Itoa(ID) + "]=" + strconv.Itoa(w))
 				}
 				mutex_aux[r][ID].Unlock()
+				mutex_est[r][ID].Unlock()
 
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
+				logger.OutLogger.Println("binValues("+strconv.Itoa(r)+","+strconv.Itoa(F+1)+")="+arr2set(bin_values(r, F+1)),
+					"w="+strconv.Itoa(w))
 				new_est := union(est[r-1][ID], bin_values(r, F+1))
-				send("EST", types.NewSSBCMessage(true, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+				send("EST", types.NewSSBCMessage(1, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+				logger.OutLogger.Println("SEND flag=1 r="+strconv.Itoa(r), "est="+arr2set(new_est), "aux="+arr2set(aux[r][ID]))
+				time.Sleep(8 * time.Second)
+
+				if zong == 2 {
+					os.Exit(0)
+				}
 
 				// until infoResult() != ∅
-				if size(info_results()) > 0 {
+				/*if size(info_results()) > 0 {
 					break
-				}
+				}*/
 			}
 
 			// tryToDecide(infoResult())
@@ -141,12 +161,22 @@ func SelfStabilizingBinaryConsensus(initVal int) {
 // binValues creates a set of values that appeared at least x times in est for each j processor
 // binValues(r, x) return {y ∈ {0, 1} : ∃s ⊆ P : |{p j ∈ s : y ∈ est[r][j]}| ≥ x};
 func bin_values(rr int, x int) []int {
+
 	counter := [2]int{0, 0}
 	for j := 0; j < N; j++ {
-		if j != ID {
-			counter[0] += est[rr][j][0]
-			counter[1] += est[rr][j][1]
+		counter[0] += est[rr][j][0]
+		counter[1] += est[rr][j][1]
+	}
+	if ID == 0 {
+		fmt.Println(x)
+		for j := 0; j < N; j++ {
+			fmt.Print(arr2set(est[rr][j]) + " ")
 		}
+		fmt.Println()
+		fmt.Print("counter0=", strconv.Itoa(counter[0])+" counter1="+strconv.Itoa(counter[1]))
+		fmt.Println()
+		fmt.Println()
+
 	}
 	s := make([]int, 2)
 	clear(s)
@@ -166,13 +196,9 @@ func info_results() []int {
 	counter := [2]int{0, 0}
 	binValues := bin_values(r, 2*F+1)
 	for j := 0; j < N; j++ {
-		if j != ID {
-			if binValues[0] == 1 {
-				counter[0] += aux[r][j][0]
-			}
-			if binValues[1] == 1 {
-				counter[1] += aux[r][j][1]
-			}
+		w := get_a_value(aux[r][j])
+		if w != -1 && contains(binValues, w) {
+			counter[w]++
 		}
 	}
 	s := make([]int, 2)
@@ -183,14 +209,38 @@ func info_results() []int {
 	if counter[1] >= (N - F) {
 		append_val(s, 1)
 	}
+	/* Debug */
+	str := ""
+	if s[0] == 1 {
+		str += "0 "
+	}
+	if s[1] == 1 {
+		str += "1 "
+	}
+	logger.OutLogger.Println("InfoResults: ", str, "counter=", counter[0])
 	return s
+}
+
+func arr2set(arr []int) string {
+	if size(arr) == 0 {
+		return "{}"
+	} else if size(arr) == 1 {
+		if arr[0] == 1 {
+			return "{0}"
+		} else {
+			return "{1}"
+		}
+	} else if size(arr) == 2 {
+		return "{0 1}"
+	}
+	return ""
 }
 
 /* Functions */
 
 func decide(x int) {
 	// foreach r' ∈ {r, . . . , M+1} do
-	for rr := r; rr <= M+1; r++ {
+	for rr := r; rr <= M+1; rr++ {
 		// if (est[r'][i] = ∅ ∨ aux[r'][i] = ⊥)
 		if (size(est[rr][ID]) == 0) || (size(aux[rr][ID]) == 0) {
 			/// (est[r'][i], aux[r'][i]) ← ({x}, x)
@@ -205,12 +255,13 @@ func decide(x int) {
 		}
 	}
 	r = M + 1
-	logger.OutLogger.Print("My final decision ", x, "\n")
+	logger.OutLogger.Print("Decision: ", x, "\n")
 	os.Exit(0)
 }
 
 func try_to_decide(v []int) {
 	randomBit := random_bit(r)
+	logger.OutLogger.Print("Random bit ", randomBit, "\n")
 	// if (values != {v})
 	if size(v) != 1 {
 		// est[r][i] ← {randomBit(r)}
@@ -315,8 +366,16 @@ func union(s1 []int, s2 []int) []int {
 
 // random_bit generate a psedo-random number
 func random_bit(r int) int {
+	//return 0
 	return r % 2
 }
+
+// computeUniqIdentifier creates a unique num from (bcid,round) pair (Cantor's pairing func)
+/*func computeUniqIdentifier(a int, b int) int {
+	res := (a * a) + (3 * a) + (2 * a * b) + b + (b * b)
+	res = res / 2
+	return res
+}*/
 
 /* Communication */
 
@@ -357,6 +416,9 @@ func receive(id int) {
 		uJ[0] = aux_0
 		uJ[1] = aux_1
 
+		logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.Itoa(aJ), "r="+strconv.Itoa(rJ),
+			"est="+arr2set(vJ), "aux="+arr2set(uJ))
+
 		// est[rJ][j] ← est[rJ][j] ∪ vJ
 		mutex_est[rJ][j].Lock()
 		set(est[rJ][j], union(est[rJ][j], vJ))
@@ -364,13 +426,22 @@ func receive(id int) {
 
 		// aux[rJ][j] ← uJ
 		mutex_aux[rJ][j].Lock()
+		//set(aux[rJ][j], union(aux[rJ][j], uJ))
 		set(aux[rJ][j], uJ)
+		/*if size(uJ) > 0 {
+			set(aux[rJ][j], uJ)
+		}*/
 		mutex_aux[rJ][j].Unlock()
 
+		logger.OutLogger.Println("est["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(est[rJ][j]),
+			"aux["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(aux[rJ][j]))
+
 		// if aJ then
-		if aJ {
+		if aJ == 1 {
 			// send EST(False, rJ , est[rJ−1][i], aux[r][i]) to pj
-			send("EST", types.NewSSBCMessage(false, rJ, est[rJ-1][ID][0], est[rJ-1][ID][1], aux[r][ID][0], aux[r][ID][1]))
+			send("EST", types.NewSSBCMessage(0, rJ, est[rJ-1][ID][0], est[rJ-1][ID][1], aux[rJ][ID][0], aux[rJ][ID][1]))
+			logger.OutLogger.Println("SEND flag=0 r="+strconv.Itoa(rJ), "est="+arr2set(est[rJ-1][ID]), "aux="+arr2set(aux[rJ][ID]))
+
 		}
 	}
 }

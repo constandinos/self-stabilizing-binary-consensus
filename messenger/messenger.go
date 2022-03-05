@@ -267,7 +267,7 @@ func TransmitMessages() {
 				if err != nil {
 					logger.ErrLogger.Fatal(err)
 				}
-				logger.OutLogger.Println("SENT", message.Type, "to", i)
+				//logger.OutLogger.Println("SENT", message.Type, "to", i)
 
 				variables.MsgMutex.Lock()
 				variables.MsgComplexity++
@@ -343,7 +343,7 @@ func HandleMessage(msg []byte) {
 		return
 	}
 
-	logger.OutLogger.Println("RECEIVED", message.Type, "from", message.From)
+	//logger.OutLogger.Println("RECEIVED", message.Type, "from", message.From)
 
 	switch message.Type {
 	case "BVB":
