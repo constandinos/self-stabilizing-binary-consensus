@@ -1,0 +1,32 @@
+INFO: 20:41:22.262050 main.go:29: ID:0 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 20:41:22.262902 messenger.go:90: Receive from Server 1 on tcp://*:4001
+INFO: 20:41:22.263386 messenger.go:107: Send to Server 1 on tcp://localhost:4100
+INFO: 20:41:22.263503 messenger.go:90: Receive from Server 2 on tcp://*:4002
+INFO: 20:41:22.263554 messenger.go:107: Send to Server 2 on tcp://localhost:4200
+INFO: 20:41:22.263602 messenger.go:90: Receive from Server 3 on tcp://*:4003
+INFO: 20:41:22.263646 messenger.go:107: Send to Server 3 on tcp://localhost:4300
+INFO: 20:41:22.263666 messenger.go:113: -----------------------------------------
+INFO: 20:41:22.263701 messenger.go:135: Requests from Client 0 on tcp://*:7000
+INFO: 20:41:22.263763 messenger.go:152: Response to Client 0 on tcp://*:10000
+INFO: 20:41:22.263784 messenger.go:155: -----------------------------------------
+
+INFO: 20:41:22.264797 main.go:83: Initial estimate value:  0
+INFO: 20:41:22.264839 binary_consensus.go:24: 4.BC: bcid-1 round-1
+INFO: 20:41:22.301573 binary_consensus.go:124: SEND EST 0
+INFO: 20:41:22.301637 binary_consensus.go:141: RECEIVE EST j=3val=1
+INFO: 20:41:22.314660 binary_consensus.go:141: RECEIVE EST j=2val=1
+INFO: 20:41:22.437568 binary_consensus.go:145: SEND EST 1
+INFO: 20:41:22.437609 binary_consensus.go:141: RECEIVE EST j=1val=0
+INFO: 20:41:22.437618 binary_consensus.go:141: RECEIVE EST j=2val=0
+INFO: 20:41:22.437637 binary_consensus.go:154: 4.BC: bin_values-[0]
+INFO: 20:41:22.437687 binary_consensus.go:141: RECEIVE EST j=3val=0
+INFO: 20:41:22.445629 binary_consensus.go:141: RECEIVE EST j=1val=1
+INFO: 20:41:22.445656 binary_consensus.go:154: 4.BC: bin_values-[0 1]
+INFO: 20:41:22.448303 binary_consensus.go:39: SEND AUX 0
+INFO: 20:41:22.449795 binary_consensus.go:65: RECEIVE AUX j=2val=1
+INFO: 20:41:22.449968 binary_consensus.go:65: RECEIVE AUX j=3val=0
+INFO: 20:41:22.450062 binary_consensus.go:65: RECEIVE AUX j=1val=0
+INFO: 20:41:22.450226 binary_consensus.go:80: 4.BC: vals-[0] coin-0
+INFO: 20:41:22.450418 binary_consensus.go:85: 4.BC: decide-0
+INFO: 20:41:22.450469 binary_consensus.go:181: My final decision 0

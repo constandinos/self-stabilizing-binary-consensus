@@ -1,0 +1,19 @@
+INFO: 20:01:51.448272 main.go:29: ID:3 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 20:01:51.448722 messenger.go:90: Receive from Server 0 on tcp://*:4300
+INFO: 20:01:51.448987 messenger.go:107: Send to Server 0 on tcp://localhost:4003
+INFO: 20:01:51.449135 messenger.go:90: Receive from Server 1 on tcp://*:4301
+INFO: 20:01:51.449261 messenger.go:107: Send to Server 1 on tcp://localhost:4103
+INFO: 20:01:51.449730 messenger.go:90: Receive from Server 2 on tcp://*:4302
+INFO: 20:01:51.449839 messenger.go:107: Send to Server 2 on tcp://localhost:4203
+INFO: 20:01:51.449873 messenger.go:113: -----------------------------------------
+INFO: 20:01:51.449923 messenger.go:135: Requests from Client 0 on tcp://*:7300
+INFO: 20:01:51.449975 messenger.go:152: Response to Client 0 on tcp://*:10300
+INFO: 20:01:51.450002 messenger.go:155: -----------------------------------------
+
+INFO: 20:01:51.456340 main.go:83: Initial estimate value:  0
+INFO: 20:01:51.456390 binary_consensus.go:23: 4.BC: bcid-1 round-1
+INFO: 20:01:51.493354 binary_consensus.go:148: 4.BC: bin_values-[0]
+INFO: 20:01:51.623947 binary_consensus.go:77: 4.BC: vals-[0] coin-0
+INFO: 20:01:51.624424 binary_consensus.go:82: 4.BC: decide-0
+INFO: 20:01:51.624458 binary_consensus.go:175: My final decision 0

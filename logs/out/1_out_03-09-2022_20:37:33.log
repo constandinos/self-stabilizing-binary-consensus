@@ -1,0 +1,32 @@
+INFO: 20:37:33.642165 main.go:29: ID:1 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 20:37:33.642509 messenger.go:90: Receive from Server 0 on tcp://*:4100
+INFO: 20:37:33.642677 messenger.go:107: Send to Server 0 on tcp://localhost:4001
+INFO: 20:37:33.642729 messenger.go:90: Receive from Server 2 on tcp://*:4102
+INFO: 20:37:33.642773 messenger.go:107: Send to Server 2 on tcp://localhost:4201
+INFO: 20:37:33.642818 messenger.go:90: Receive from Server 3 on tcp://*:4103
+INFO: 20:37:33.642891 messenger.go:107: Send to Server 3 on tcp://localhost:4301
+INFO: 20:37:33.642914 messenger.go:113: -----------------------------------------
+INFO: 20:37:33.642946 messenger.go:135: Requests from Client 0 on tcp://*:7100
+INFO: 20:37:33.643001 messenger.go:152: Response to Client 0 on tcp://*:10100
+INFO: 20:37:33.643021 messenger.go:155: -----------------------------------------
+
+INFO: 20:37:33.665822 main.go:83: Initial estimate value:  0
+INFO: 20:37:33.665901 binary_consensus.go:23: 4.BC: bcid-1 round-1
+INFO: 20:37:33.681458 binary_consensus.go:123: SEND EST 0
+INFO: 20:37:33.690907 binary_consensus.go:140: RECEIVE EST 1
+INFO: 20:37:33.819732 binary_consensus.go:140: RECEIVE EST 0
+INFO: 20:37:33.820246 binary_consensus.go:140: RECEIVE EST 1
+INFO: 20:37:33.822852 binary_consensus.go:144: SEND EST 1
+INFO: 20:37:33.823734 binary_consensus.go:140: RECEIVE EST 0
+INFO: 20:37:33.825710 binary_consensus.go:153: 4.BC: bin_values-[0]
+INFO: 20:37:33.825772 binary_consensus.go:140: RECEIVE EST 1
+INFO: 20:37:33.825794 binary_consensus.go:153: 4.BC: bin_values-[0 1]
+INFO: 20:37:33.825802 binary_consensus.go:140: RECEIVE EST 0
+INFO: 20:37:33.827569 binary_consensus.go:38: SEND AUX 0
+INFO: 20:37:33.827620 binary_consensus.go:64: RECEIVE AUX 0
+INFO: 20:37:33.827674 binary_consensus.go:64: RECEIVE AUX 1
+INFO: 20:37:33.827698 binary_consensus.go:64: RECEIVE AUX 0
+INFO: 20:37:33.827719 binary_consensus.go:79: 4.BC: vals-[0] coin-0
+INFO: 20:37:33.827737 binary_consensus.go:84: 4.BC: decide-0
+INFO: 20:37:33.827755 binary_consensus.go:180: My final decision 0

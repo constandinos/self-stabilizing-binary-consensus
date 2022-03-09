@@ -208,11 +208,9 @@ func info_results() []int {
 	counter := [2]int{0, 0}
 	binValues := bin_values(r, 2*F+1)
 	for j := 0; j < N; j++ {
-		if j != ID {
-			w := get_a_value(aux[r][j])
-			if w != -1 && contains(binValues, w) {
-				counter[w]++
-			}
+		w := get_a_value(aux[r][j])
+		if w != -1 && contains(binValues, w) {
+			counter[w]++
 		}
 	}
 	s := make([]int, 2)
