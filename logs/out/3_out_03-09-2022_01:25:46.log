@@ -1,0 +1,14 @@
+INFO: 01:25:46.606620 main.go:29: ID:3 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 01:25:46.607001 messenger.go:90: Receive from Server 0 on tcp://*:4300
+INFO: 01:25:46.607169 messenger.go:107: Send to Server 0 on tcp://localhost:4003
+INFO: 01:25:46.607233 messenger.go:90: Receive from Server 1 on tcp://*:4301
+INFO: 01:25:46.607276 messenger.go:107: Send to Server 1 on tcp://localhost:4103
+INFO: 01:25:46.607341 messenger.go:90: Receive from Server 2 on tcp://*:4302
+INFO: 01:25:46.607394 messenger.go:107: Send to Server 2 on tcp://localhost:4203
+INFO: 01:25:46.607416 messenger.go:113: -----------------------------------------
+INFO: 01:25:46.607485 messenger.go:135: Requests from Client 0 on tcp://*:7300
+INFO: 01:25:46.608052 messenger.go:152: Response to Client 0 on tcp://*:10300
+INFO: 01:25:46.608135 messenger.go:155: -----------------------------------------
+
+INFO: 01:25:46.612006 main.go:83: Initial estimate value:  1

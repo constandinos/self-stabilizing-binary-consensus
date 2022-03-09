@@ -75,14 +75,14 @@ func main() {
 		clients, _ := strconv.Atoi(args[2])
 		scenario, _ := strconv.Atoi(args[3])
 		remote, _ := strconv.Atoi(args[4])
-		init_value, _ := strconv.Atoi(args[5])
+		binValue, _ := strconv.Atoi(args[5])
 
 		initializer(id, n, clients, scenario, remote)
 
 		//modules.BvBroadcast(1, 0)
-		logger.OutLogger.Println("Initial estimate value: ", uint(init_value))
-		//go modules.BinaryConsensus(1, uint(init_value))
-		modules.SelfStabilizingBinaryConsensus(int(init_value))
+		logger.OutLogger.Println("Initial estimate value: ", uint(binValue))
+		//go modules.BinaryConsensus(1, uint(binValue))
+		modules.SelfStabilizingMultivaluedConsensus(int(binValue))
 
 		done := make(chan interface{}) // To keep the server running
 		<-done

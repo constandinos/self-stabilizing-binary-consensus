@@ -1,0 +1,273 @@
+INFO: 16:40:35.861709 main.go:29: ID:0 | N:4 | F:1 | Clients:1 | Scenario:NORMAL | Remote:false
+
+INFO: 16:40:35.862103 messenger.go:90: Receive from Server 1 on tcp://*:4001
+INFO: 16:40:35.862290 messenger.go:107: Send to Server 1 on tcp://localhost:4100
+INFO: 16:40:35.862370 messenger.go:90: Receive from Server 2 on tcp://*:4002
+INFO: 16:40:35.862434 messenger.go:107: Send to Server 2 on tcp://localhost:4200
+INFO: 16:40:35.862499 messenger.go:90: Receive from Server 3 on tcp://*:4003
+INFO: 16:40:35.862560 messenger.go:107: Send to Server 3 on tcp://localhost:4300
+INFO: 16:40:35.862598 messenger.go:113: -----------------------------------------
+INFO: 16:40:35.862655 messenger.go:135: Requests from Client 0 on tcp://*:7000
+INFO: 16:40:35.862723 messenger.go:152: Response to Client 0 on tcp://*:10000
+INFO: 16:40:35.862762 messenger.go:155: -----------------------------------------
+
+INFO: 16:40:35.862953 main.go:83: Initial estimate value:  0
+INFO: 16:40:35.863010 self-stabilizing-binary-consensus.go:93: round=1 repeat=1
+INFO: 16:40:35.863055 self-stabilizing-binary-consensus.go:200: binValues(1,3)={}
+INFO: 16:40:35.863104 self-stabilizing-binary-consensus.go:200: binValues(1,2)={}
+INFO: 16:40:35.864944 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=1 est={0} aux={}
+INFO: 16:40:35.885045 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=1 est={0} aux={}
+INFO: 16:40:35.885346 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={}
+INFO: 16:40:36.034060 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.034171 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=1 est={0} aux={}
+INFO: 16:40:36.034200 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={}
+INFO: 16:40:36.052301 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.052354 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.052368 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={}
+INFO: 16:40:36.052378 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=1 est={0} aux={}
+INFO: 16:40:36.052385 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={}
+INFO: 16:40:36.060363 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.060619 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.060734 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={}
+INFO: 16:40:36.060805 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.060856 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={}
+INFO: 16:40:36.060991 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.061622 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={}
+INFO: 16:40:36.061689 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.061758 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={}
+INFO: 16:40:36.063302 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.063349 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={}
+INFO: 16:40:36.075458 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.075498 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={}
+INFO: 16:40:36.076835 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.076881 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={}
+INFO: 16:40:36.079494 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={}
+INFO: 16:40:36.079538 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={}
+INFO: 16:40:37.865473 self-stabilizing-binary-consensus.go:200: binValues(1,3)={0}
+INFO: 16:40:37.865612 self-stabilizing-binary-consensus.go:227: infoResults()={}
+INFO: 16:40:37.865706 self-stabilizing-binary-consensus.go:93: round=1 repeat=2
+INFO: 16:40:37.865759 self-stabilizing-binary-consensus.go:200: binValues(1,3)={0}
+INFO: 16:40:37.865776 self-stabilizing-binary-consensus.go:132: aux[1][0]=0
+INFO: 16:40:37.865795 self-stabilizing-binary-consensus.go:200: binValues(1,2)={0}
+INFO: 16:40:37.871298 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=1 est={0} aux={0}
+INFO: 16:40:37.874469 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={}
+INFO: 16:40:37.874496 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={}
+INFO: 16:40:37.875375 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={}
+INFO: 16:40:37.875437 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={}
+INFO: 16:40:37.877372 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={}
+INFO: 16:40:37.877414 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={}
+INFO: 16:40:37.885079 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=1 est={0} aux={0}
+INFO: 16:40:37.885110 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={0}
+INFO: 16:40:37.886864 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.889971 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.889997 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={0}
+INFO: 16:40:37.891367 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=1 est={0} aux={0}
+INFO: 16:40:37.891392 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={0}
+INFO: 16:40:37.897169 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.902534 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=1 est={0} aux={0}
+INFO: 16:40:37.902569 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={0}
+INFO: 16:40:37.915224 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.915242 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.915249 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={0}
+INFO: 16:40:37.915258 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.915266 self-stabilizing-binary-consensus.go:435: est[1][2]={0} aux[1][2]={0}
+INFO: 16:40:37.915542 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.915575 self-stabilizing-binary-consensus.go:435: est[1][3]={0} aux[1][3]={0}
+INFO: 16:40:37.915756 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.915787 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={0}
+INFO: 16:40:37.917052 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=1 est={0} aux={0}
+INFO: 16:40:37.917070 self-stabilizing-binary-consensus.go:435: est[1][1]={0} aux[1][1]={0}
+INFO: 16:40:39.873129 self-stabilizing-binary-consensus.go:200: binValues(1,3)={0}
+INFO: 16:40:39.873345 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:39.873395 self-stabilizing-binary-consensus.go:200: binValues(1,3)={0}
+INFO: 16:40:39.873635 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:39.873671 self-stabilizing-binary-consensus.go:258: randomBit(1)=0
+INFO: 16:40:39.873691 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:39.873840 self-stabilizing-binary-consensus.go:200: binValues(11,2)={}
+INFO: 16:40:39.873979 self-stabilizing-binary-consensus.go:93: round=11 repeat=1
+INFO: 16:40:39.874015 self-stabilizing-binary-consensus.go:200: binValues(11,3)={}
+INFO: 16:40:39.874031 self-stabilizing-binary-consensus.go:200: binValues(11,2)={}
+INFO: 16:40:39.878856 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=11 est={0} aux={0}
+INFO: 16:40:39.887420 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:39.887449 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:39.889219 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.897627 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.897665 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:39.898258 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.898323 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:39.898478 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:39.898521 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:39.912590 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.913618 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:39.913709 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:39.922084 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922169 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922183 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:39.922192 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922212 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:39.922238 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922250 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:39.922259 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922266 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:39.922275 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922283 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:39.922308 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.922320 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:39.923376 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:39.923388 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:41.882868 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:41.882918 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:41.882929 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:41.882933 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:41.882937 self-stabilizing-binary-consensus.go:258: randomBit(11)=0
+INFO: 16:40:41.882942 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:41.883996 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:41.884023 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:41.884035 self-stabilizing-binary-consensus.go:93: round=11 repeat=1
+INFO: 16:40:41.884041 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:41.884045 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:41.885715 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=11 est={0} aux={0}
+INFO: 16:40:41.897968 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.898010 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:41.898341 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.898367 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:41.903620 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.903656 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:41.906506 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:41.906606 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:41.908650 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.921466 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.921861 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:41.936216 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.936648 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:41.940531 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:41.940669 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:41.946531 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.946573 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:41.947403 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.961944 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.962697 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:41.983734 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:41.983779 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:41.985547 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.987512 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.989811 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:41.997052 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:41.997163 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:43.886641 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:43.886916 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:43.886958 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:43.886965 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:43.886969 self-stabilizing-binary-consensus.go:258: randomBit(11)=0
+INFO: 16:40:43.886975 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:43.889870 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:43.889973 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:43.890287 self-stabilizing-binary-consensus.go:93: round=11 repeat=1
+INFO: 16:40:43.890368 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:43.890470 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:43.895332 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=11 est={0} aux={0}
+INFO: 16:40:43.903916 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.903957 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:43.911184 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.912337 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:43.913033 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.913111 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:43.938719 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.938792 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:43.941540 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:43.947496 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:43.947123 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.949630 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:43.952389 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.987521 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:43.987702 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:43.990015 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.996823 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.996959 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:43.999413 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:43.999497 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:44.058614 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:44.058690 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:44.073597 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:44.073625 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:44.073650 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:44.075521 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:44.075663 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:45.897121 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:45.897169 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:45.897178 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:45.897182 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:45.897186 self-stabilizing-binary-consensus.go:258: randomBit(11)=0
+INFO: 16:40:45.897191 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:45.898801 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:45.898841 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:45.900519 self-stabilizing-binary-consensus.go:93: round=11 repeat=1
+INFO: 16:40:45.900597 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:45.900655 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:45.903739 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=11 est={0} aux={0}
+INFO: 16:40:45.913677 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.913845 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:45.923771 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.923788 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:45.926049 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.926161 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:45.967188 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:45.967226 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:45.967696 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.967798 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:45.969384 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.973191 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.973254 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:45.995069 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:45.995155 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:46.015926 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:46.015978 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:46.018409 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:46.023762 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:46.023879 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:46.076868 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:46.076901 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:46.078732 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:46.086214 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:46.086247 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:46.088737 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:46.088940 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:47.904383 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:47.904429 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:47.904439 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:47.904444 self-stabilizing-binary-consensus.go:227: infoResults()={0}
+INFO: 16:40:47.904448 self-stabilizing-binary-consensus.go:258: randomBit(11)=0
+INFO: 16:40:47.904453 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:47.909324 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:47.909691 self-stabilizing-binary-consensus.go:251: decision=0
+INFO: 16:40:47.910976 self-stabilizing-binary-consensus.go:93: round=11 repeat=1
+INFO: 16:40:47.911231 self-stabilizing-binary-consensus.go:200: binValues(11,3)={0}
+INFO: 16:40:47.911275 self-stabilizing-binary-consensus.go:200: binValues(11,2)={0}
+INFO: 16:40:47.928053 self-stabilizing-binary-consensus.go:141: SEND flag=1 r=11 est={0} aux={0}
+INFO: 16:40:47.936301 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.936442 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:47.940948 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.941045 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:47.947466 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.947630 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:47.981847 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.982752 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:47.983839 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:47.983897 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:47.985768 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.991364 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:47.991554 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:48.021383 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:48.021432 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:48.021553 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.021593 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:48.024330 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.030253 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.030471 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
+INFO: 16:40:48.070955 self-stabilizing-binary-consensus.go:433: RECEIVE j=3 flag=1 r=11 est={0} aux={0}
+INFO: 16:40:48.070984 self-stabilizing-binary-consensus.go:435: est[11][3]={0} aux[11][3]={0}
+INFO: 16:40:48.072770 self-stabilizing-binary-consensus.go:443: SEND flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.082122 self-stabilizing-binary-consensus.go:433: RECEIVE j=1 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.082208 self-stabilizing-binary-consensus.go:435: est[11][1]={0} aux[11][1]={0}
+INFO: 16:40:48.084784 self-stabilizing-binary-consensus.go:433: RECEIVE j=2 flag=0 r=11 est={0} aux={0}
+INFO: 16:40:48.085821 self-stabilizing-binary-consensus.go:435: est[11][2]={0} aux[11][2]={0}
