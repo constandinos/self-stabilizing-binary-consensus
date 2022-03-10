@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/gob"
 	"fmt"
+	"math/rand"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
@@ -23,6 +24,7 @@ var (
 	F         int
 	ID        int
 	r         int
+	decision  bool
 )
 
 /* Operations */
@@ -34,6 +36,7 @@ func SelfStabilizingBinaryConsensus(v int) {
 	M = variables.M
 	F = variables.F
 	ID = variables.ID
+	decision = false
 
 	// Create mutex
 	mutex_est = make([][]sync.RWMutex, M+2)
@@ -158,6 +161,10 @@ func SelfStabilizingBinaryConsensus(v int) {
 				decide(w)
 			}
 		}
+		// check if node decides
+		if decision {
+			break
+		}
 	}
 }
 
@@ -246,6 +253,8 @@ func decide(x int) {
 		mutex_aux[rr][ID].Unlock()
 	}
 	r = M + 1
+	decision = true
+	// Debugging
 	logger.OutLogger.Println("decision=" + strconv.Itoa(x))
 	fmt.Println("Node", ID, "decides")
 }
@@ -357,9 +366,11 @@ func union(s1 []int, s2 []int) []int {
 }
 
 // random_bit generate a psedo-random number
-func random_bit(r int) int {
-	//return 0
-	return 0
+func random_bit(rr int) int {
+	rand.Seed(int64(rr))
+	return rand.Intn(2)
+	// return 0
+	// return 1
 }
 
 // arr2set create a string with a set

@@ -1,7 +1,7 @@
 package modules
 
 import (
-	"os"
+	"fmt"
 	"self-stabilizing-binary-consensus/logger"
 	"time"
 )
@@ -16,14 +16,15 @@ func SelfStabilizingMultivaluedConsensus(binVal int) {
 		// Decide
 		if bin_consensus >= 0 {
 			logger.OutLogger.Println("Successful decide")
-			os.Exit(0)
+			fmt.Println(bin_consensus)
+			break
 			// Transient error
 		} else if bin_consensus == -1 {
 			logger.OutLogger.Println("Transient error")
-			os.Exit(1)
+			break
 			// No value was decided
 		} else if bin_consensus == -2 {
-			time.Sleep(2 * time.Second)
+			time.Sleep(1 * time.Second)
 		}
 	}
 }
