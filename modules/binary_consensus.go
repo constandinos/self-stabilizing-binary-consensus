@@ -131,14 +131,20 @@ func BvBroadcast(identifier int, initVal uint) {
 	for message := range messenger.BvbChannel[identifier] {
 		tag := message.BcMessage.Tag
 		val := message.BcMessage.Value
-		if received[message.From] < 2 { // Max 2 msgs can be accepted from other servers
+
+		received[message.From]++
+		counter[val]++
+		logger.OutLogger.Println(counter)
+
+		/*if received[message.From] < 2 { // Max 2 msgs can be accepted from other servers
 			received[message.From]++
 			counter[val]++
-		}
+		}*/
 
 		if counter[val] >= (variables.F+1) && !broadcasted[val] {
 			broadcast("EST", types.NewBcMessage(tag, val))
 			broadcasted[val] = true
+			counter[val]++
 		}
 
 		if counter[val] >= ((2*variables.F)+1) && !inList(val, binValues[tag]) {

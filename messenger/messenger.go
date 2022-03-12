@@ -247,6 +247,11 @@ func Broadcast(message types.Message) {
 // TransmitMessages - Transmits the messages to the other servers [started from main]
 func TransmitMessages() {
 	for i := 0; i < variables.N; i++ {
+		// IDLE Attack Scenario
+		if variables.Byzantine && (config.Scenario == "IDLE") {
+			// send nothing
+			return
+		}
 		if i == variables.ID {
 			continue // Not myself
 		}
