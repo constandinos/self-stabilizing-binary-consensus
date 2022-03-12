@@ -8,6 +8,7 @@ import (
 	"self-stabilizing-binary-consensus/threshenc"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
+	"strconv"
 	"time"
 
 	"github.com/pebbe/zmq4"
@@ -267,7 +268,39 @@ func TransmitMessages() {
 				if err != nil {
 					logger.ErrLogger.Fatal(err)
 				}
-				//logger.OutLogger.Println("SENT", message.Type, "to", i)
+
+				// SEND Debugging
+				if (message.Type == "BVB") || (message.Type == "BC") {
+					content := new(types.BcMessage)
+					buf := bytes.NewBuffer(message.Payload)
+					dec := gob.NewDecoder(buf)
+					err = dec.Decode(&content)
+					if err != nil {
+						logger.ErrLogger.Fatal(err)
+					}
+					logger.OutLogger.Println("SENT", message.Type, "j="+strconv.Itoa(i), "v="+strconv.Itoa(int(content.Value)))
+				} else if message.Type == "EST" {
+					content := new(types.SSBCMessage)
+					buf := bytes.NewBuffer(message.Payload)
+					dec := gob.NewDecoder(buf)
+					err = dec.Decode(&content)
+					if err != nil {
+						logger.ErrLogger.Fatal(err)
+					}
+					aJ := content.Flag     // Flag
+					rJ := content.Round    // Round
+					est_0 := content.Est_0 // est[0]
+					est_1 := content.Est_1 // est[1]
+					vJ := make([]int, 2)
+					vJ[0] = est_0
+					vJ[1] = est_1
+					aux_0 := content.Aux_0 // aux[0]
+					aux_1 := content.Aux_1 // aux[1]
+					uJ := make([]int, 2)
+					uJ[0] = aux_0
+					uJ[1] = aux_1
+					logger.OutLogger.Println("SEND", "j="+strconv.Itoa(i), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ), "est="+arr2set(vJ), "aux="+arr2set(uJ))
+				}
 
 				variables.MsgMutex.Lock()
 				variables.MsgComplexity++
@@ -343,8 +376,6 @@ func HandleMessage(msg []byte) {
 		return
 	}
 
-	//logger.OutLogger.Println("RECEIVED", message.Type, "from", message.From)
-
 	switch message.Type {
 	case "BVB":
 		bcMessage := new(types.BcMessage)
@@ -354,6 +385,8 @@ func HandleMessage(msg []byte) {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
+
+		logger.OutLogger.Println("RECEIVED", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BvbChannel[tag]; !in {
@@ -377,6 +410,8 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
+		logger.OutLogger.Println("RECEIVED", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
+
 		tag := bcMessage.Tag
 		if _, in := BcChannel[tag]; !in {
 			BcChannel[tag] = make(chan struct {
@@ -399,6 +434,23 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
+		// RECEIVED debugging
+		/* j := message.From
+		aJ := ssbcMessage.Flag     // Flag
+		rJ := ssbcMessage.Round    // Round
+		est_0 := ssbcMessage.Est_0 // est[0]
+		est_1 := ssbcMessage.Est_1 // est[1]
+		vJ := make([]int, 2)
+		vJ[0] = est_0
+		vJ[1] = est_1
+		aux_0 := ssbcMessage.Aux_0 // aux[0]
+		aux_1 := ssbcMessage.Aux_1 // aux[1]
+		uJ := make([]int, 2)
+		uJ[0] = aux_0
+		uJ[1] = aux_1
+		logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
+			"est="+arr2set(vJ), "aux="+arr2set(uJ)) */
+
 		round := ssbcMessage.Round
 		if _, in := SSBCChannel[round]; !in {
 			SSBCChannel[round] = make(chan struct {
@@ -412,4 +464,25 @@ func HandleMessage(msg []byte) {
 			From        int
 		}{SSBCMessage: *ssbcMessage, From: message.From}
 	}
+}
+
+// size returns the number of elements of set s.
+func size(s []int) int {
+	return s[0] + s[1]
+}
+
+// arr2set create a string with a set
+func arr2set(arr []int) string {
+	if size(arr) == 0 {
+		return "{}"
+	} else if size(arr) == 1 {
+		if arr[0] == 1 {
+			return "{0}"
+		} else {
+			return "{1}"
+		}
+	} else if size(arr) == 2 {
+		return "{0 1}"
+	}
+	return ""
 }

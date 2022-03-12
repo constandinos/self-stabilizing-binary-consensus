@@ -7,7 +7,6 @@ import (
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
-	"strconv"
 	"sync"
 )
 
@@ -36,7 +35,6 @@ func BinaryConsensus(bcid int, initVal uint) {
 		}
 
 		broadcast("AUX", types.NewBcMessage(id, binValues[id][0]))
-		logger.OutLogger.Println("SEND AUX", binValues[id][0])
 
 		// START Variables initialization
 		values := make([]uint, 0)
@@ -62,7 +60,6 @@ func BinaryConsensus(bcid int, initVal uint) {
 
 			rec[message.From] = message.BcMessage.Value
 			count[message.BcMessage.Value]++
-			logger.OutLogger.Println("RECEIVE AUX j="+strconv.Itoa(message.From), "val="+strconv.Itoa(int(message.BcMessage.Value)))
 
 			// Wait until (n-t) AUX messages with the same value v
 			if (count[0] >= (variables.N-variables.F) && inList(0, binValues[id])) &&
@@ -138,11 +135,9 @@ func BvBroadcast(identifier int, initVal uint) {
 			received[message.From]++
 			counter[val]++
 		}
-		logger.OutLogger.Println("RECEIVE EST j="+strconv.Itoa(message.From), "val="+strconv.Itoa(int(val)))
 
 		if counter[val] >= (variables.F+1) && !broadcasted[val] {
 			broadcast("EST", types.NewBcMessage(tag, val))
-			logger.OutLogger.Println("SEND EST", val)
 			broadcasted[val] = true
 		}
 

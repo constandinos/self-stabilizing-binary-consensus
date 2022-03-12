@@ -8,16 +8,16 @@ import (
 
 // SSBCMessage - Self-Stabilizing Binary Consensus EST message struct
 type SSBCMessage struct {
-	Flag  int // aJ
-	Round int // rJ
-	Est_0 int // vJ[0]
-	Est_1 int // vJ[1]
-	Aux_0 int // uJ[0]
-	Aux_1 int // uJ[1]
+	Flag  bool // aJ
+	Round int  // rJ
+	Est_0 int  // vJ[0]
+	Est_1 int  // vJ[1]
+	Aux_0 int  // uJ[0]
+	Aux_1 int  // uJ[1]
 }
 
 // NewEstMessage - Creates a new est message
-func NewSSBCMessage(flag int, round int, est_0 int, est_1 int, aux_0 int, aux_1 int) SSBCMessage {
+func NewSSBCMessage(flag bool, round int, est_0 int, est_1 int, aux_0 int, aux_1 int) SSBCMessage {
 	return SSBCMessage{
 		Flag:  flag,
 		Round: round,

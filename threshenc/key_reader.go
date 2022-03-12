@@ -51,7 +51,7 @@ func ReadKeys(folder string) {
 func parseRSAPrivateKeyFromPEM(privateKeyPEM string) (*rsa.PrivateKey, error) {
 	block, _ := pem.Decode([]byte(privateKeyPEM))
 	if block == nil {
-		return nil, errors.New("Failed to parse PEM block containing the private key")
+		return nil, errors.New("failed to parse PEM block containing the private key")
 	}
 
 	privateKey, err := x509.ParsePKCS1PrivateKey(block.Bytes)
@@ -66,7 +66,7 @@ func parseRSAPrivateKeyFromPEM(privateKeyPEM string) (*rsa.PrivateKey, error) {
 func parseRSAPublicKeyFromPEM(publicKeyPEM string) (*rsa.PublicKey, error) {
 	block, _ := pem.Decode([]byte(publicKeyPEM))
 	if block == nil {
-		return nil, errors.New("Failed to parse PEM block containing the public key")
+		return nil, errors.New("failed to parse PEM block containing the public key")
 	}
 
 	publicKey, err := x509.ParsePKIXPublicKey(block.Bytes)
@@ -78,7 +78,7 @@ func parseRSAPublicKeyFromPEM(publicKeyPEM string) (*rsa.PublicKey, error) {
 	case *rsa.PublicKey:
 		return pub, nil
 	default:
-		return nil, errors.New("Key type is not rsa.PublicKey")
+		return nil, errors.New("key type is not rsa.PublicKey")
 	}
 }
 

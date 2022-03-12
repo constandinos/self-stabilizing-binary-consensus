@@ -139,9 +139,12 @@ func SelfStabilizingBinaryConsensus(v int) {
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
 				binValues = bin_values(r, F+1)
 				new_est := union(est[r-1][ID], binValues)
-				send("EST", types.NewSSBCMessage(1, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
-				// Debugging
-				logger.OutLogger.Println("SEND flag=1 r="+strconv.Itoa(r), "est="+arr2set(new_est), "aux="+arr2set(aux[r][ID]))
+				send("EST", types.NewSSBCMessage(true, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+				set(est[r][ID], new_est)
+
+				/* Debugging
+				logger.OutLogger.Println("SEND flag=true r="+strconv.Itoa(r), "est="+arr2set(new_est), "aux="+arr2set(aux[r][ID])) */
+
 				time.Sleep(1 * time.Second)
 
 				// until infoResult() != ∅
@@ -439,17 +442,17 @@ func receive(id int) {
 		mutex_aux[rJ][j].Unlock()
 
 		// Debugging
-		logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.Itoa(aJ), "r="+strconv.Itoa(rJ),
+		logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
 			"est="+arr2set(vJ), "aux="+arr2set(uJ))
 		logger.OutLogger.Println("est["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(est[rJ][j]),
 			"aux["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(aux[rJ][j]))
 
 		// if aJ then
-		if aJ == 1 {
+		if aJ {
 			// send EST(False, rJ , est[rJ−1][i], aux[r][i]) to pj
-			send("EST", types.NewSSBCMessage(0, rJ, est[rJ-1][ID][0], est[rJ-1][ID][1], aux[rJ][ID][0], aux[rJ][ID][1]))
-			// Debugging
-			logger.OutLogger.Println("SEND flag=0 r="+strconv.Itoa(rJ), "est="+arr2set(est[rJ-1][ID]), "aux="+arr2set(aux[rJ][ID]))
+			send("EST", types.NewSSBCMessage(false, rJ, est[rJ-1][ID][0], est[rJ-1][ID][1], aux[rJ][ID][0], aux[rJ][ID][1]))
+			/* Debugging
+			logger.OutLogger.Println("SEND flag=false r="+strconv.Itoa(rJ), "est="+arr2set(est[rJ-1][ID]), "aux="+arr2set(aux[rJ][ID]))*/
 		}
 	}
 }
