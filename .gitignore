@@ -1,0 +1,6 @@
+# Ignore directory with public and private keys
+./keys/
+
+# Ignore directory with logger outpout and error
+./logs/
+
