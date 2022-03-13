@@ -1,0 +1,47 @@
+INFO: 20:52:55.411212 main.go:29: ID:1 | N:4 | F:1 | Clients:1 | Scenario:HALF_&_HALF | Remote:false
+
+INFO: 20:52:55.411874 messenger.go:91: Receive from Server 0 on tcp://*:4100
+INFO: 20:52:55.412065 messenger.go:108: Send to Server 0 on tcp://localhost:4001
+INFO: 20:52:55.412119 messenger.go:91: Receive from Server 2 on tcp://*:4102
+INFO: 20:52:55.412181 messenger.go:108: Send to Server 2 on tcp://localhost:4201
+INFO: 20:52:55.412228 messenger.go:91: Receive from Server 3 on tcp://*:4103
+INFO: 20:52:55.412289 messenger.go:108: Send to Server 3 on tcp://localhost:4301
+INFO: 20:52:55.412310 messenger.go:114: -----------------------------------------
+INFO: 20:52:55.412345 messenger.go:136: Requests from Client 0 on tcp://*:7100
+INFO: 20:52:55.412407 messenger.go:153: Response to Client 0 on tcp://*:10100
+INFO: 20:52:55.412429 messenger.go:156: -----------------------------------------
+
+INFO: 20:52:55.413899 main.go:83: Initial estimate value:  1
+INFO: 20:52:55.417727 bin-consensus.go:23: 4.BC: bcid-1 round-1
+INFO: 20:52:55.452164 messenger.go:360: SEND BVB j=3 v=1
+INFO: 20:52:55.454711 messenger.go:360: SEND BVB j=0 v=1
+INFO: 20:52:55.454950 messenger.go:360: SEND BVB j=2 v=1
+INFO: 20:52:55.576048 messenger.go:468: RECEIVE BVB j=0 v=1
+INFO: 20:52:55.579330 messenger.go:468: RECEIVE BVB j=2 v=1
+INFO: 20:52:55.576754 messenger.go:468: RECEIVE BVB j=0 v=1
+INFO: 20:52:55.578295 messenger.go:468: RECEIVE BVB j=2 v=0
+INFO: 20:52:55.578494 messenger.go:468: RECEIVE BVB j=3 v=1
+INFO: 20:52:55.582912 bin-consensus.go:154: 4.BC: bin_values-[1]
+INFO: 20:52:55.583428 messenger.go:492: RECEIVE BC j=0 v=1
+INFO: 20:52:55.588161 messenger.go:492: RECEIVE BC j=2 v=1
+INFO: 20:52:55.589488 bin-consensus.go:77: 4.BC: vals-[1] coin-0
+INFO: 20:52:55.589513 bin-consensus.go:23: 7.BC: bcid-1 round-2
+INFO: 20:52:55.589813 messenger.go:360: SEND BC j=3 v=1
+INFO: 20:52:55.590099 messenger.go:360: SEND BC j=0 v=1
+INFO: 20:52:55.595265 messenger.go:492: RECEIVE BC j=3 v=1
+INFO: 20:52:55.608663 messenger.go:468: RECEIVE BVB j=3 v=1
+INFO: 20:52:55.628693 messenger.go:360: SEND BC j=2 v=1
+INFO: 20:52:55.640614 messenger.go:360: SEND BVB j=0 v=1
+INFO: 20:52:55.641396 messenger.go:360: SEND BVB j=3 v=1
+INFO: 20:52:55.641593 messenger.go:468: RECEIVE BVB j=0 v=1
+INFO: 20:52:55.641979 messenger.go:468: RECEIVE BVB j=2 v=1
+INFO: 20:52:55.642048 messenger.go:360: SEND BVB j=2 v=1
+INFO: 20:52:55.642164 bin-consensus.go:154: 7.BC: bin_values-[1]
+INFO: 20:52:55.643550 messenger.go:492: RECEIVE BC j=3 v=1
+INFO: 20:52:55.646828 messenger.go:492: RECEIVE BC j=2 v=1
+INFO: 20:52:55.647667 bin-consensus.go:77: 7.BC: vals-[1] coin-1
+INFO: 20:52:55.647717 bin-consensus.go:82: 7.BC: decide-1
+INFO: 20:52:55.652332 messenger.go:360: SEND BC j=2 v=1
+INFO: 20:52:55.652356 messenger.go:360: SEND BC j=3 v=1
+INFO: 20:52:55.652389 messenger.go:360: SEND BC j=0 v=1
+INFO: 20:52:55.660686 messenger.go:492: RECEIVE BC j=0 v=1

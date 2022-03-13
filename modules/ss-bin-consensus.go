@@ -442,8 +442,8 @@ func receive(id int) {
 		mutex_aux[rJ][j].Unlock()
 
 		// Debugging
-		logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
-			"est="+arr2set(vJ), "aux="+arr2set(uJ))
+		/*logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
+			"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
 		logger.OutLogger.Println("est["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(est[rJ][j]),
 			"aux["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(aux[rJ][j]))
 

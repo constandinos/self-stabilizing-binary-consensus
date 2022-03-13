@@ -8,7 +8,7 @@ var (
 	scenarios = map[int]string{
 		0: "NORMAL",      // Normal execution
 		1: "IDLE",        // Byzantine processes remain idle (send nothing)
-		2: "BC_ATTACK",   // Byzantine processes send wrong bytes for BC
+		2: "INVERSE",     // Byzantine processes send inverse values from the ones it should send to the servers
 		3: "HALF_&_HALF", // Byzantine processes send different messages to half the servers
 	}
 )

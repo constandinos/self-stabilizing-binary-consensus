@@ -1,0 +1,6 @@
+ERROR: 14:34:28.071305 messenger.go:178: BC_ATTACK: (BVB) 1 --> [4,0]
+ERROR: 14:34:28.083971 messenger.go:178: BC_ATTACK: (BVB) 2 --> [4,0]
+ERROR: 14:34:28.101152 messenger.go:178: BC_ATTACK: (BVB) 3 --> [4,0]
+ERROR: 14:34:28.114798 messenger.go:178: BC_ATTACK: (BC) 1 --> [4,0]
+ERROR: 14:34:28.196210 messenger.go:178: BC_ATTACK: (BC) 2 --> [4,0]
+ERROR: 14:34:28.197920 messenger.go:178: BC_ATTACK: (BC) 3 --> [4,0]

@@ -118,7 +118,7 @@ func BvBroadcast(identifier int, initVal uint) {
 
 	// Broadcast initial value
 	broadcast("EST", types.NewBcMessage(identifier, initVal))
-	logger.OutLogger.Println("SEND EST", initVal)
+	// logger.OutLogger.Println("SEND EST", initVal)
 	broadcasted[initVal] = true
 
 	if _, in := messenger.BvbChannel[identifier]; !in {
@@ -134,7 +134,6 @@ func BvBroadcast(identifier int, initVal uint) {
 
 		received[message.From]++
 		counter[val]++
-		logger.OutLogger.Println(counter)
 
 		/*if received[message.From] < 2 { // Max 2 msgs can be accepted from other servers
 			received[message.From]++

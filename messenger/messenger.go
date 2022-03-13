@@ -157,35 +157,66 @@ func InitializeMessenger() {
 }
 
 // Function to modify BC messages if byzantine
-func modifyMessageBC(message types.Message, receiver int) types.Message {
-	msg := new(types.BcMessage)
-	buf := bytes.NewBuffer(message.Payload)
-	dec := gob.NewDecoder(buf)
-	err := dec.Decode(&msg)
-	if err != nil {
-		logger.ErrLogger.Fatal(err)
+func modifyMessageInverse(message types.Message) types.Message {
+	var newPayload []byte
+
+	if (message.Type == "BVB") || (message.Type == "BC") {
+		msg := new(types.BcMessage)
+		buf := bytes.NewBuffer(message.Payload)
+		dec := gob.NewDecoder(buf)
+		err := dec.Decode(&msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+
+		value := msg.Value
+		msg.Value = (value + 1) % 2
+
+		// Debugging
+		logger.OutLogger.Println("INVERSE ATTACK:", "v="+strconv.Itoa(int(value))+"->"+strconv.Itoa(int(msg.Value)))
+
+		w := new(bytes.Buffer)
+		encoder := gob.NewEncoder(w)
+		err = encoder.Encode(msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+		newPayload = w.Bytes()
+	} else if message.Type == "EST" {
+		msg := new(types.SSBCMessage)
+		buf := bytes.NewBuffer(message.Payload)
+		dec := gob.NewDecoder(buf)
+		err := dec.Decode(&msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+
+		flag := msg.Flag
+		msg.Flag = !flag
+		est_0 := msg.Est_0 // est[0]
+		msg.Est_0 = (est_0 + 1) % 2
+		est_1 := msg.Est_1 // est[1]
+		msg.Est_1 = (est_1 + 1) % 2
+		aux_0 := msg.Aux_0 // aux[0]
+		msg.Aux_0 = (aux_0 + 1) % 2
+		aux_1 := msg.Aux_1 // aux[1]
+		msg.Aux_1 = (aux_1 + 1) % 2
+
+		// Debugging
+		logger.OutLogger.Println("INVERSE ATTACK:", "flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1})+" aux="+
+				arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+
+		w := new(bytes.Buffer)
+		encoder := gob.NewEncoder(w)
+		err = encoder.Encode(msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+		newPayload = w.Bytes()
 	}
 
-	switch msg.Tag % 3 {
-	case 0:
-		msg.Value = uint(receiver % 2)
-	case 1:
-		msg.Value = uint(0)
-	case 2:
-		msg.Value = uint(1)
-	}
-
-	logger.ErrLogger.Print(config.Scenario, ": (", message.Type, ") ", receiver, " --> [",
-		msg.Tag, ",", msg.Value, "]\n")
-
-	w := new(bytes.Buffer)
-	encoder := gob.NewEncoder(w)
-	err = encoder.Encode(msg)
-	if err != nil {
-		logger.ErrLogger.Fatal(err)
-	}
-
-	return types.NewMessage(w.Bytes(), message.Type)
+	return types.NewMessage(newPayload, message.Type)
 }
 
 // Function to modify messages and send only to the half the right message if byzantine
@@ -201,10 +232,12 @@ func modifyMessageHH(message types.Message, receiver int) types.Message {
 			logger.ErrLogger.Fatal(err)
 		}
 
+		value := msg.Value
 		msg.Value = uint(receiver % 2)
 
-		logger.ErrLogger.Print(config.Scenario, ": (", message.Type, ") ", receiver, " --> [",
-			msg.Tag, ",", msg.Value, "]\n")
+		// Debugging
+		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+			strconv.Itoa(int(msg.Value)))
 
 		w := new(bytes.Buffer)
 		encoder := gob.NewEncoder(w)
@@ -213,7 +246,47 @@ func modifyMessageHH(message types.Message, receiver int) types.Message {
 			logger.ErrLogger.Fatal(err)
 		}
 		newPayload = w.Bytes()
+	} else if message.Type == "EST" {
+		msg := new(types.SSBCMessage)
+		buf := bytes.NewBuffer(message.Payload)
+		dec := gob.NewDecoder(buf)
+		err := dec.Decode(&msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
 
+		flag := msg.Flag   // falg
+		est_0 := msg.Est_0 // est[0]
+		est_1 := msg.Est_1 // est[1]
+		aux_0 := msg.Aux_0 // aux[0]
+		aux_1 := msg.Aux_1 // aux[1]
+
+		if receiver%2 == 0 {
+			msg.Flag = true
+			msg.Est_0 = 1
+			msg.Est_1 = 0
+			msg.Aux_0 = 1
+			msg.Aux_1 = 0
+		} else {
+			msg.Flag = false
+			msg.Est_0 = 0
+			msg.Est_1 = 1
+			msg.Aux_0 = 0
+			msg.Aux_1 = 1
+		}
+
+		// Debugging
+		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "flag="+strconv.FormatBool(flag)+"->"+
+			strconv.FormatBool(msg.Flag), "est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1})+
+			" aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+
+		w := new(bytes.Buffer)
+		encoder := gob.NewEncoder(w)
+		err = encoder.Encode(msg)
+		if err != nil {
+			logger.ErrLogger.Fatal(err)
+		}
+		newPayload = w.Bytes()
 	}
 
 	return types.NewMessage(newPayload, message.Type)
@@ -227,9 +300,10 @@ func Broadcast(message types.Message) {
 		}
 
 		// Modify message before sending it, in case of a special scenario
-		if (config.Scenario == "BC_ATTACK") && (variables.Byzantine) &&
-			((message.Type == "BVB") || (message.Type == "BC")) {
-			message = modifyMessageBC(message, i)
+		if (config.Scenario == "INVERSE") && (variables.Byzantine) {
+			if (message.Type == "BVB") || (message.Type == "BC") || (message.Type == "EST") {
+				message = modifyMessageInverse(message)
+			}
 		}
 
 		if (config.Scenario == "HALF_&_HALF") && (variables.Byzantine) {
@@ -248,7 +322,7 @@ func Broadcast(message types.Message) {
 func TransmitMessages() {
 	for i := 0; i < variables.N; i++ {
 		// IDLE Attack Scenario
-		if variables.Byzantine && (config.Scenario == "IDLE") {
+		if (config.Scenario == "IDLE") && (variables.Byzantine) {
 			// send nothing
 			return
 		}
@@ -283,7 +357,7 @@ func TransmitMessages() {
 					if err != nil {
 						logger.ErrLogger.Fatal(err)
 					}
-					logger.OutLogger.Println("SENT", message.Type, "j="+strconv.Itoa(i), "v="+strconv.Itoa(int(content.Value)))
+					logger.OutLogger.Println("SEND", message.Type, "j="+strconv.Itoa(i), "v="+strconv.Itoa(int(content.Value)))
 				} else if message.Type == "EST" {
 					content := new(types.SSBCMessage)
 					buf := bytes.NewBuffer(message.Payload)
@@ -362,7 +436,7 @@ func Subscribe() {
 
 // Put client's message in RequestChannel to be handled
 func handleRequest(message []byte, from int) {
-	logger.OutLogger.Println("RECEIVED REQ from", from)
+	logger.OutLogger.Println("RECEIVE REQ from", from)
 	RequestChannel <- message
 }
 
@@ -391,7 +465,7 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		logger.OutLogger.Println("RECEIVED", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
+		logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BvbChannel[tag]; !in {
@@ -415,7 +489,7 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		logger.OutLogger.Println("RECEIVED", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
+		logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BcChannel[tag]; !in {
@@ -439,8 +513,8 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		// RECEIVED debugging
-		/* j := message.From
+		// RECEIVE debugging
+		j := message.From
 		aJ := ssbcMessage.Flag     // Flag
 		rJ := ssbcMessage.Round    // Round
 		est_0 := ssbcMessage.Est_0 // est[0]
@@ -453,8 +527,8 @@ func HandleMessage(msg []byte) {
 		uJ := make([]int, 2)
 		uJ[0] = aux_0
 		uJ[1] = aux_1
-		logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
-			"est="+arr2set(vJ), "aux="+arr2set(uJ)) */
+		logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
+			"est="+arr2set(vJ), "aux="+arr2set(uJ))
 
 		round := ssbcMessage.Round
 		if _, in := SSBCChannel[round]; !in {
