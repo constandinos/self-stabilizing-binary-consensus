@@ -37,7 +37,7 @@ var (
 func Initialize(id int, n int, c int, rem int) {
 	ID = id
 	N = n
-	M = 10
+	M = 6
 	F = (N - 1) / 3
 
 	if ID < F {

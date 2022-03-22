@@ -15,8 +15,8 @@ func SelfStabilizingMultivaluedConsensus(binVal int) {
 		bin_consensus := result()
 		// Decide
 		if bin_consensus >= 0 {
+			fmt.Println("Node:", ID, "decide:", bin_consensus)
 			logger.OutLogger.Println("Successful decide")
-			fmt.Println(bin_consensus)
 			break
 			// Transient error
 		} else if bin_consensus == -1 {

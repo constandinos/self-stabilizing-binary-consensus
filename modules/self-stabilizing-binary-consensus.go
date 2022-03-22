@@ -3,7 +3,6 @@ package modules
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"math/rand"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
@@ -15,16 +14,19 @@ import (
 )
 
 var (
-	est       [][][]int
-	aux       [][][]int
-	mutex_est [][]sync.RWMutex
-	mutex_aux [][]sync.RWMutex
-	N         int
-	M         int
-	F         int
-	ID        int
-	r         int
-	decision  bool
+	est         [][][]int
+	aux         [][][]int
+	mutex_est   [][]sync.RWMutex
+	mutex_aux   [][]sync.RWMutex
+	N           int
+	M           int
+	F           int
+	ID          int
+	r           int
+	corruption1 bool
+	corruption2 bool
+	corruption3 bool
+	corruption4 bool
 )
 
 /* Operations */
@@ -36,7 +38,23 @@ func SelfStabilizingBinaryConsensus(v int) {
 	M = variables.M
 	F = variables.F
 	ID = variables.ID
-	decision = false
+
+	corruption1 = true
+	corruption2 = true
+	corruption3 = true
+	corruption4 = true
+
+	/*if ID%2 == 1 {
+		corruption1 = true
+		corruption2 = true
+		corruption3 = true
+		corruption4 = true
+	} else {
+		corruption1 = false
+		corruption2 = false
+		corruption3 = false
+		corruption4 = false
+	}*/
 
 	// Create mutex
 	mutex_est = make([][]sync.RWMutex, M+2)
@@ -95,15 +113,40 @@ func SelfStabilizingBinaryConsensus(v int) {
 				// Debugging
 				logger.OutLogger.Println("round="+strconv.Itoa(r), "repeat="+strconv.Itoa(repeat))
 
+				// Unit test - corruption
+				if corruption1 && r == 1 {
+					mutex_est[0][ID].Lock()
+					if size(est[0][ID]) == 1 {
+						// Debugging
+						logger.OutLogger.Println("corruption: est[0]["+strconv.Itoa(ID)+"]=", arr2set(est[0][ID]), "-> {0,1}")
+						w := get_a_value(est[0][ID])
+						append_val(est[0][ID], (w+1)%2)
+						corruption1 = false
+					}
+					mutex_est[0][ID].Unlock()
+				}
+
 				// if (est[0][i] != {v})
 				mutex_est[0][ID].Lock()
 				if size(est[0][ID]) > 1 {
 					// est[0][i] ← {w} : ∃w ∈ est[0][i];
 					w := get_a_value(est[0][ID])
 					set_val(est[0][ID], w)
-					fmt.Println("Case 1")
 				}
 				mutex_est[0][ID].Unlock()
+
+				if corruption2 && r == 2 {
+					for rr := 1; rr <= r-1; rr++ {
+						mutex_est[rr][ID].Lock()
+						mutex_aux[rr][ID].Lock()
+						clear(est[rr][ID])
+						clear(aux[rr][ID])
+						mutex_est[rr][ID].Unlock()
+						mutex_aux[rr][ID].Unlock()
+					}
+					logger.OutLogger.Println("corruption 2")
+					corruption2 = false
+				}
 
 				// foreach r' ∈ {1, . . . , r−1}
 				for rr := 1; rr <= r-1; rr++ {
@@ -117,7 +160,7 @@ func SelfStabilizingBinaryConsensus(v int) {
 						// aux[r'][i] = x : x ∈ est[0][i]
 						x := get_a_value(est[0][ID])
 						set_val(aux[rr][ID], x)
-						fmt.Println("Case 2")
+						logger.OutLogger.Println("corruption 2 fixed")
 					}
 					mutex_est[rr][ID].Unlock()
 					mutex_aux[rr][ID].Unlock()
@@ -134,6 +177,11 @@ func SelfStabilizingBinaryConsensus(v int) {
 					// Debugging
 					logger.OutLogger.Println("aux[" + strconv.Itoa(r) + "][" + strconv.Itoa(ID) + "]=" + strconv.Itoa(w))
 				}
+				if corruption4 && size(aux[r][ID]) == 1 {
+					clear(aux[r][ID])
+					corruption4 = false
+					logger.OutLogger.Println("corruption4")
+				}
 				mutex_aux[r][ID].Unlock()
 
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
@@ -145,6 +193,7 @@ func SelfStabilizingBinaryConsensus(v int) {
 				/* Debugging
 				logger.OutLogger.Println("SEND flag=true r="+strconv.Itoa(r), "est="+arr2set(new_est), "aux="+arr2set(aux[r][ID])) */
 
+				// time.Sleep(1000 * time.Millisecond)
 				time.Sleep(1 * time.Second)
 
 				// until infoResult() != ∅
@@ -163,10 +212,6 @@ func SelfStabilizingBinaryConsensus(v int) {
 			if w != -1 {
 				decide(w)
 			}
-		}
-		// check if node decides
-		if decision {
-			break
 		}
 	}
 }
@@ -240,6 +285,23 @@ func info_results() []int {
 
 // decide(x)
 func decide(x int) {
+	if corruption3 && r == M+1 {
+		mutex_est[M][ID].Lock()
+		mutex_aux[M][ID].Lock()
+		clear(est[M][ID])
+		clear(aux[M][ID])
+		mutex_est[M][ID].Unlock()
+		mutex_aux[M][ID].Unlock()
+		mutex_est[M+1][ID].Lock()
+		mutex_aux[M+1][ID].Lock()
+		clear(est[M+1][ID])
+		clear(aux[M+1][ID])
+		mutex_est[M+1][ID].Unlock()
+		mutex_aux[M+1][ID].Unlock()
+		logger.OutLogger.Println("corruption 3")
+		corruption3 = false
+	}
+
 	// foreach r' ∈ {r, . . . , M+1} do
 	for rr := r; rr <= M+1; rr++ {
 		// if (est[r'][i] = ∅ ∨ aux[r'][i] = ⊥)
@@ -251,15 +313,14 @@ func decide(x int) {
 			set_val(est[rr][ID], x)
 			//  aux[r'][i] = x
 			set_val(aux[rr][ID], x)
+			logger.OutLogger.Println("corruption 3 fixed")
 		}
 		mutex_est[rr][ID].Unlock()
 		mutex_aux[rr][ID].Unlock()
 	}
 	r = M + 1
-	decision = true
 	// Debugging
 	logger.OutLogger.Println("decision=" + strconv.Itoa(x))
-	fmt.Println("Node", ID, "decides")
 }
 
 // tryToDecide(values)
@@ -443,7 +504,7 @@ func receive(id int) {
 
 		// Debugging
 		/*logger.OutLogger.Println("RECEIVED j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
-			"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
+		"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
 		logger.OutLogger.Println("est["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(est[rJ][j]),
 			"aux["+strconv.Itoa(rJ)+"]["+strconv.Itoa(j)+"]="+arr2set(aux[rJ][j]))
 
