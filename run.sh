@@ -1,9 +1,9 @@
 #!/bin/bash
 
-N=4
+N=10
 CLIENTS=1
 REM=0
-SCEN=3
+SCEN=1
 
 go install self-stabilizing-binary-consensus
 

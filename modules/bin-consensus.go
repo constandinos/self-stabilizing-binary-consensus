@@ -3,6 +3,7 @@ package modules
 import (
 	"bytes"
 	"encoding/gob"
+	"fmt"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
@@ -178,6 +179,7 @@ func random(id int) uint {
 
 func decide_bc(id int, value uint) {
 	//BCAnswer[id] <- value
+	fmt.Println("Node:", variables.ID, "decide:", value)
 }
 
 /* -------------------------------- Helper Functions -------------------------------- */

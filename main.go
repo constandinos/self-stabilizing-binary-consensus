@@ -28,7 +28,7 @@ func initializer(id int, n int, clients int, scenario int, rem int) {
 
 	logger.OutLogger.Print(
 		"ID:", variables.ID, " | N:", variables.N, " | F:", variables.F, " | Clients:",
-		variables.Clients, " | Scenario:", config.Scenario, " | Remote:", variables.Remote, "\n\n",
+		variables.Clients, " | Scenario:", config.ByzantineScenario, " | Remote:", variables.Remote, "\n\n",
 	)
 
 	threshenc.ReadKeys("./keys/")

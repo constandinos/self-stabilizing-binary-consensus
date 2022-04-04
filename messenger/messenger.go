@@ -3,6 +3,7 @@ package messenger
 import (
 	"bytes"
 	"encoding/gob"
+	"math/rand"
 	"self-stabilizing-binary-consensus/config"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/threshenc"
@@ -156,112 +157,94 @@ func InitializeMessenger() {
 	logger.OutLogger.Print("-----------------------------------------\n\n")
 }
 
-// Function to modify BC messages if byzantine
-func modifyMessageInverse(message types.Message) types.Message {
+func modifyMessage(message types.Message, receiver int) types.Message {
+	// Extract message
 	var newPayload []byte
-
-	if (message.Type == "BVB") || (message.Type == "BC") {
-		msg := new(types.BcMessage)
-		buf := bytes.NewBuffer(message.Payload)
-		dec := gob.NewDecoder(buf)
-		err := dec.Decode(&msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-
-		value := msg.Value
-		msg.Value = (value + 1) % 2
-
-		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK:", "v="+strconv.Itoa(int(value))+"->"+strconv.Itoa(int(msg.Value)))
-
-		w := new(bytes.Buffer)
-		encoder := gob.NewEncoder(w)
-		err = encoder.Encode(msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-		newPayload = w.Bytes()
-	} else if message.Type == "EST" {
-		msg := new(types.SSBCMessage)
-		buf := bytes.NewBuffer(message.Payload)
-		dec := gob.NewDecoder(buf)
-		err := dec.Decode(&msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-
-		flag := msg.Flag
-		msg.Flag = !flag
-		est_0 := msg.Est_0 // est[0]
-		msg.Est_0 = (est_0 + 1) % 2
-		est_1 := msg.Est_1 // est[1]
-		msg.Est_1 = (est_1 + 1) % 2
-		aux_0 := msg.Aux_0 // aux[0]
-		msg.Aux_0 = (aux_0 + 1) % 2
-		aux_1 := msg.Aux_1 // aux[1]
-		msg.Aux_1 = (aux_1 + 1) % 2
-
-		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK:", "flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1})+" aux="+
-				arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
-
-		w := new(bytes.Buffer)
-		encoder := gob.NewEncoder(w)
-		err = encoder.Encode(msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-		newPayload = w.Bytes()
+	msg := new(types.BcMessage)
+	buf := bytes.NewBuffer(message.Payload)
+	dec := gob.NewDecoder(buf)
+	err := dec.Decode(&msg)
+	if err != nil {
+		logger.ErrLogger.Fatal(err)
 	}
+
+	// Get message informations
+	value := msg.Value
+
+	// Inverse Attack
+	if config.ByzantineScenario == "INVERSE" {
+		msg.Value = (value + 1) % 2
+		// Debugging
+		logger.OutLogger.Println("INVERSE ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+			strconv.Itoa(int(msg.Value)))
+	}
+
+	// Half&Half Attack
+	if config.ByzantineScenario == "HALF&HALF" {
+		msg.Value = uint(receiver % 2)
+		// Debugging
+		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+			strconv.Itoa(int(msg.Value)))
+	}
+
+	// Random Attack
+	if config.ByzantineScenario == "RANDOM" {
+		msg.Value = uint(rand.Intn(2))
+		// Debugging
+		logger.OutLogger.Println("RANDOM ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+			strconv.Itoa(int(msg.Value)))
+	}
+
+	// Package message
+	w := new(bytes.Buffer)
+	encoder := gob.NewEncoder(w)
+	err = encoder.Encode(msg)
+	if err != nil {
+		logger.ErrLogger.Fatal(err)
+	}
+	newPayload = w.Bytes()
 
 	return types.NewMessage(newPayload, message.Type)
 }
 
-// Function to modify messages and send only to the half the right message if byzantine
-func modifyMessageHH(message types.Message, receiver int) types.Message {
+func modifyMessageSS(message types.Message, receiver int) types.Message {
+	// Extract message
 	var newPayload []byte
+	msg := new(types.SSBCMessage)
+	buf := bytes.NewBuffer(message.Payload)
+	dec := gob.NewDecoder(buf)
+	err := dec.Decode(&msg)
+	if err != nil {
+		logger.ErrLogger.Fatal(err)
+	}
 
-	if (message.Type == "BVB") || (message.Type == "BC") {
-		msg := new(types.BcMessage)
-		buf := bytes.NewBuffer(message.Payload)
-		dec := gob.NewDecoder(buf)
-		err := dec.Decode(&msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
+	// Get message informations
+	flag := msg.Flag   // flag
+	est_0 := msg.Est_0 // est[0]
+	est_1 := msg.Est_1 // est[1]
+	aux_0 := msg.Aux_0 // aux[0]
+	aux_1 := msg.Aux_1 // aux[1]
 
-		value := msg.Value
-		msg.Value = uint(receiver % 2)
+	// Inverse Attack
+	if config.ByzantineScenario == "INVERSE" {
+		msg.Flag = !flag
+		msg.Est_0 = (est_0 + 1) % 2
+		msg.Est_1 = (est_1 + 1) % 2
+		temp := msg.Aux_0
+		msg.Aux_0 = msg.Aux_1
+		msg.Aux_1 = temp
 
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-			strconv.Itoa(int(msg.Value)))
+		logger.OutLogger.Println("INVERSE ATTACK:",
+			"j="+strconv.Itoa(receiver),
+			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+	}
 
-		w := new(bytes.Buffer)
-		encoder := gob.NewEncoder(w)
-		err = encoder.Encode(msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-		newPayload = w.Bytes()
-	} else if message.Type == "EST" {
-		msg := new(types.SSBCMessage)
-		buf := bytes.NewBuffer(message.Payload)
-		dec := gob.NewDecoder(buf)
-		err := dec.Decode(&msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-
-		flag := msg.Flag   // falg
-		est_0 := msg.Est_0 // est[0]
-		est_1 := msg.Est_1 // est[1]
-		aux_0 := msg.Aux_0 // aux[0]
-		aux_1 := msg.Aux_1 // aux[1]
-
-		if receiver%2 == 0 {
+	// Half&Half Attack
+	if config.ByzantineScenario == "HALF&HALF" {
+		if (receiver % 2) == 0 {
 			msg.Flag = true
 			msg.Est_0 = 1
 			msg.Est_1 = 0
@@ -276,18 +259,54 @@ func modifyMessageHH(message types.Message, receiver int) types.Message {
 		}
 
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "flag="+strconv.FormatBool(flag)+"->"+
-			strconv.FormatBool(msg.Flag), "est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1})+
-			" aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
-
-		w := new(bytes.Buffer)
-		encoder := gob.NewEncoder(w)
-		err = encoder.Encode(msg)
-		if err != nil {
-			logger.ErrLogger.Fatal(err)
-		}
-		newPayload = w.Bytes()
+		logger.OutLogger.Println("HALF&HALF ATTACK:",
+			"j="+strconv.Itoa(receiver),
+			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
 	}
+
+	// Random Attack
+	if config.ByzantineScenario == "RANDOM" {
+		rand_num := rand.Intn(4)
+		if rand_num == 0 {
+			msg.Est_0 = 0
+			msg.Est_1 = 0
+			msg.Aux_0 = 0
+			msg.Aux_1 = 0
+		} else if rand_num == 1 {
+			msg.Est_0 = 1
+			msg.Est_1 = 0
+			msg.Aux_0 = 1
+			msg.Aux_1 = 0
+		} else if rand_num == 2 {
+			msg.Est_0 = 0
+			msg.Est_1 = 1
+			msg.Aux_0 = 0
+			msg.Aux_1 = 1
+		} else {
+			msg.Est_0 = 1
+			msg.Est_1 = 1
+			msg.Aux_0 = 0
+			msg.Aux_1 = 1
+		}
+
+		// Debugging
+		logger.OutLogger.Println("RANDOM ATTACK:",
+			"j="+strconv.Itoa(receiver),
+			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+	}
+
+	// Package message
+	w := new(bytes.Buffer)
+	encoder := gob.NewEncoder(w)
+	err = encoder.Encode(msg)
+	if err != nil {
+		logger.ErrLogger.Fatal(err)
+	}
+	newPayload = w.Bytes()
 
 	return types.NewMessage(newPayload, message.Type)
 }
@@ -300,14 +319,12 @@ func Broadcast(message types.Message) {
 		}
 
 		// Modify message before sending it, in case of a special scenario
-		if (config.Scenario == "INVERSE") && (variables.Byzantine) {
-			if (message.Type == "BVB") || (message.Type == "BC") || (message.Type == "EST") {
-				message = modifyMessageInverse(message)
+		if variables.Byzantine {
+			if (message.Type == "BVB") || (message.Type == "BC") {
+				message = modifyMessage(message, i)
+			} else if message.Type == "EST" {
+				message = modifyMessageSS(message, i)
 			}
-		}
-
-		if (config.Scenario == "HALF_&_HALF") && (variables.Byzantine) {
-			message = modifyMessageHH(message, i)
 		}
 
 		timeout := time.NewTicker(5 * time.Second)
@@ -322,7 +339,7 @@ func Broadcast(message types.Message) {
 func TransmitMessages() {
 	for i := 0; i < variables.N; i++ {
 		// IDLE Attack Scenario
-		if (config.Scenario == "IDLE") && (variables.Byzantine) {
+		if (variables.Byzantine) && (config.ByzantineScenario == "IDLE") {
 			// send nothing
 			return
 		}
