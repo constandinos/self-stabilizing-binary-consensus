@@ -34,10 +34,10 @@ var (
 )
 
 // Initialize - Variables initializer method
-func Initialize(id int, n int, c int, rem int) {
+func Initialize(id int, n int, m int, c int, rem int) {
 	ID = id
 	N = n
-	M = 6
+	M = m
 	F = (N - 1) / 3
 
 	if ID < F {

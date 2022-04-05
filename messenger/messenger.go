@@ -175,7 +175,7 @@ func modifyMessage(message types.Message, receiver int) types.Message {
 	if config.ByzantineScenario == "INVERSE" {
 		msg.Value = (value + 1) % 2
 		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		logger.OutLogger.Println("INVERSE ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
 			strconv.Itoa(int(msg.Value)))
 	}
 
@@ -183,7 +183,7 @@ func modifyMessage(message types.Message, receiver int) types.Message {
 	if config.ByzantineScenario == "HALF&HALF" {
 		msg.Value = uint(receiver % 2)
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		logger.OutLogger.Println("HALF&HALF ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
 			strconv.Itoa(int(msg.Value)))
 	}
 
@@ -191,7 +191,7 @@ func modifyMessage(message types.Message, receiver int) types.Message {
 	if config.ByzantineScenario == "RANDOM" {
 		msg.Value = uint(rand.Intn(2))
 		// Debugging
-		logger.OutLogger.Println("RANDOM ATTACK:", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		logger.OutLogger.Println("RANDOM ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
 			strconv.Itoa(int(msg.Value)))
 	}
 
@@ -235,7 +235,7 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		msg.Aux_1 = temp
 
 		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK:",
+		logger.OutLogger.Println("INVERSE ATTACK",
 			"j="+strconv.Itoa(receiver),
 			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
 			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
@@ -259,7 +259,7 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		}
 
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK:",
+		logger.OutLogger.Println("HALF&HALF ATTACK",
 			"j="+strconv.Itoa(receiver),
 			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
 			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
@@ -292,7 +292,7 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		}
 
 		// Debugging
-		logger.OutLogger.Println("RANDOM ATTACK:",
+		logger.OutLogger.Println("RANDOM ATTACK",
 			"j="+strconv.Itoa(receiver),
 			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
 			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),

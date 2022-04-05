@@ -14,12 +14,16 @@ import (
 	"syscall"
 )
 
+// initializer(id, n, m, clients, remote, byzantine_scenario, corrupt_scenario, binValue)
+
 // Initializer - Method that initializes all required processes
-func initializer(id int, n int, clients int, scenario int, rem int) {
-	variables.Initialize(id, n, clients, rem)
+func initializer(id int, n int, m int, clients int, rem int, byzantine_scenario int, corrupt_scenario int) {
+	variables.Initialize(id, n, m, clients, rem)
 	logger.InitializeLogger("./logs/out/", "./logs/error/")
 
-	config.InitializeScenario(scenario)
+	config.InitializeByzantineScenario(byzantine_scenario)
+	config.InitializeCorruptionScenario(corrupt_scenario)
+
 	if variables.Remote {
 		config.InitializeIP()
 	} else {
@@ -27,8 +31,9 @@ func initializer(id int, n int, clients int, scenario int, rem int) {
 	}
 
 	logger.OutLogger.Print(
-		"ID:", variables.ID, " | N:", variables.N, " | F:", variables.F, " | Clients:",
-		variables.Clients, " | Scenario:", config.ByzantineScenario, " | Remote:", variables.Remote, "\n\n",
+		"ID:", variables.ID, " | N:", variables.N, " | F:", variables.F, " | M:", variables.M, " | Clients:",
+		variables.Clients, " | Byzantine scenario:", config.ByzantineScenario, " | Corruption scenario:",
+		config.CorruptionScenario, " | Remote:", variables.Remote, "\n\n",
 	)
 
 	threshenc.ReadKeys("./keys/")
@@ -69,15 +74,17 @@ func main() {
 		N, _ := strconv.Atoi(args[1])
 		threshenc.GenerateKeys(N, "./keys/")
 
-	} else if len(args) == 6 {
+	} else if len(args) == 8 {
 		id, _ := strconv.Atoi(args[0])
 		n, _ := strconv.Atoi(args[1])
-		clients, _ := strconv.Atoi(args[2])
-		scenario, _ := strconv.Atoi(args[3])
+		m, _ := strconv.Atoi(args[2])
+		clients, _ := strconv.Atoi(args[3])
 		remote, _ := strconv.Atoi(args[4])
-		binValue, _ := strconv.Atoi(args[5])
+		byzantine_scenario, _ := strconv.Atoi(args[5])
+		corruption_scenario, _ := strconv.Atoi(args[6])
+		binValue, _ := strconv.Atoi(args[7])
 
-		initializer(id, n, clients, scenario, remote)
+		initializer(id, n, m, clients, remote, byzantine_scenario, corruption_scenario)
 
 		//modules.BvBroadcast(1, 0)
 		logger.OutLogger.Println("Initial estimate value: ", uint(binValue))
