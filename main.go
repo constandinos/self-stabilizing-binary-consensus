@@ -32,8 +32,8 @@ func initializer(id int, n int, m int, clients int, rem int, byzantine_scenario 
 
 	logger.OutLogger.Print(
 		"ID:", variables.ID, " | N:", variables.N, " | F:", variables.F, " | M:", variables.M, " | Clients:",
-		variables.Clients, " | Byzantine scenario:", config.ByzantineScenario, " | Corruption scenario:",
-		config.CorruptionScenario, " | Remote:", variables.Remote, "\n\n",
+		variables.Clients, " | Byzantine scenario:", config.ByzantineScenario, " | Byzantine processor:", variables.Byzantine,
+		" | Corruption scenario:", config.CorruptionScenario, " | Remote:", variables.Remote, "\n\n",
 	)
 
 	threshenc.ReadKeys("./keys/")
@@ -74,7 +74,7 @@ func main() {
 		N, _ := strconv.Atoi(args[1])
 		threshenc.GenerateKeys(N, "./keys/")
 
-	} else if len(args) == 8 {
+	} else if len(args) == 9 {
 		id, _ := strconv.Atoi(args[0])
 		n, _ := strconv.Atoi(args[1])
 		m, _ := strconv.Atoi(args[2])
@@ -82,14 +82,19 @@ func main() {
 		remote, _ := strconv.Atoi(args[4])
 		byzantine_scenario, _ := strconv.Atoi(args[5])
 		corruption_scenario, _ := strconv.Atoi(args[6])
-		binValue, _ := strconv.Atoi(args[7])
+		self_stabilization, _ := strconv.Atoi(args[7])
+		binValue, _ := strconv.Atoi(args[8])
 
 		initializer(id, n, m, clients, remote, byzantine_scenario, corruption_scenario)
 
-		//modules.BvBroadcast(1, 0)
 		logger.OutLogger.Println("Initial estimate value: ", uint(binValue))
-		//modules.BinaryConsensus(1, uint(binValue))
-		modules.SelfStabilizingMultivaluedConsensus(int(binValue))
+
+		if self_stabilization == 0 {
+			modules.BinaryConsensus(1, uint(binValue))
+		} else {
+			modules.SelfStabilizingBinaryConsensus(int(binValue))
+			//modules.SelfStabilizingMultivaluedConsensus(int(binValue))
+		}
 
 		done := make(chan interface{}) // To keep the server running
 		<-done

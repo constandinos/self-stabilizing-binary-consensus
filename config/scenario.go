@@ -1,8 +1,8 @@
 package config
 
 import (
-	"math/rand"
 	"self-stabilizing-binary-consensus/logger"
+	"self-stabilizing-binary-consensus/variables"
 )
 
 var (
@@ -20,8 +20,8 @@ var (
 
 	corruption_scenarios = map[int]string{
 		0: "NORMAL", // Normal execution
-		1: "RANDOM",
-		2: "ALL",
+		1: "ALL",
+		//2: "RANDOM",
 	}
 
 	Corruptions      []bool
@@ -35,6 +35,16 @@ func InitializeByzantineScenario(s int) {
 	}
 
 	ByzantineScenario = byzantine_scenarios[s]
+
+	if ByzantineScenario == "NORMAL" {
+		variables.Byzantine = false
+	} else {
+		if variables.ID < variables.F {
+			variables.Byzantine = true
+		} else {
+			variables.Byzantine = false
+		}
+	}
 }
 
 func InitializeCorruptionScenario(s int) {
@@ -50,7 +60,13 @@ func InitializeCorruptionScenario(s int) {
 		for i := 0; i < corruption_cases; i++ {
 			Corruptions[i] = false
 		}
-	} else if CorruptionScenario == "RANDOM" {
+	} else {
+		for i := 0; i < corruption_cases; i++ {
+			Corruptions[i] = true
+		}
+	}
+
+	/*else if CorruptionScenario == "RANDOM" {
 		for i := 0; i < corruption_cases; i++ {
 			rand_num := rand.Intn(2)
 			if rand_num == 0 {
@@ -59,9 +75,5 @@ func InitializeCorruptionScenario(s int) {
 				Corruptions[i] = true
 			}
 		}
-	} else {
-		for i := 0; i < corruption_cases; i++ {
-			Corruptions[i] = true
-		}
-	}
+	}*/
 }

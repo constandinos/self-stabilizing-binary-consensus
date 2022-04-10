@@ -9,7 +9,6 @@ import (
 	"self-stabilizing-binary-consensus/threshenc"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
-	"strconv"
 	"time"
 
 	"github.com/pebbe/zmq4"
@@ -89,7 +88,7 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		logger.OutLogger.Println("Receive from Server", i, "on", receiveAddr)
+		//logger.OutLogger.Println("Receive from Server", i, "on", receiveAddr)
 
 		// SendSockets initialization to send information to other servers
 		SendSockets[i], err = Context.NewSocket(zmq4.REQ)
@@ -106,13 +105,13 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		logger.OutLogger.Println("Send to Server", i, "on", sendAddr)
+		//logger.OutLogger.Println("Send to Server", i, "on", sendAddr)
 
 		// Init message channel
 		MessageChannel[i] = make(chan types.Message)
 	}
 
-	logger.OutLogger.Println("-----------------------------------------")
+	//logger.OutLogger.Println("-----------------------------------------")
 
 	// Initialization of a socket pair to communicate with each one of the clients
 	ServerSockets = make(map[int]*zmq4.Socket, variables.Clients)
@@ -134,7 +133,7 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		logger.OutLogger.Println("Requests from Client", i, "on", serverAddr)
+		//logger.OutLogger.Println("Requests from Client", i, "on", serverAddr)
 
 		// ResponseSockets initialization to publish the response back to the clients
 		ResponseSockets[i], err = Context.NewSocket(zmq4.PUB)
@@ -151,10 +150,10 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		logger.OutLogger.Println("Response to Client", i, "on", responseAddr)
+		//logger.OutLogger.Println("Response to Client", i, "on", responseAddr)
 	}
 
-	logger.OutLogger.Print("-----------------------------------------\n\n")
+	//logger.OutLogger.Print("-----------------------------------------\n\n")
 }
 
 func modifyMessage(message types.Message, receiver int) types.Message {
@@ -173,26 +172,31 @@ func modifyMessage(message types.Message, receiver int) types.Message {
 
 	// Inverse Attack
 	if config.ByzantineScenario == "INVERSE" {
-		msg.Value = (value + 1) % 2
+		//msg.Value = (value + 1) % 2
+		if value == 0 {
+			msg.Value = 1
+		} else {
+			msg.Value = 0
+		}
 		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-			strconv.Itoa(int(msg.Value)))
+		//logger.OutLogger.Println("INVERSE ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		//	strconv.Itoa(int(msg.Value)))
 	}
 
 	// Half&Half Attack
 	if config.ByzantineScenario == "HALF&HALF" {
 		msg.Value = uint(receiver % 2)
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-			strconv.Itoa(int(msg.Value)))
+		//logger.OutLogger.Println("HALF&HALF ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		//	strconv.Itoa(int(msg.Value)))
 	}
 
 	// Random Attack
 	if config.ByzantineScenario == "RANDOM" {
 		msg.Value = uint(rand.Intn(2))
 		// Debugging
-		logger.OutLogger.Println("RANDOM ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-			strconv.Itoa(int(msg.Value)))
+		//logger.OutLogger.Println("RANDOM ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
+		//	strconv.Itoa(int(msg.Value)))
 	}
 
 	// Package message
@@ -219,7 +223,6 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 	}
 
 	// Get message informations
-	flag := msg.Flag   // flag
 	est_0 := msg.Est_0 // est[0]
 	est_1 := msg.Est_1 // est[1]
 	aux_0 := msg.Aux_0 // aux[0]
@@ -227,19 +230,18 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 
 	// Inverse Attack
 	if config.ByzantineScenario == "INVERSE" {
-		msg.Flag = !flag
 		msg.Est_0 = (est_0 + 1) % 2
 		msg.Est_1 = (est_1 + 1) % 2
-		temp := msg.Aux_0
-		msg.Aux_0 = msg.Aux_1
+		temp := aux_0
+		msg.Aux_0 = aux_1
 		msg.Aux_1 = temp
 
 		// Debugging
-		logger.OutLogger.Println("INVERSE ATTACK",
-			"j="+strconv.Itoa(receiver),
-			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		/*logger.OutLogger.Println("INVERSE ATTACK",
+		"j="+strconv.Itoa(receiver),
+		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
 	}
 
 	// Half&Half Attack
@@ -259,11 +261,11 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		}
 
 		// Debugging
-		logger.OutLogger.Println("HALF&HALF ATTACK",
-			"j="+strconv.Itoa(receiver),
-			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		/*logger.OutLogger.Println("HALF&HALF ATTACK",
+		"j="+strconv.Itoa(receiver),
+		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
 	}
 
 	// Random Attack
@@ -292,11 +294,11 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		}
 
 		// Debugging
-		logger.OutLogger.Println("RANDOM ATTACK",
-			"j="+strconv.Itoa(receiver),
-			"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-			"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-			"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		/*logger.OutLogger.Println("RANDOM ATTACK",
+		"j="+strconv.Itoa(receiver),
+		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
+		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
 	}
 
 	// Package message
@@ -374,7 +376,7 @@ func TransmitMessages() {
 					if err != nil {
 						logger.ErrLogger.Fatal(err)
 					}
-					logger.OutLogger.Println("SEND", message.Type, "j="+strconv.Itoa(i), "v="+strconv.Itoa(int(content.Value)))
+					//logger.OutLogger.Println("SEND", message.Type, "j="+strconv.Itoa(i), "v="+strconv.Itoa(int(content.Value)))
 				} else if message.Type == "EST" {
 					content := new(types.SSBCMessage)
 					buf := bytes.NewBuffer(message.Payload)
@@ -383,8 +385,8 @@ func TransmitMessages() {
 					if err != nil {
 						logger.ErrLogger.Fatal(err)
 					}
-					aJ := content.Flag     // Flag
-					rJ := content.Round    // Round
+					//aJ := content.Flag     // Flag
+					//rJ := content.Round    // Round
 					est_0 := content.Est_0 // est[0]
 					est_1 := content.Est_1 // est[1]
 					vJ := make([]int, 2)
@@ -395,7 +397,7 @@ func TransmitMessages() {
 					uJ := make([]int, 2)
 					uJ[0] = aux_0
 					uJ[1] = aux_1
-					logger.OutLogger.Println("SEND", "j="+strconv.Itoa(i), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ), "est="+arr2set(vJ), "aux="+arr2set(uJ))
+					//logger.OutLogger.Println("SEND", "j="+strconv.Itoa(i), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ), "est="+arr2set(vJ), "aux="+arr2set(uJ))
 				}
 
 				variables.MsgMutex.Lock()
@@ -453,7 +455,7 @@ func Subscribe() {
 
 // Put client's message in RequestChannel to be handled
 func handleRequest(message []byte, from int) {
-	logger.OutLogger.Println("RECEIVE REQ from", from)
+	//logger.OutLogger.Println("RECEIVE REQ from", from)
 	RequestChannel <- message
 }
 
@@ -468,7 +470,7 @@ func HandleMessage(msg []byte) {
 	}
 
 	if !(threshenc.VerifyMessage(message.Payload, message.Signature, message.From)) {
-		logger.OutLogger.Println("INVALID", message.Type, "from", message.From)
+		//logger.OutLogger.Println("INVALID", message.Type, "from", message.From)
 		return
 	}
 
@@ -482,7 +484,7 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
+		//logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BvbChannel[tag]; !in {
@@ -506,7 +508,7 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
+		//logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BcChannel[tag]; !in {
@@ -531,9 +533,9 @@ func HandleMessage(msg []byte) {
 		}
 
 		// RECEIVE debugging
-		j := message.From
-		aJ := ssbcMessage.Flag     // Flag
-		rJ := ssbcMessage.Round    // Round
+		//j := message.From
+		//aJ := ssbcMessage.Flag     // Flag
+		//rJ := ssbcMessage.Round    // Round
 		est_0 := ssbcMessage.Est_0 // est[0]
 		est_1 := ssbcMessage.Est_1 // est[1]
 		vJ := make([]int, 2)
@@ -544,8 +546,8 @@ func HandleMessage(msg []byte) {
 		uJ := make([]int, 2)
 		uJ[0] = aux_0
 		uJ[1] = aux_1
-		logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
-			"est="+arr2set(vJ), "aux="+arr2set(uJ))
+		/*logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
+		"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
 
 		round := ssbcMessage.Round
 		if _, in := SSBCChannel[round]; !in {

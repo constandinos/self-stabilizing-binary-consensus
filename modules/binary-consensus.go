@@ -3,25 +3,28 @@ package modules
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
 	"sync"
+	"time"
 )
 
 var (
 	binValues = make(map[int][]uint)
 	mutex     = sync.RWMutex{}
+	//start     time.Time
+	//duration  time.Time
 )
 
 // BinaryConsensus - The method that is called to initiate the BC module
 func BinaryConsensus(bcid int, initVal uint) {
+	start := time.Now()
 	est := initVal
 	for round := 1; ; round++ {
 		id := ComputeUniqueIdentifier(bcid, round)
-		logger.OutLogger.Print(id, ".BC: bcid-", bcid, " round-", round, "\n")
+		//logger.OutLogger.Print(id, ".BC: bcid-", bcid, " round-", round, "\n")
 
 		// BV_broadcast of the est value of the round
 		go BvBroadcast(id, est)
@@ -74,13 +77,16 @@ func BinaryConsensus(bcid int, initVal uint) {
 			}
 
 			if len(values) != 0 {
-				coin := random(id)
-				logger.OutLogger.Print(id, ".BC: vals-", values, " coin-", coin, "\n")
+				coin := random(round)
+				//logger.OutLogger.Print(id, ".BC: vals-", values, " coin-", coin, "\n")
 
 				if len(values) == 2 {
 					est = coin
 				} else if len(values) == 1 && values[0] == coin {
-					logger.OutLogger.Print(id, ".BC: decide-", values[0], "\n")
+					duration := time.Since(start)
+					//logger.OutLogger.Println("decision=" + strconv.Itoa(int(values[0])))
+					logger.OutLogger.Println("statistics<network_size,byzantine,exec_time>:", variables.N, variables.Byzantine,
+						duration.Seconds())
 					decide_bc(bcid, values[0])
 					return
 				} else if len(values) == 1 && values[0] != coin {
@@ -152,7 +158,7 @@ func BvBroadcast(identifier int, initVal uint) {
 			binValues[tag] = append(binValues[tag], val)
 			mutex.Unlock()
 
-			logger.OutLogger.Print(tag, ".BC: bin_values-", binValues[tag], "\n")
+			//logger.OutLogger.Print(tag, ".BC: bin_values-", binValues[tag], "\n")
 		}
 	}
 }
@@ -173,13 +179,14 @@ func broadcast(tag string, bcMessage types.BcMessage) {
 }
 
 // TODO: implement a more Byzantine Tolerant Common-Coin algorithm
-func random(id int) uint {
-	return uint(id % 2)
+func random(round int) uint {
+	random_num := [7]int{0, 0, 0, 0, 1, 1, 1}
+	return uint(random_num[round])
 }
 
 func decide_bc(id int, value uint) {
 	//BCAnswer[id] <- value
-	fmt.Println("Node:", variables.ID, "decide:", value)
+	//fmt.Println("Node:", variables.ID, "decide:", value)
 }
 
 /* -------------------------------- Helper Functions -------------------------------- */

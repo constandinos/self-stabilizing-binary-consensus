@@ -40,12 +40,6 @@ func Initialize(id int, n int, m int, c int, rem int) {
 	M = m
 	F = (N - 1) / 3
 
-	if ID < F {
-		Byzantine = true
-	} else {
-		Byzantine = false
-	}
-
 	Clients = c
 
 	if rem == 1 {
