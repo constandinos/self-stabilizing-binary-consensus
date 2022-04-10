@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func SelfStabilizingMultivaluedConsensus(binVal int) {
+func SelfStabilizingMultivaluedConsensus(mvcid int, binVal int) {
 	// Call self-stabilizing binary consensus
 	go SelfStabilizingBinaryConsensus(binVal)
 	time.Sleep(1 * time.Second)

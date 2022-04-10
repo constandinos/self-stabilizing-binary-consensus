@@ -1,6 +1,6 @@
 #!/bin/bash
 
-N=8
+N=12
 M=5
 CLIENTS=1
 REMOTE=0

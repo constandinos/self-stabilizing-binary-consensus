@@ -1,0 +1,3 @@
+INFO: 18:10:45.164452 main.go:34: ID:0 | N:12 | F:3 | M:5 | Clients:1 | Byzantine scenario:IDLE | Byzantine processor:true | Self-stabilizing:true | Corruption scenario:ALL | Remote:false
+
+INFO: 18:10:45.183319 main.go:99: Initial estimate value:  1

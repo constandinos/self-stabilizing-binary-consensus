@@ -17,7 +17,8 @@ import (
 // initializer(id, n, m, clients, remote, byzantine_scenario, corrupt_scenario, binValue)
 
 // Initializer - Method that initializes all required processes
-func initializer(id int, n int, m int, clients int, rem int, byzantine_scenario int, corrupt_scenario int) {
+func initializer(id int, n int, m int, clients int, rem int, byzantine_scenario int, self_stabilization_flag bool,
+	corrupt_scenario int) {
 	variables.Initialize(id, n, m, clients, rem)
 	logger.InitializeLogger("./logs/out/", "./logs/error/")
 
@@ -33,7 +34,8 @@ func initializer(id int, n int, m int, clients int, rem int, byzantine_scenario 
 	logger.OutLogger.Print(
 		"ID:", variables.ID, " | N:", variables.N, " | F:", variables.F, " | M:", variables.M, " | Clients:",
 		variables.Clients, " | Byzantine scenario:", config.ByzantineScenario, " | Byzantine processor:", variables.Byzantine,
-		" | Corruption scenario:", config.CorruptionScenario, " | Remote:", variables.Remote, "\n\n",
+		" | Self-stabilizing:", self_stabilization_flag, " | Corruption scenario:", config.CorruptionScenario, " | Remote:",
+		variables.Remote, "\n\n",
 	)
 
 	threshenc.ReadKeys("./keys/")
@@ -85,7 +87,14 @@ func main() {
 		self_stabilization, _ := strconv.Atoi(args[7])
 		binValue, _ := strconv.Atoi(args[8])
 
-		initializer(id, n, m, clients, remote, byzantine_scenario, corruption_scenario)
+		var self_stabilization_flag bool
+		if self_stabilization == 0 {
+			self_stabilization_flag = false
+		} else {
+			self_stabilization_flag = true
+		}
+
+		initializer(id, n, m, clients, remote, byzantine_scenario, self_stabilization_flag, corruption_scenario)
 
 		logger.OutLogger.Println("Initial estimate value: ", uint(binValue))
 

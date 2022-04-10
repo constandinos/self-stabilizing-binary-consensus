@@ -30,6 +30,7 @@ var (
 
 // propose(v)
 func SelfStabilizingBinaryConsensus(v int) {
+	sleep_time := [13]int{0, 0, 0, 0, 30, 40, 100, 150, 200, 250, 350, 450, 550}
 	start = time.Now()
 	dec = false
 
@@ -208,7 +209,7 @@ func SelfStabilizingBinaryConsensus(v int) {
 				}
 				set(est[r][ID], new_est)
 				//time.Sleep(time.Duration(N*100) * time.Millisecond)
-				time.Sleep(time.Duration(180) * time.Millisecond)
+				time.Sleep(time.Duration(sleep_time[N]) * time.Millisecond)
 				//time.Sleep(1 * time.Second)
 
 				// until infoResult() != ∅

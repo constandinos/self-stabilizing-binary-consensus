@@ -7,18 +7,15 @@ REMOTE=0
 SELF_STABILIZATION=1
 CORRUPTION_SCENARIO=1
 
-ITERATIONS=10
-MAX_SIZE=12
-
-BYZ_STR=("1-Normal" "2-Idle" "3-Inverse" "4-HH" "5-Random")
+BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
 mkdir results
 
 for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ ))
 do
-	for (( N=4; N<=$MAX_SIZE; N++ ))
+	for (( N=4; N<=12; N++ ))
 	do
-		for (( i=0; i<$ITERATIONS; i++ ))
+		for (( i=0; i<10; i++ ))
 		do
 			go install self-stabilizing-binary-consensus
 			self-stabilizing-binary-consensus generate_keys $N
@@ -26,7 +23,7 @@ do
 			do
 				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $CORRUPTION_SCENARIO $SELF_STABILIZATION 1 &
 			done
-			sleep $(( $N*3 ))
+			sleep $(( $N ))
 			sh ./kill.sh
 		done
 	done
