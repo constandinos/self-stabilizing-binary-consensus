@@ -64,16 +64,6 @@ func InitializeCorruptionScenario(s int) {
 		for i := 0; i < corruption_cases; i++ {
 			Corruptions[i] = true
 		}
+		Corruptions[0] = false
 	}
-
-	/*else if CorruptionScenario == "RANDOM" {
-		for i := 0; i < corruption_cases; i++ {
-			rand_num := rand.Intn(2)
-			if rand_num == 0 {
-				Corruptions[i] = false
-			} else {
-				Corruptions[i] = true
-			}
-		}
-	}*/
 }

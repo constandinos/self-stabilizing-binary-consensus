@@ -8,6 +8,7 @@ SELF_STABILIZATION=1
 CORRUPTION_SCENARIO=1
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
+#SLEEP_TIME=(0 0 0 0 1 1 2 2 3 4 4 12 12)
 
 mkdir results
 
@@ -23,13 +24,17 @@ do
 			do
 				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $CORRUPTION_SCENARIO $SELF_STABILIZATION 1 &
 			done
-			sleep $(( $N ))
+			sleep $(( $N-2 ))
+			# sleep ${SLEEP_TIME[$N]}
 			sh ./kill.sh
+			grep "stats" logs/out/*.log | awk '{print $5, $6, $7}' | awk '($1=="false"){time+=$2;msg+=$3;count+=1} END{print time/count,msg/count}' >> logs/out/temp.txt
+			rm logs/out/*.log
 		done
+		sort -n -k2 logs/out/temp.txt | awk 'BEGIN{i=0} {t[i]=$1; m[i]=$2; i++} END{for(i=1; i<NR-1; i++){time+=t[i]; msg+=m[i]; count+=1} print time/count,msg/count}' >> results/"${BYZ_STR[$BYZANTINE_SCENARIO]}".txt
+		rm logs/out/temp.txt
 	done
 	
-	grep "statistics" logs/out/*.log | awk '{print $5, $6, $7}' | sort -n | awk '($2=="false"){sum[$1]+=$3; count[$1]+=1}END{for (i in sum){print i, sum[i]/count[i]}}' | sort -n | sort -n > results/"${BYZ_STR[$BYZANTINE_SCENARIO]}".txt
-	mkdir logs/out/"${BYZ_STR[$BYZANTINE_SCENARIO]}"
-	mv logs/out/*.log logs/out/"${BYZ_STR[$BYZANTINE_SCENARIO]}"
+	#mkdir logs/out/"${BYZ_STR[$BYZANTINE_SCENARIO]}"
+	#mv logs/out/*.log logs/out/"${BYZ_STR[$BYZANTINE_SCENARIO]}"
 done
 

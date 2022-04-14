@@ -8,7 +8,7 @@ import (
 
 func SelfStabilizingMultivaluedConsensus(mvcid int, binVal int) {
 	// Call self-stabilizing binary consensus
-	go SelfStabilizingBinaryConsensus(binVal)
+	go SelfStabilizingBinaryConsensus(1, binVal)
 	time.Sleep(1 * time.Second)
 
 	for {

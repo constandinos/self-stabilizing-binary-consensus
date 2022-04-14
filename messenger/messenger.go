@@ -476,6 +476,7 @@ func HandleMessage(msg []byte) {
 
 	switch message.Type {
 	case "BVB":
+		variables.TotalRCVMessages += 1
 		bcMessage := new(types.BcMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -500,6 +501,7 @@ func HandleMessage(msg []byte) {
 		}{BcMessage: *bcMessage, From: message.From}
 
 	case "BC":
+		variables.TotalRCVMessages += 1
 		bcMessage := new(types.BcMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -524,6 +526,7 @@ func HandleMessage(msg []byte) {
 		}{BcMessage: *bcMessage, From: message.From}
 
 	case "EST":
+		variables.TotalRCVMessages += 1
 		ssbcMessage := new(types.SSBCMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -534,6 +537,7 @@ func HandleMessage(msg []byte) {
 
 		// RECEIVE debugging
 		//j := message.From
+		chanel_id := ssbcMessage.Identifier
 		//aJ := ssbcMessage.Flag     // Flag
 		//rJ := ssbcMessage.Round    // Round
 		est_0 := ssbcMessage.Est_0 // est[0]
@@ -549,15 +553,14 @@ func HandleMessage(msg []byte) {
 		/*logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
 		"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
 
-		round := ssbcMessage.Round
-		if _, in := SSBCChannel[round]; !in {
-			SSBCChannel[round] = make(chan struct {
+		if _, in := SSBCChannel[chanel_id]; !in {
+			SSBCChannel[chanel_id] = make(chan struct {
 				SSBCMessage types.SSBCMessage
 				From        int
 			})
 		}
 
-		SSBCChannel[round] <- struct {
+		SSBCChannel[chanel_id] <- struct {
 			SSBCMessage types.SSBCMessage
 			From        int
 		}{SSBCMessage: *ssbcMessage, From: message.From}

@@ -86,6 +86,8 @@ func main() {
 		corruption_scenario, _ := strconv.Atoi(args[6])
 		self_stabilization, _ := strconv.Atoi(args[7])
 		binValue, _ := strconv.Atoi(args[8])
+		//sleep_time, _ := strconv.Atoi(args[9])
+		//variables.Sleep_time = sleep_time
 
 		var self_stabilization_flag bool
 		if self_stabilization == 0 {
@@ -101,8 +103,9 @@ func main() {
 		if self_stabilization == 0 {
 			modules.BinaryConsensus(1, uint(binValue))
 		} else {
-			modules.SelfStabilizingBinaryConsensus(int(binValue))
+			modules.SelfStabilizingBinaryConsensus(1, int(binValue))
 			//modules.SelfStabilizingMultivaluedConsensus(int(binValue))
+			//modules.TestSS(1)
 		}
 
 		done := make(chan interface{}) // To keep the server running

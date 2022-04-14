@@ -31,6 +31,9 @@ var (
 	MsgComplexity int
 	MsgSize       int64
 	MsgMutex      sync.RWMutex
+
+	TotalRCVMessages int
+	//Sleep_time       int
 )
 
 // Initialize - Variables initializer method
@@ -53,4 +56,5 @@ func Initialize(id int, n int, m int, c int, rem int) {
 	MsgComplexity = 0
 	MsgSize = 0
 	MsgMutex = sync.RWMutex{}
+	TotalRCVMessages = 0
 }

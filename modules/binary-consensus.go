@@ -14,8 +14,6 @@ import (
 var (
 	binValues = make(map[int][]uint)
 	mutex     = sync.RWMutex{}
-	//start     time.Time
-	//duration  time.Time
 )
 
 // BinaryConsensus - The method that is called to initiate the BC module
@@ -85,8 +83,8 @@ func BinaryConsensus(bcid int, initVal uint) {
 				} else if len(values) == 1 && values[0] == coin {
 					duration := time.Since(start)
 					//logger.OutLogger.Println("decision=" + strconv.Itoa(int(values[0])))
-					logger.OutLogger.Println("statistics<network_size,byzantine,exec_time>:", variables.N, variables.Byzantine,
-						duration.Seconds())
+					logger.OutLogger.Println("stats<byzantine,exec_time,messages>:", variables.Byzantine, duration.Seconds(),
+						variables.TotalRCVMessages)
 					decide_bc(bcid, values[0])
 					return
 				} else if len(values) == 1 && values[0] != coin {
@@ -180,8 +178,7 @@ func broadcast(tag string, bcMessage types.BcMessage) {
 
 // TODO: implement a more Byzantine Tolerant Common-Coin algorithm
 func random(round int) uint {
-	random_num := [7]int{0, 0, 0, 0, 1, 1, 1}
-	return uint(random_num[round])
+	return uint(Random_num[round])
 }
 
 func decide_bc(id int, value uint) {
