@@ -385,19 +385,6 @@ func TransmitMessages() {
 					if err != nil {
 						logger.ErrLogger.Fatal(err)
 					}
-					//aJ := content.Flag     // Flag
-					//rJ := content.Round    // Round
-					est_0 := content.Est_0 // est[0]
-					est_1 := content.Est_1 // est[1]
-					vJ := make([]int, 2)
-					vJ[0] = est_0
-					vJ[1] = est_1
-					aux_0 := content.Aux_0 // aux[0]
-					aux_1 := content.Aux_1 // aux[1]
-					uJ := make([]int, 2)
-					uJ[0] = aux_0
-					uJ[1] = aux_1
-					//logger.OutLogger.Println("SEND", "j="+strconv.Itoa(i), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ), "est="+arr2set(vJ), "aux="+arr2set(uJ))
 				}
 
 				variables.MsgMutex.Lock()
@@ -476,7 +463,7 @@ func HandleMessage(msg []byte) {
 
 	switch message.Type {
 	case "BVB":
-		variables.TotalRCVMessages += 1
+		variables.ReceivingMessages += 1
 		bcMessage := new(types.BcMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -501,7 +488,7 @@ func HandleMessage(msg []byte) {
 		}{BcMessage: *bcMessage, From: message.From}
 
 	case "BC":
-		variables.TotalRCVMessages += 1
+		variables.ReceivingMessages += 1
 		bcMessage := new(types.BcMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -526,7 +513,7 @@ func HandleMessage(msg []byte) {
 		}{BcMessage: *bcMessage, From: message.From}
 
 	case "EST":
-		variables.TotalRCVMessages += 1
+		variables.ReceivingMessages += 1
 		ssbcMessage := new(types.SSBCMessage)
 		buf := bytes.NewBuffer(message.Payload)
 		dec := gob.NewDecoder(buf)
@@ -535,23 +522,7 @@ func HandleMessage(msg []byte) {
 			logger.ErrLogger.Fatal(err)
 		}
 
-		// RECEIVE debugging
-		//j := message.From
 		chanel_id := ssbcMessage.Identifier
-		//aJ := ssbcMessage.Flag     // Flag
-		//rJ := ssbcMessage.Round    // Round
-		est_0 := ssbcMessage.Est_0 // est[0]
-		est_1 := ssbcMessage.Est_1 // est[1]
-		vJ := make([]int, 2)
-		vJ[0] = est_0
-		vJ[1] = est_1
-		aux_0 := ssbcMessage.Aux_0 // aux[0]
-		aux_1 := ssbcMessage.Aux_1 // aux[1]
-		uJ := make([]int, 2)
-		uJ[0] = aux_0
-		uJ[1] = aux_1
-		/*logger.OutLogger.Println("RECEIVE j="+strconv.Itoa(j), "flag="+strconv.FormatBool(aJ), "r="+strconv.Itoa(rJ),
-		"est="+arr2set(vJ), "aux="+arr2set(uJ))*/
 
 		if _, in := SSBCChannel[chanel_id]; !in {
 			SSBCChannel[chanel_id] = make(chan struct {
@@ -565,25 +536,4 @@ func HandleMessage(msg []byte) {
 			From        int
 		}{SSBCMessage: *ssbcMessage, From: message.From}
 	}
-}
-
-// size returns the number of elements of set s.
-func size(s []int) int {
-	return s[0] + s[1]
-}
-
-// arr2set create a string with a set
-func arr2set(arr []int) string {
-	if size(arr) == 0 {
-		return "{}"
-	} else if size(arr) == 1 {
-		if arr[0] == 1 {
-			return "{0}"
-		} else {
-			return "{1}"
-		}
-	} else if size(arr) == 2 {
-		return "{0 1}"
-	}
-	return ""
 }

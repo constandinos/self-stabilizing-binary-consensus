@@ -75,7 +75,7 @@ func BinaryConsensus(bcid int, initVal uint) {
 			}
 
 			if len(values) != 0 {
-				coin := random(round)
+				coin := uint(RandomBit(round))
 				//logger.OutLogger.Print(id, ".BC: vals-", values, " coin-", coin, "\n")
 
 				if len(values) == 2 {
@@ -84,7 +84,7 @@ func BinaryConsensus(bcid int, initVal uint) {
 					duration := time.Since(start)
 					//logger.OutLogger.Println("decision=" + strconv.Itoa(int(values[0])))
 					logger.OutLogger.Println("stats<byzantine,exec_time,messages>:", variables.Byzantine, duration.Seconds(),
-						variables.TotalRCVMessages)
+						variables.ReceivingMessages)
 					decide_bc(bcid, values[0])
 					return
 				} else if len(values) == 1 && values[0] != coin {
@@ -177,9 +177,9 @@ func broadcast(tag string, bcMessage types.BcMessage) {
 }
 
 // TODO: implement a more Byzantine Tolerant Common-Coin algorithm
-func random(round int) uint {
+/*func random(round int) uint {
 	return uint(Random_num[round])
-}
+}*/
 
 func decide_bc(id int, value uint) {
 	//BCAnswer[id] <- value

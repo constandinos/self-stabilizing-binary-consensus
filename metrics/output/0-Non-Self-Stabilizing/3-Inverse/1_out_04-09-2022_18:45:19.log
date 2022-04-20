@@ -1,4 +1,0 @@
-INFO: 18:45:19.576531 main.go:33: ID:1 | N:10 | F:3 | M:5 | Clients:1 | Byzantine scenario:INVERSE | Byzantine processor:true | Corruption scenario:NORMAL | Remote:false
-
-INFO: 18:45:19.601087 main.go:90: Initial estimate value:  1
-INFO: 18:45:20.486995 binary-consensus.go:88: statistics<network_size,byzantine,exec_time>: 10 true 0.885853586

@@ -1,4 +1,0 @@
-INFO: 18:30:00.533239 main.go:34: ID:0 | N:6 | F:1 | M:5 | Clients:1 | Byzantine scenario:HALF&HALF | Byzantine processor:true | Self-stabilizing:true | Corruption scenario:ALL | Remote:false
-
-INFO: 18:30:00.539666 main.go:99: Initial estimate value:  1
-INFO: 18:30:03.039271 self-stabilizing-binary-consensus.go:341: statistics<network_size,byzantine,exec_time>: 6 true 2.499558974

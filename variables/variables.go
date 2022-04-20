@@ -3,27 +3,37 @@ package variables
 import "sync"
 
 var (
-	// ID - This processor's id.
+	// This processor's id.
 	ID int
 
-	// N - Number of processors
+	// Number of processors
 	N int
 
-	// M - Number of iterations
+	// Number of iterations
 	M int
 
-	// F - Number of faulty processors
+	// Number of faulty processors
 	F int
 
-	// Byzantine - If the processor is byzantine or not
+	// If the processor is byzantine or not
 	Byzantine bool
 
-	// Clients - Size of Clients Set
+	// Size of Clients Set
 	Clients int
 
-	// Remote - If we are running locally or remotely
+	// If we are running locally or remotely
 	Remote bool
 
+	// If the logger will print all debug messages
+	Debug bool
+
+	// The processing time for receive messages
+	ReceiveProcessingTime int
+
+	// Counter for receiving messages
+	ReceivingMessages int
+
+	/* From Vasilis implentation */
 	// DEFAULT - The default value that is used in the algorithms
 	DEFAULT []byte
 
@@ -31,30 +41,41 @@ var (
 	MsgComplexity int
 	MsgSize       int64
 	MsgMutex      sync.RWMutex
-
-	TotalRCVMessages int
-	//Sleep_time       int
 )
 
+// 	variables.Initialize(id, n, m, clients, remote, debug, receive_processing_time)
+
 // Initialize - Variables initializer method
-func Initialize(id int, n int, m int, c int, rem int) {
+func Initialize(id int, n int, m int, clients int, remote int, debug int, receive_processing_time int) {
 	ID = id
+
 	N = n
-	M = m
 	F = (N - 1) / 3
 
-	Clients = c
+	M = m
 
-	if rem == 1 {
+	Clients = clients
+
+	if remote == 1 {
 		Remote = true
 	} else {
 		Remote = false
 	}
 
+	if debug == 1 {
+		Debug = true
+	} else {
+		Debug = false
+	}
+
+	ReceiveProcessingTime = receive_processing_time
+
+	ReceivingMessages = 0
+
+	/* From Vasilis implentation */
 	DEFAULT = []byte("")
 
 	MsgComplexity = 0
 	MsgSize = 0
 	MsgMutex = sync.RWMutex{}
-	TotalRCVMessages = 0
 }

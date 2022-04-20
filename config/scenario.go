@@ -21,7 +21,6 @@ var (
 	corruption_scenarios = map[int]string{
 		0: "NORMAL", // Normal execution
 		1: "ALL",
-		//2: "RANDOM",
 	}
 
 	Corruptions      []bool
@@ -64,6 +63,5 @@ func InitializeCorruptionScenario(s int) {
 		for i := 0; i < corruption_cases; i++ {
 			Corruptions[i] = true
 		}
-		Corruptions[0] = false
 	}
 }
