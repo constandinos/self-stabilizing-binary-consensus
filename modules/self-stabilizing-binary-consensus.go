@@ -253,15 +253,27 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 			counter := 0
 			val := get_a_value(est[M+1][ID])
 			if val != -1 {
-				for j := 0; j < N; j++ {
-					if get_a_value(est[M+1][j]) == val {
-						counter++
+				if config.ByzantineScenario == "NORMAL" {
+					for j := 0; j < N; j++ {
+						if get_a_value(est[M+1][j]) == val {
+							counter++
+						}
+					}
+					if counter == N {
+						return
+					}
+				} else {
+					for j := F; j < N; j++ {
+						if get_a_value(est[M+1][j]) == val {
+							counter++
+						}
+					}
+					if counter == (N - F) {
+						return
 					}
 				}
-				if counter == N {
-					return
-				}
 			}
+
 		}
 	}
 }
@@ -384,7 +396,7 @@ func decide(x int) {
 		if !decided {
 			duration := float64(time.Since(decision_timer).Seconds())
 			duration = math.Round(duration*100) / 100
-			logger.OutLogger.Println("stats<byzantine,decision_time,messages>:", variables.Byzantine, duration,
+			logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
 				variables.ReceivingMessages, x)
 			decided = true
 		}

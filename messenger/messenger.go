@@ -88,7 +88,9 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		//logger.OutLogger.Println("Receive from Server", i, "on", receiveAddr)
+		if variables.Debug {
+			logger.OutLogger.Println("Receive from Server", i, "on", receiveAddr)
+		}
 
 		// SendSockets initialization to send information to other servers
 		SendSockets[i], err = Context.NewSocket(zmq4.REQ)
@@ -105,7 +107,9 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		//logger.OutLogger.Println("Send to Server", i, "on", sendAddr)
+		if variables.Debug {
+			logger.OutLogger.Println("Send to Server", i, "on", sendAddr)
+		}
 
 		// Init message channel
 		MessageChannel[i] = make(chan types.Message)
@@ -133,7 +137,9 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		//logger.OutLogger.Println("Requests from Client", i, "on", serverAddr)
+		if variables.Debug {
+			logger.OutLogger.Println("Requests from Client", i, "on", serverAddr)
+		}
 
 		// ResponseSockets initialization to publish the response back to the clients
 		ResponseSockets[i], err = Context.NewSocket(zmq4.PUB)
@@ -150,10 +156,14 @@ func InitializeMessenger() {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-		//logger.OutLogger.Println("Response to Client", i, "on", responseAddr)
+		if variables.Debug {
+			logger.OutLogger.Println("Response to Client", i, "on", responseAddr)
+		}
 	}
 
-	//logger.OutLogger.Print("-----------------------------------------\n\n")
+	if variables.Debug {
+		logger.OutLogger.Print("-----------------------------------------\n\n")
+	}
 }
 
 func modifyMessage(message types.Message, receiver int) types.Message {
@@ -340,11 +350,6 @@ func Broadcast(message types.Message) {
 // TransmitMessages - Transmits the messages to the other servers [started from main]
 func TransmitMessages() {
 	for i := 0; i < variables.N; i++ {
-		// IDLE Attack Scenario
-		if (variables.Byzantine) && (config.ByzantineScenario == "IDLE") {
-			// send nothing
-			return
-		}
 		if i == variables.ID {
 			continue // Not myself
 		}

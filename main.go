@@ -44,6 +44,13 @@ func initializer(id int, n int, m int, clients int, remote int, byzantine_scenar
 
 	messenger.InitializeMessenger()
 	messenger.Subscribe()
+
+	// IDLE Attack Scenario
+	if (config.ByzantineScenario == "IDLE") && (variables.Byzantine) {
+		logger.OutLogger.Println("IDLE ATTACK")
+		return
+	}
+
 	messenger.TransmitMessages()
 
 	terminate := make(chan os.Signal, 1)
