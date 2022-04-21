@@ -3,12 +3,12 @@ package messenger
 import (
 	"bytes"
 	"encoding/gob"
-	"math/rand"
 	"self-stabilizing-binary-consensus/config"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/threshenc"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
+	"strconv"
 	"time"
 
 	"github.com/pebbe/zmq4"
@@ -182,31 +182,37 @@ func modifyMessage(message types.Message, receiver int) types.Message {
 
 	// Inverse Attack
 	if config.ByzantineScenario == "INVERSE" {
-		//msg.Value = (value + 1) % 2
-		if value == 0 {
-			msg.Value = 1
-		} else {
-			msg.Value = 0
+		msg.Value = (value + 1) % 2
+
+		if variables.Debug {
+			logger.OutLogger.Println("INVERSE_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"v="+strconv.Itoa(int(value))+"->"+strconv.Itoa(int(msg.Value)))
 		}
-		// Debugging
-		//logger.OutLogger.Println("INVERSE ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-		//	strconv.Itoa(int(msg.Value)))
 	}
 
 	// Half&Half Attack
 	if config.ByzantineScenario == "HALF&HALF" {
-		msg.Value = uint(receiver % 2)
-		// Debugging
-		//logger.OutLogger.Println("HALF&HALF ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-		//	strconv.Itoa(int(msg.Value)))
+		if (receiver % 2) == 0 {
+			msg.Value = (value + 1) % 2
+		}
+
+		if variables.Debug {
+			logger.OutLogger.Println("HALF&HALF_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"v="+strconv.Itoa(int(value))+"->"+strconv.Itoa(int(msg.Value)))
+		}
 	}
 
 	// Random Attack
 	if config.ByzantineScenario == "RANDOM" {
-		msg.Value = uint(rand.Intn(2))
-		// Debugging
-		//logger.OutLogger.Println("RANDOM ATTACK", "j="+strconv.Itoa(receiver), "v="+strconv.Itoa(int(value))+"->"+
-		//	strconv.Itoa(int(msg.Value)))
+		msg.Value = uint(variables.RandomGenerator.Intn(2))
+
+		if variables.Debug {
+			logger.OutLogger.Println("RANDOM_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"v="+strconv.Itoa(int(value))+"->"+strconv.Itoa(int(msg.Value)))
+		}
 	}
 
 	// Package message
@@ -233,6 +239,7 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 	}
 
 	// Get message informations
+	flag := msg.Flag   // flag
 	est_0 := msg.Est_0 // est[0]
 	est_1 := msg.Est_1 // est[1]
 	aux_0 := msg.Aux_0 // aux[0]
@@ -246,41 +253,37 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 		msg.Aux_0 = aux_1
 		msg.Aux_1 = temp
 
-		// Debugging
-		/*logger.OutLogger.Println("INVERSE ATTACK",
-		"j="+strconv.Itoa(receiver),
-		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
+		if variables.Debug {
+			logger.OutLogger.Println("INVERSE_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"flag="+strconv.FormatBool(flag),
+				"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+				"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		}
 	}
 
 	// Half&Half Attack
 	if config.ByzantineScenario == "HALF&HALF" {
 		if (receiver % 2) == 0 {
-			msg.Flag = true
-			msg.Est_0 = 1
-			msg.Est_1 = 0
-			msg.Aux_0 = 1
-			msg.Aux_1 = 0
-		} else {
-			msg.Flag = false
-			msg.Est_0 = 0
-			msg.Est_1 = 1
-			msg.Aux_0 = 0
-			msg.Aux_1 = 1
+			msg.Est_0 = (est_0 + 1) % 2
+			msg.Est_1 = (est_1 + 1) % 2
+			temp := aux_0
+			msg.Aux_0 = aux_1
+			msg.Aux_1 = temp
 		}
 
-		// Debugging
-		/*logger.OutLogger.Println("HALF&HALF ATTACK",
-		"j="+strconv.Itoa(receiver),
-		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
+		if variables.Debug {
+			logger.OutLogger.Println("HALF&HALF_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"flag="+strconv.FormatBool(flag),
+				"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+				"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		}
 	}
 
 	// Random Attack
 	if config.ByzantineScenario == "RANDOM" {
-		rand_num := rand.Intn(4)
+		rand_num := variables.RandomGenerator.Intn(4)
 		if rand_num == 0 {
 			msg.Est_0 = 0
 			msg.Est_1 = 0
@@ -303,12 +306,13 @@ func modifyMessageSS(message types.Message, receiver int) types.Message {
 			msg.Aux_1 = 1
 		}
 
-		// Debugging
-		/*logger.OutLogger.Println("RANDOM ATTACK",
-		"j="+strconv.Itoa(receiver),
-		"flag="+strconv.FormatBool(flag)+"->"+strconv.FormatBool(msg.Flag),
-		"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
-		"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))*/
+		if variables.Debug {
+			logger.OutLogger.Println("RANDOM_ATTACK SEND",
+				"j="+strconv.Itoa(receiver),
+				"flag="+strconv.FormatBool(flag),
+				"est="+arr2set([]int{est_0, est_1})+"->"+arr2set([]int{msg.Est_0, msg.Est_1}),
+				"aux="+arr2set([]int{aux_0, aux_1})+"->"+arr2set([]int{msg.Aux_0, msg.Aux_1}))
+		}
 	}
 
 	// Package message
@@ -462,7 +466,7 @@ func HandleMessage(msg []byte) {
 	}
 
 	if !(threshenc.VerifyMessage(message.Payload, message.Signature, message.From)) {
-		//logger.OutLogger.Println("INVALID", message.Type, "from", message.From)
+		logger.OutLogger.Println("INVALID", message.Type, "from", message.From)
 		return
 	}
 
@@ -476,8 +480,6 @@ func HandleMessage(msg []byte) {
 		if err != nil {
 			logger.ErrLogger.Fatal(err)
 		}
-
-		//logger.OutLogger.Println("RECEIVE", message.Type, "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(bcMessage.Value)))
 
 		tag := bcMessage.Tag
 		if _, in := BvbChannel[tag]; !in {
@@ -541,4 +543,25 @@ func HandleMessage(msg []byte) {
 			From        int
 		}{SSBCMessage: *ssbcMessage, From: message.From}
 	}
+}
+
+// arr2set create a string with a set
+func arr2set(arr []int) string {
+	if size(arr) == 0 {
+		return "{}"
+	} else if size(arr) == 1 {
+		if arr[0] == 1 {
+			return "{0}"
+		} else {
+			return "{1}"
+		}
+	} else if size(arr) == 2 {
+		return "{0 1}"
+	}
+	return ""
+}
+
+// size returns the number of elements of set s.
+func size(s []int) int {
+	return s[0] + s[1]
 }

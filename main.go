@@ -14,9 +14,6 @@ import (
 	"syscall"
 )
 
-//initializer(id, n, m, clients, remote, byzantine_scenario, self_stabilizing, corruption, debug,
-//	receive_processing_time)
-
 // Initializer - Method that initializes all required processes
 func initializer(id int, n int, m int, clients int, remote int, byzantine_scenario int, self_stabilizing int, corruption int,
 	debug int, receive_processing_time int) {
@@ -52,7 +49,9 @@ func initializer(id int, n int, m int, clients int, remote int, byzantine_scenar
 	}
 
 	messenger.TransmitMessages()
+}
 
+func cleanup() {
 	terminate := make(chan os.Signal, 1)
 	signal.Notify(terminate,
 		os.Interrupt,
@@ -101,14 +100,17 @@ func main() {
 		initializer(id, n, m, clients, remote, byzantine_scenario, self_stabilizing, corruption, debug,
 			receive_processing_time)
 
-		logger.OutLogger.Println("Initial estimate value: ", init_value)
+		if variables.Debug {
+			logger.OutLogger.Print("Initial estimate value:", init_value, "\n\n")
+		}
 
 		if self_stabilizing == 0 {
 			modules.BinaryConsensus(1, uint(init_value))
 		} else {
 			modules.SelfStabilizingBinaryConsensus(1, int(init_value))
-			//modules.SelfStabilizingMultivaluedConsensus(int(binValue))
 		}
+
+		cleanup()
 
 		done := make(chan interface{}) // To keep the server running
 		<-done

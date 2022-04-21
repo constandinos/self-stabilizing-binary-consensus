@@ -3,26 +3,36 @@ package modules
 import (
 	"bytes"
 	"encoding/gob"
+	"math"
 	"self-stabilizing-binary-consensus/logger"
 	"self-stabilizing-binary-consensus/messenger"
 	"self-stabilizing-binary-consensus/types"
 	"self-stabilizing-binary-consensus/variables"
+	"strconv"
 	"sync"
 	"time"
 )
 
 var (
-	binValues = make(map[int][]uint)
-	mutex     = sync.RWMutex{}
+	binValues         = make(map[int][]uint)
+	mutex             = sync.RWMutex{}
+	bc_decision_timer time.Time
 )
 
 // BinaryConsensus - The method that is called to initiate the BC module
 func BinaryConsensus(bcid int, initVal uint) {
-	start := time.Now()
+	// Initialization
 	est := initVal
+
+	// Start timer for aglorithm decision time
+	bc_decision_timer = time.Now()
+
 	for round := 1; ; round++ {
 		id := ComputeUniqueIdentifier(bcid, round)
-		//logger.OutLogger.Print(id, ".BC: bcid-", bcid, " round-", round, "\n")
+
+		if variables.Debug {
+			logger.OutLogger.Println("round=" + strconv.Itoa(round))
+		}
 
 		// BV_broadcast of the est value of the round
 		go BvBroadcast(id, est)
@@ -56,6 +66,11 @@ func BinaryConsensus(bcid int, initVal uint) {
 		// END Variables initialization
 
 		for message := range messenger.BcChannel[id] {
+			if variables.Debug {
+				logger.OutLogger.Println("RECEIVE AUX", "j="+strconv.Itoa(message.From), "v="+
+					strconv.Itoa(int(message.BcMessage.Value)))
+			}
+
 			if _, in := rec[message.From]; in {
 				continue // Only one value can be received from each process
 			}
@@ -76,16 +91,24 @@ func BinaryConsensus(bcid int, initVal uint) {
 
 			if len(values) != 0 {
 				coin := uint(RandomBit(round))
-				//logger.OutLogger.Print(id, ".BC: vals-", values, " coin-", coin, "\n")
+				if variables.Debug {
+					logger.OutLogger.Print(id, ".BC: vals-", values, " coin-", coin, "\n")
+				}
 
 				if len(values) == 2 {
 					est = coin
 				} else if len(values) == 1 && values[0] == coin {
-					duration := time.Since(start)
-					//logger.OutLogger.Println("decision=" + strconv.Itoa(int(values[0])))
-					logger.OutLogger.Println("stats<byzantine,exec_time,messages>:", variables.Byzantine, duration.Seconds(),
-						variables.ReceivingMessages)
-					decide_bc(bcid, values[0])
+					duration := float64(time.Since(bc_decision_timer).Seconds())
+					duration = math.Round(duration*100) / 100
+
+					logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
+						variables.ReceivingMessages, values[0])
+
+					if variables.Debug {
+						logger.OutLogger.Println("decision=" + strconv.Itoa(int(values[0])))
+					}
+
+					// decide_bc(bcid, values[0])
 					return
 				} else if len(values) == 1 && values[0] != coin {
 					est = values[0]
@@ -95,7 +118,6 @@ func BinaryConsensus(bcid int, initVal uint) {
 			}
 		}
 	}
-
 }
 
 // BvBroadcast - Implements the BV_broadcast functionality
@@ -123,7 +145,6 @@ func BvBroadcast(identifier int, initVal uint) {
 
 	// Broadcast initial value
 	broadcast("EST", types.NewBcMessage(identifier, initVal))
-	// logger.OutLogger.Println("SEND EST", initVal)
 	broadcasted[initVal] = true
 
 	if _, in := messenger.BvbChannel[identifier]; !in {
@@ -137,6 +158,11 @@ func BvBroadcast(identifier int, initVal uint) {
 		tag := message.BcMessage.Tag
 		val := message.BcMessage.Value
 
+		if variables.Debug {
+			logger.OutLogger.Println("RECEIVE EST", "j="+strconv.Itoa(message.From), "v="+strconv.Itoa(int(val)))
+		}
+
+		// new append
 		received[message.From]++
 		counter[val]++
 
@@ -148,6 +174,7 @@ func BvBroadcast(identifier int, initVal uint) {
 		if counter[val] >= (variables.F+1) && !broadcasted[val] {
 			broadcast("EST", types.NewBcMessage(tag, val))
 			broadcasted[val] = true
+			// new append
 			counter[val]++
 		}
 
@@ -156,7 +183,9 @@ func BvBroadcast(identifier int, initVal uint) {
 			binValues[tag] = append(binValues[tag], val)
 			mutex.Unlock()
 
-			//logger.OutLogger.Print(tag, ".BC: bin_values-", binValues[tag], "\n")
+			if variables.Debug {
+				logger.OutLogger.Print(tag, ".BC: bin_values-", binValues[tag], "\n")
+			}
 		}
 	}
 }
@@ -174,17 +203,15 @@ func broadcast(tag string, bcMessage types.BcMessage) {
 	} else if tag == "AUX" {
 		messenger.Broadcast(types.NewMessage(w.Bytes(), "BC"))
 	}
+
+	if variables.Debug {
+		logger.OutLogger.Println("BROADCAST", tag, "v="+strconv.Itoa(int(bcMessage.Value)))
+	}
 }
 
-// TODO: implement a more Byzantine Tolerant Common-Coin algorithm
-/*func random(round int) uint {
-	return uint(Random_num[round])
-}*/
-
-func decide_bc(id int, value uint) {
-	//BCAnswer[id] <- value
-	//fmt.Println("Node:", variables.ID, "decide:", value)
-}
+/* func decide_bc(id int, value uint) {
+	BCAnswer[id] <- value
+} */
 
 /* -------------------------------- Helper Functions -------------------------------- */
 

@@ -20,11 +20,8 @@ var (
 
 	corruption_scenarios = map[int]string{
 		0: "NORMAL", // Normal execution
-		1: "ALL",
+		1: "RANDOM", // Apply random corruptions
 	}
-
-	Corruptions      []bool
-	corruption_cases int = 6
 )
 
 func InitializeByzantineScenario(s int) {
@@ -53,15 +50,4 @@ func InitializeCorruptionScenario(s int) {
 	}
 
 	CorruptionScenario = corruption_scenarios[s]
-
-	Corruptions = make([]bool, corruption_cases)
-	if CorruptionScenario == "NORMAL" {
-		for i := 0; i < corruption_cases; i++ {
-			Corruptions[i] = false
-		}
-	} else {
-		for i := 0; i < corruption_cases; i++ {
-			Corruptions[i] = true
-		}
-	}
 }

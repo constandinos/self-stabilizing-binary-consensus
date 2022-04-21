@@ -16,18 +16,20 @@ import (
 )
 
 var (
-	est            [][][]int
-	aux            [][][]int
-	mutex_est      [][]sync.RWMutex
-	mutex_aux      [][]sync.RWMutex
-	N              int
-	M              int
-	F              int
-	ID             int
-	r              int
-	debug          bool
-	decision_timer time.Time
-	decided        bool = false
+	est               [][][]int
+	aux               [][][]int
+	mutex_est         [][]sync.RWMutex
+	mutex_aux         [][]sync.RWMutex
+	N                 int
+	M                 int
+	F                 int
+	ID                int
+	r                 int
+	debug             bool
+	decision_timer    time.Time
+	convergence_timer time.Time
+	decided           bool = false
+	msg_corruption    bool = false
 )
 
 /* Operations */
@@ -99,13 +101,80 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 			// r ← min{r+1, M+1};
 			r = min(r+1, M+1)
 
-			// [Unit test 0] Corruption of r: the variable r suddenly changes value
-			if config.Corruptions[0] && r == 2 {
-				if debug {
-					logger.OutLogger.Println("CORRUPTION 0 r=" + strconv.Itoa(r) + "->4")
+			// CORRUPTIONS (apply a random corruption)
+			if config.CorruptionScenario == "RANDOM" {
+				//random_corruption := variables.RandomGenerator.Intn(6)
+				random_corruption := variables.RandomGenerator.Intn(5)
+				switch random_corruption {
+				// [Unit test 0] Corruption of est[0][ID]: the variable est[0][ID] loses its value
+				case 0:
+					mutex_est[0][ID].Lock()
+					if debug {
+						logger.OutLogger.Println("CORRUPTION 0 est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
+							"->{}")
+					}
+					clear(est[0][ID])
+					mutex_est[0][ID].Unlock()
+					convergence_timer = time.Now()
+
+				// [Unit test 1] Corruption of est[0][ID]: setting variable est[0][ID] with {0,1}
+				case 1:
+					mutex_est[0][ID].Lock()
+					if debug {
+						logger.OutLogger.Println("CORRUPTION 1 est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
+							"->{0,1}")
+					}
+					append_val(est[0][ID], 0)
+					append_val(est[0][ID], 1)
+					mutex_est[0][ID].Unlock()
+					convergence_timer = time.Now()
+
+				// [Unit test 2] Corruption of est[r'][ID] and aux[r'][ID]: the variables est[r'][ID] and aux[r'][ID]
+				// lose their value
+				case 2:
+					for rr := 1; rr <= r-1; rr++ {
+						mutex_est[rr][ID].Lock()
+						mutex_aux[rr][ID].Lock()
+						if debug {
+							logger.OutLogger.Println("CORRUPTION 2 est[" + strconv.Itoa(rr) + "][" + strconv.Itoa(ID) + "]=" +
+								arr2set(est[rr][ID]) + "->{} aux[" + strconv.Itoa(rr) + "][" + strconv.Itoa(ID) + "]=" +
+								arr2set(aux[rr][ID]) + "->{}")
+						}
+						clear(est[rr][ID])
+						clear(aux[rr][ID])
+						mutex_est[rr][ID].Unlock()
+						mutex_aux[rr][ID].Unlock()
+					}
+					convergence_timer = time.Now()
+
+				// [Unit test 3] Corruption of est[M+1][ID] and aux[M+1][ID]: the variables est[M+1][ID] and aux[M+1][ID]
+				case 3:
+					if debug {
+						logger.OutLogger.Println("CORRUPTION 4 est[" + strconv.Itoa(M+1) + "][" + strconv.Itoa(ID) + "]=" +
+							arr2set(est[M+1][ID]) + "->{} aux[" + strconv.Itoa(M+1) + "][" + strconv.Itoa(ID) + "]=" +
+							arr2set(aux[M+1][ID]) + "->{}")
+					}
+					mutex_est[M+1][ID].Lock()
+					mutex_aux[M+1][ID].Lock()
+					clear(est[M+1][ID])
+					clear(aux[M+1][ID])
+					mutex_est[M+1][ID].Unlock()
+					mutex_aux[M+1][ID].Unlock()
+					convergence_timer = time.Now()
+
+				// [Unit test 4] Corruption of SEND message: the variable r suddenly changes value
+				case 4:
+					msg_corruption = true
+					convergence_timer = time.Now()
+
+					// [Unit test 5] Corruption of r: the variable r suddenly changes value
+					/*case 5:
+					if debug {
+						logger.OutLogger.Println("CORRUPTION 5 r=" + strconv.Itoa(r) + "->1")
+					}
+					r = 1
+					convergence_timer = time.Now()*/
 				}
-				r = 4
-				config.Corruptions[0] = false
 			}
 
 			// repeat
@@ -115,31 +184,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 
 				if debug {
 					logger.OutLogger.Println("round="+strconv.Itoa(r), "repeat="+strconv.Itoa(repeat))
-				}
-
-				// [Unit test 1] Corruption of est[0][ID]: the variable est[0][ID] loses its value
-				if config.Corruptions[1] && r == 1 {
-					mutex_est[0][ID].Lock()
-					if debug {
-						logger.OutLogger.Println("CORRUPTION 1 est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
-							"->{}")
-					}
-					clear(est[0][ID])
-					mutex_est[0][ID].Unlock()
-					config.Corruptions[1] = false
-				}
-
-				// [Unit test 2] Corruption of est[0][ID]: setting variable est[0][ID] with {0,1}
-				if config.Corruptions[2] && r == 2 {
-					mutex_est[0][ID].Lock()
-					if debug {
-						logger.OutLogger.Println("CORRUPTION 2 est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
-							"->{0,1}")
-					}
-					append_val(est[0][ID], 0)
-					append_val(est[0][ID], 1)
-					mutex_est[0][ID].Unlock()
-					config.Corruptions[2] = false
 				}
 
 				// if (est[0][i] != v)
@@ -154,25 +198,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 					}
 				}
 				mutex_est[0][ID].Unlock()
-
-				// [Unit test 3] Corruption of est[r'][ID] and aux[r'][ID]: the variables est[r'][ID] and aux[r'][ID]
-				// lose their value
-				if config.Corruptions[3] && r == 3 {
-					for rr := 1; rr <= r-1; rr++ {
-						mutex_est[rr][ID].Lock()
-						mutex_aux[rr][ID].Lock()
-						if debug {
-							logger.OutLogger.Println("CORRUPTION 3 est[" + strconv.Itoa(rr) + "][" + strconv.Itoa(ID) + "]=" +
-								arr2set(est[rr][ID]) + "->{} aux[" + strconv.Itoa(rr) + "][" + strconv.Itoa(ID) + "]=" +
-								arr2set(aux[rr][ID]) + "->{}")
-						}
-						clear(est[rr][ID])
-						clear(aux[rr][ID])
-						mutex_est[rr][ID].Unlock()
-						mutex_aux[rr][ID].Unlock()
-					}
-					config.Corruptions[3] = false
-				}
 
 				// foreach r' ∈ {1, . . . , r−1}
 				for rr := 1; rr <= r-1; rr++ {
@@ -214,22 +239,12 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
 				binValues = bin_values(r, F+1)
 				new_est := union(est[r-1][ID], binValues)
-				// [Unit test 4] Corruption of SEND message: the variable r suddenly changes value
-				if config.Corruptions[4] && size(aux[r][ID]) == 1 && r == 4 {
-					if debug {
-						logger.OutLogger.Println("CORRUPTION 4 SEND true, " + strconv.Itoa(r) + ", " + arr2set(new_est) +
-							", " + arr2set(new_est) + "->{}")
-					}
-					send("EST", types.NewSSBCMessage(identifier, true, r, new_est[0], new_est[1], 0, 0), true)
-					config.Corruptions[4] = false
-				} else {
-					send("EST", types.NewSSBCMessage(identifier, true, r, new_est[0], new_est[1], aux[r][ID][0],
-						aux[r][ID][1]), false)
-					mutex_est[r][ID].Lock()
-					set(est[r][ID], union(est[r][ID], new_est))
-					mutex_est[r][ID].Unlock()
-				}
+				send("EST", types.NewSSBCMessage(identifier, true, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+				mutex_est[r][ID].Lock()
+				set(est[r][ID], union(est[r][ID], new_est))
+				mutex_est[r][ID].Unlock()
 
+				// Process receive messages
 				time.Sleep(time.Duration(variables.ReceiveProcessingTime) * time.Millisecond)
 
 				// until infoResult() != ∅
@@ -375,29 +390,21 @@ func decide(x int) {
 	// r <- M + 1
 	r = M + 1
 
-	// [Unit test 5] Corruption of est[M+1][ID] and aux[M+1][ID]: the variables est[M+1][ID] and aux[M+1][ID]
-	if config.Corruptions[5] {
-		if debug {
-			logger.OutLogger.Println("CORRUPTION 5 est[" + strconv.Itoa(M+1) + "][" + strconv.Itoa(ID) + "]=" +
-				arr2set(est[M+1][ID]) + "->{} aux[" + strconv.Itoa(M+1) + "][" + strconv.Itoa(ID) + "]=" +
-				arr2set(aux[M+1][ID]) + "->{}")
-		}
-		mutex_est[M+1][ID].Lock()
-		mutex_aux[M+1][ID].Lock()
-		clear(est[M+1][ID])
-		clear(aux[M+1][ID])
-		mutex_est[M+1][ID].Unlock()
-		mutex_aux[M+1][ID].Unlock()
-		config.Corruptions[5] = false
-	}
-
 	if (size(est[M+1][ID]) > 0) && (size(aux[M+1][ID]) > 0) {
 		// Get decision time
 		if !decided {
-			duration := float64(time.Since(decision_timer).Seconds())
-			duration = math.Round(duration*100) / 100
-			logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
-				variables.ReceivingMessages, x)
+			if config.CorruptionScenario == "NORMAL" {
+				duration := float64(time.Since(decision_timer).Seconds())
+				duration = math.Round(duration*100) / 100
+				logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
+					variables.ReceivingMessages, x)
+			} else {
+				duration := float64(time.Since(convergence_timer).Seconds())
+				duration = math.Round(duration*100) / 100
+				logger.OutLogger.Println("stats<byzantine,convergence_time,messages,decision>:", variables.Byzantine, duration,
+					variables.ReceivingMessages, x)
+			}
+
 			decided = true
 		}
 
@@ -542,7 +549,17 @@ func arr2set(arr []int) string {
 /* Communication */
 
 // send sends a message to pj ∈ P processors
-func send(tag string, estMessage types.SSBCMessage, msg_corruption bool) {
+func send(tag string, estMessage types.SSBCMessage) {
+	var corrupted string = ""
+	if msg_corruption {
+		estMessage.Est_0 = 0
+		estMessage.Est_1 = 0
+		estMessage.Aux_0 = 0
+		estMessage.Aux_1 = 0
+		corrupted = "CORRUPTION 4 "
+		msg_corruption = false
+	}
+
 	w := new(bytes.Buffer)
 	encoder := gob.NewEncoder(w)
 	err := encoder.Encode(estMessage)
@@ -551,18 +568,14 @@ func send(tag string, estMessage types.SSBCMessage, msg_corruption bool) {
 	}
 	messenger.Broadcast(types.NewMessage(w.Bytes(), tag))
 	if debug {
-		var corrupted string = ""
-		if msg_corruption {
-			corrupted = "CORRUPTION"
-		}
 		est_temp := make([]int, 2)
 		est_temp[0] = estMessage.Est_0
 		est_temp[1] = estMessage.Est_1
 		aux_temp := make([]int, 2)
 		aux_temp[0] = estMessage.Aux_0
 		aux_temp[1] = estMessage.Aux_1
-		logger.OutLogger.Println("SEND", "flag="+strconv.FormatBool(estMessage.Flag), "r="+strconv.Itoa(estMessage.Round),
-			"est="+arr2set(est_temp), "aux="+arr2set(aux_temp), corrupted)
+		logger.OutLogger.Println(corrupted+"SEND", "flag="+strconv.FormatBool(estMessage.Flag), "r="+strconv.Itoa(estMessage.Round),
+			"est="+arr2set(est_temp), "aux="+arr2set(aux_temp))
 	}
 }
 
@@ -604,8 +617,8 @@ func receive(identifier int) {
 		// if aJ then
 		if aJ {
 			// send EST(False, rJ , est[rJ−1][i], aux[r][i]) to pj
-			send("EST", types.NewSSBCMessage(identifier, false, rJ, est[rJ-1][ID][0], est[rJ-1][ID][1], aux[rJ][ID][0],
-				aux[rJ][ID][1]), false)
+			send("EST", types.NewSSBCMessage(identifier, false, rJ, est[rJ][ID][0], est[rJ][ID][1], aux[rJ][ID][0],
+				aux[rJ][ID][1]))
 		}
 	}
 }

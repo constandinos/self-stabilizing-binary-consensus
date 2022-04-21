@@ -1,6 +1,9 @@
 package variables
 
-import "sync"
+import (
+	"math/rand"
+	"sync"
+)
 
 var (
 	// This processor's id.
@@ -32,6 +35,9 @@ var (
 
 	// Counter for receiving messages
 	ReceivingMessages int
+
+	// Random number generator
+	RandomGenerator *rand.Rand
 
 	/* From Vasilis implentation */
 	// DEFAULT - The default value that is used in the algorithms
@@ -71,6 +77,8 @@ func Initialize(id int, n int, m int, clients int, remote int, debug int, receiv
 	ReceiveProcessingTime = receive_processing_time
 
 	ReceivingMessages = 0
+
+	RandomGenerator = rand.New(rand.NewSource(int64(ID)))
 
 	/* From Vasilis implentation */
 	DEFAULT = []byte("")
