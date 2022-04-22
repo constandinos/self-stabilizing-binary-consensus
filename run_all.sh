@@ -1,37 +1,39 @@
 #!/bin/bash
 
-M=5
+M=6
 CLIENTS=1
 REMOTE=0
-SELF_STABILIZATION=1
-CORRUPTION_SCENARIO=1
+SELF_STABILIZING=1
+CORRUPTION=0
 DEBUG=0
-TERMINATION_ROUND=4
-
-RCV_PROCESSING_TIME_2=(0 0 0 0 30 60 90 100 130 170 190 250 330)
-RCV_PROCESSING_TIME_4=(0 0 0 0 30 40 100 150 200 250 350 450 500)
-
+RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 100 150 200 250 350 450 500)
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
-mkdir results
+if [ ! -d "./logs" ]; then
+	mkdir -p logs/{error,out}
+fi
 
-for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=0; BYZANTINE_SCENARIO++ )); do
+if [ ! -d "./keys" ]; then
+	mkdir keys
+fi
+
+if [ ! -d "./results" ]; then
+	mkdir results
+fi
+
+for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 	for (( N=4; N<=12; N++ )); do
-		if (( $TERMINATION_ROUND == 2 )); then
-			RCV_PROCESSING_TIME=${RCV_PROCESSING_TIME_2[$N]}
-		elif (( $TERMINATION_ROUND == 4 )); then
-			RCV_PROCESSING_TIME=${RCV_PROCESSING_TIME_4[$N]}
-		fi
 		for (( i=0; i<10; i++ )); do
+			echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "i:"$i
 			go install self-stabilizing-binary-consensus
 			self-stabilizing-binary-consensus generate_keys $N
 			for (( ID=0; ID<$N; ID++ )); do
-				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZATION $CORRUPTION_SCENARIO $DEBUG $TERMINATION_ROUND $RCV_PROCESSING_TIME 1 &
+				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} $(( $ID%2 )) &
 			done
-			sleep $(( $N-1 ))
+			sleep $(( $N ))
 			sh ./kill.sh
-			cat logs/out/*.log
+			grep "stats" logs/out/*.log
 			grep "stats" logs/out/*.log | awk '{print $5, $6, $7}' | awk '($1=="false"){time+=$2;msg+=$3;count+=1} END{print time/count,msg/count}' >> logs/out/temp.txt
 			rm logs/out/*.log
 		done
