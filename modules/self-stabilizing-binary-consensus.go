@@ -417,7 +417,7 @@ func decide(x int) {
 
 // tryToDecide(values)
 func try_to_decide(values []int) {
-	randomBit := RandomBit(r)
+	randomBit := randomBit(r)
 	if debug {
 		logger.OutLogger.Println("randomBit(" + strconv.Itoa(r) + ")=" + strconv.Itoa(randomBit))
 	}
@@ -524,7 +524,7 @@ func union(s1 []int, s2 []int) []int {
 }
 
 // random_bit generate a psedo-random number
-func RandomBit(rr int) int {
+func randomBit(rr int) int {
 	rand.Seed(int64(rr))
 	random_number := rand.Intn(2)
 	return random_number
