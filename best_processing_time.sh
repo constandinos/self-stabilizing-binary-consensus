@@ -8,7 +8,7 @@ BYZANTINE_SCENARIO=0
 CORRUPTION=0
 SELF_STABILIZING=1
 DEBUG=0
-# RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 100 150 200 250 350 450 500)
+# RECEIVE_PROCESSING_TIME=(0 0 0 0 30 45 90 100 150 210 270 310 370)
 
 TIME=(20 25 30 35 40)
 
@@ -24,7 +24,7 @@ for t in ${TIME[@]}; do
 	go install self-stabilizing-binary-consensus
 	self-stabilizing-binary-consensus generate_keys $N	
 	for (( ID=0; ID<$N; ID++ )); do
-		self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG $t $(( $ID%2 )) &
+		self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG $t 0 &
 	done
 	sleep 1
 	sh ./kill.sh

@@ -3,10 +3,10 @@
 M=6
 CLIENTS=1
 REMOTE=0
-SELF_STABILIZING=1
+SELF_STABILIZING=0
 CORRUPTION=0
 DEBUG=0
-RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 100 150 200 250 350 450 500)
+RECEIVE_PROCESSING_TIME=(0 0 0 0 30 45 90 100 150 210 270 310 370)
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
@@ -29,9 +29,9 @@ for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 			go install self-stabilizing-binary-consensus
 			self-stabilizing-binary-consensus generate_keys $N
 			for (( ID=0; ID<$N; ID++ )); do
-				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} $(( $ID%2 )) &
+				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0 &
 			done
-			sleep $(( $N ))
+			sleep 2
 			sh ./kill.sh
 			grep "stats" logs/out/*.log
 			grep "stats" logs/out/*.log | awk '{print $5, $6, $7}' | awk '($1=="false"){time+=$2;msg+=$3;count+=1} END{print time/count,msg/count}' >> logs/out/temp.txt
