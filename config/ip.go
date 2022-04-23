@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-var address = [2]string{"10.16.12.56", "10.16.12.11"}
+var address = [5]string{"10.16.12.56", "10.16.12.11", "10.16.12.100", "10.16.12.212", "10.16.12.105"}
 
 var (
 	// RepAddressesIP - Initialize the address of IP REP sockets
