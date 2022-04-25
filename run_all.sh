@@ -12,25 +12,34 @@ BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
 if [ ! -d "./logs" ]; then
 	mkdir -p logs/{error,out}
+else
+	rm -rf ./logs
+	mkdir -p logs/{error,out}
 fi
 
 if [ ! -d "./keys" ]; then
+	mkdir keys
+else
+	rm -rf ./keys
 	mkdir keys
 fi
 
 if [ ! -d "./results" ]; then
 	mkdir results
+else
+	rm -rf ./results
+	mkdir results
 fi
 
 for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 	for (( N=4; N<=12; N++ )); do
+		go run main.go generate_keys $N
 		for (( i=0; i<10; i++ )); do
 			echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "i:"$i
-			go install self-stabilizing-binary-consensus
-			self-stabilizing-binary-consensus generate_keys $N
 			for (( ID=0; ID<$N; ID++ )); do
-				self-stabilizing-binary-consensus $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0 &
+				go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0 &
 			done
+			#sleep $N
 			sleep 2
 			sh ./kill.sh
 			grep "stats" logs/out/*.log
