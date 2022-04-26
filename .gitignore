@@ -4,3 +4,6 @@ keys/
 # Ignore directory with logger outpout and error
 logs/
 
+# Ignore directory with results
+results/
+

@@ -45,7 +45,7 @@ if [ $MACHINE_ID == 0 ]; then
 fi
 
 # Byzantine Scenario
-for (( BYZANTINE_SCENARIO=4; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
+for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 	# Network size
 	for (( N=4; N<=12; N++ )); do
 		# Experements
