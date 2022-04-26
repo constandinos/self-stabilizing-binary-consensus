@@ -1,13 +1,13 @@
 #!/bin/bash
 
-N=5
+N=12
 M=6
 CLIENTS=1
 REMOTE=1
-BYZANTINE_SCENARIO=0
+BYZANTINE_SCENARIO=3
 SELF_STABILIZING=1
 CORRUPTION=0
-DEBUG=1
+DEBUG=0
 RECEIVE_PROCESSING_TIME=(0 0 0 0 30 45 90 100 150 210 270 310 370)
 
 CLUSTER_SIZE=5
@@ -34,6 +34,7 @@ if [ $MACHINE_ID == 0 ]; then
 	fi
 	
 	go run main.go generate_keys $N
+	sleep 4
 fi
 
 echo $MACHINE_ID >> sync.txt

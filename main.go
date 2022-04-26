@@ -14,6 +14,33 @@ import (
 	"syscall"
 )
 
+func cleanup() {
+	terminate := make(chan os.Signal, 1)
+	signal.Notify(terminate,
+		os.Interrupt,
+		syscall.SIGHUP,
+		syscall.SIGINT,
+		syscall.SIGTERM,
+		syscall.SIGQUIT)
+	go func() {
+		for range terminate {
+			for i := 0; i < variables.N; i++ {
+				if i == variables.ID {
+					continue // Not myself
+				}
+				messenger.ReceiveSockets[i].Close()
+				messenger.SendSockets[i].Close()
+			}
+
+			for i := 0; i < variables.Clients; i++ {
+				messenger.ServerSockets[i].Close()
+				messenger.ResponseSockets[i].Close()
+			}
+			os.Exit(0)
+		}
+	}()
+}
+
 // Initializer - Method that initializes all required processes
 func initializer(id int, n int, m int, clients int, remote int, byzantine_scenario int, self_stabilizing int, corruption int,
 	debug int, receive_processing_time int) {
@@ -49,33 +76,8 @@ func initializer(id int, n int, m int, clients int, remote int, byzantine_scenar
 	}
 
 	messenger.TransmitMessages()
-}
 
-func cleanup() {
-	terminate := make(chan os.Signal, 1)
-	signal.Notify(terminate,
-		os.Interrupt,
-		syscall.SIGHUP,
-		syscall.SIGINT,
-		syscall.SIGTERM,
-		syscall.SIGQUIT)
-	go func() {
-		for range terminate {
-			for i := 0; i < variables.N; i++ {
-				if i == variables.ID {
-					continue // Not myself
-				}
-				messenger.ReceiveSockets[i].Close()
-				messenger.SendSockets[i].Close()
-			}
-
-			for i := 0; i < variables.Clients; i++ {
-				messenger.ServerSockets[i].Close()
-				messenger.ResponseSockets[i].Close()
-			}
-			os.Exit(0)
-		}
-	}()
+	cleanup()
 }
 
 func main() {
@@ -109,8 +111,6 @@ func main() {
 		} else {
 			modules.SelfStabilizingBinaryConsensus(1, int(init_value))
 		}
-
-		cleanup()
 
 		done := make(chan interface{}) // To keep the server running
 		<-done
