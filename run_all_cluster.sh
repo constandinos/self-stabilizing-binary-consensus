@@ -6,7 +6,7 @@ REMOTE=1
 SELF_STABILIZING=1
 CORRUPTION=0
 DEBUG=0
-RECEIVE_PROCESSING_TIME=(0 0 0 0 30 45 90 100 150 210 270 310 370)
+RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 80 100 150 200 250 400 480)
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
@@ -49,7 +49,7 @@ for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 	# Network size
 	for (( N=4; N<=12; N++ )); do
 		# Experements
-		for (( i=0; i<5; i++ )); do
+		for (( i=0; i<10; i++ )); do
 			# Create keys
 			if [ $MACHINE_ID == 0 ]; then
 				echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "i:"$i
@@ -76,8 +76,8 @@ for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 			done
 			
 			# Wait
-			echo "sleep 45"
-			sleep 45
+			echo "sleep 60"
+			sleep 60
 			
 			# Stop processes
 			./kill.sh
@@ -86,14 +86,14 @@ for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
 			
 			# Get local results
 			if [ $MACHINE_ID == 0 ]; then
-				grep "stats" logs/out/*.log
-				grep "stats" logs/out/*.log | awk '{print $5, $6, $7}' | awk '($1=="false"){time+=$2;msg+=$3;count+=1} END{print time/count,msg/count}' >> logs/out/temp.txt
+				grep "stats" logs/out/*.log 2> /dev/null
+				grep "stats" logs/out/*.log | awk '{print $5, $6, $7}' | awk '($1=="false"){time+=$2;msg+=$3;count+=1} END{print time/count,msg/count}' >> logs/out/temp.txt 2> /dev/null
 				rm logs/out/*.log			
 			fi
 		done
 		# Get global results
 		if [ $MACHINE_ID == 0 ]; then
-			sort -n -k1 logs/out/temp.txt | awk 'BEGIN{i=0} {t[i]=$1; m[i]=$2; i++} END{for(i=1; i<NR-1; i++){time+=t[i]; msg+=m[i]; count+=1} print time/count,msg/count}' >> results/"${BYZ_STR[$BYZANTINE_SCENARIO]}".txt
+			sort -n -k1 logs/out/temp.txt | awk 'BEGIN{i=0} {t[i]=$1; m[i]=$2; i++} END{for(i=1; i<NR-1; i++){time+=t[i]; msg+=m[i]; count+=1} print time/count,msg/count}' >> results/"${BYZ_STR[$BYZANTINE_SCENARIO]}".txt 2> /dev/null
 			rm logs/out/temp.txt
 		fi
 	done
