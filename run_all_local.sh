@@ -6,11 +6,13 @@ REMOTE=0
 SELF_STABILIZING=0
 CORRUPTION=0
 DEBUG=0
-#RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200) #SEND ALL
-RECEIVE_PROCESSING_TIME=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400) #SEND%2
+OPTIMIZATION=1
 
+RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200)
+RECEIVE_PROCESSING_TIME_OPT=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400)
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
+# Create directories
 if [ ! -d "./logs" ]; then
 	mkdir -p logs/{error,out}
 else
@@ -32,8 +34,18 @@ else
 	mkdir results
 fi
 
-for BYZANTINE_SCENARIO in {0..0}; do
-	for N in {12..16..2}; do
+# Byzantine Scenario
+for BYZANTINE_SCENARIO in {0..4}; do
+	# Network size
+	for N in {4..16..2}; do
+		# Set processing time based on optimization flag
+		if [ $OPTIMIZATION -eq 0 ]; then
+			PROCESSING_TIME=${RECEIVE_PROCESSING_TIME[$N]}
+		else
+			PROCESSING_TIME=${RECEIVE_PROCESSING_TIME_OPT[$N]}
+		fi
+
+		# Experements
 		for REPEAT in {1..10}; do
 			echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "REPEAT:"$REPEAT
 			
@@ -43,8 +55,8 @@ for BYZANTINE_SCENARIO in {0..0}; do
 			
 			# Run
 			for (( ID=0; ID<$N; ID++ )); do
-				echo go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0
-				go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0 &
+				# <ID> <N> <M> <Clients> <Remote> <Byzantine scenario> <Self-Stabilizing> <Corruption> <Debug> <Receive processing time> <Optimization> <Initial value>
+				go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG $PROCESSING_TIME $OPTIMIZATION 0 &
 			done
 			
 			# Wait
@@ -67,3 +79,4 @@ for BYZANTINE_SCENARIO in {0..0}; do
 		rm logs/out/temp.txt
 	done
 done
+

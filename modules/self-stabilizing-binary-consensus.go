@@ -238,10 +238,11 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 				mutex_aux[r][ID].Unlock()
 
 				// foreach p j ∈ P do send EST(True, r, est[r−1][i] ∪ binValues(r, t+1), aux[r][i])
-				if repeat%2 == 0 {
+				if (!variables.Optimization) || (repeat%2 == 0) {
 					binValues = bin_values(r, F+1)
 					new_est := union(est[r-1][ID], binValues)
-					send("EST", types.NewSSBCMessage(identifier, true, r, new_est[0], new_est[1], aux[r][ID][0], aux[r][ID][1]))
+					send("EST", types.NewSSBCMessage(identifier, true, r, new_est[0], new_est[1], aux[r][ID][0],
+						aux[r][ID][1]))
 					mutex_est[r][ID].Lock()
 					set(est[r][ID], union(est[r][ID], new_est))
 					mutex_est[r][ID].Unlock()

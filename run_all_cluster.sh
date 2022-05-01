@@ -6,9 +6,11 @@ REMOTE=1
 SELF_STABILIZING=1
 CORRUPTION=0
 DEBUG=0
-#RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200) #SEND ALL
-RECEIVE_PROCESSING_TIME=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400) #SEND%2
+OPTIMIZATION=1
 
+RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200)
+RECEIVE_PROCESSING_TIME_OPT=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400)
+SLEEP_TIME=(0 0 0 0 40 0 40 0 60 0 60 0 60 0 80 0 80)
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
 CLUSTER_SIZE=5
@@ -49,10 +51,17 @@ fi
 for BYZANTINE_SCENARIO in {0..4}; do
 	# Network size
 	for N in {4..16..2}; do
+		# Set processing time based on optimization flag
+		if [ $OPTIMIZATION -eq 0 ]; then
+			PROCESSING_TIME=${RECEIVE_PROCESSING_TIME[$N]}
+		else
+			PROCESSING_TIME=${RECEIVE_PROCESSING_TIME_OPT[$N]}
+		fi
+		
 		# Experements
 		for REPEAT in {1..10}; do
 		
-			# Create keys
+			# Generate keys
 			if [ $MACHINE_ID == 0 ]; then
 				echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "REPEAT:"$REPEAT
 				go run main.go generate_keys $N
@@ -71,9 +80,9 @@ for BYZANTINE_SCENARIO in {0..4}; do
 			# Run
 			ID=$MACHINE_ID
 			while [ $ID -lt $N ]; do
-				# <ID> <N> <M> <Clients> <Remote> <Byzantine scenario> <Self-Stabilizing> <Corruption> <Debug> <Receive processing time> <Initial value>
-				echo go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0
-				go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG ${RECEIVE_PROCESSING_TIME[$N]} 0 &
+				# <ID> <N> <M> <Clients> <Remote> <Byzantine scenario> <Self-Stabilizing> <Corruption> <Debug> <Receive processing time> <Optimization> <Initial value>
+				echo go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG $PROCESSING_TIME $OPTIMIZATION 0
+				go run main.go $ID $N $M $CLIENTS $REMOTE $BYZANTINE_SCENARIO $SELF_STABILIZING $CORRUPTION $DEBUG $PROCESSING_TIME $OPTIMIZATION 0 &
 				ID=$(( $ID + $CLUSTER_SIZE ))
 			done
 			

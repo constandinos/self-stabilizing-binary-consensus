@@ -43,8 +43,8 @@ func cleanup() {
 
 // Initializer - Method that initializes all required processes
 func initializer(id int, n int, m int, clients int, remote int, byzantine_scenario int, self_stabilizing int, corruption int,
-	debug int, receive_processing_time int) {
-	variables.Initialize(id, n, m, clients, remote, debug, receive_processing_time)
+	debug int, receive_processing_time int, optimization int) {
+	variables.Initialize(id, n, m, clients, remote, debug, receive_processing_time, optimization)
 	logger.InitializeLogger("./logs/out/", "./logs/error/")
 
 	config.InitializeByzantineScenario(byzantine_scenario)
@@ -61,7 +61,7 @@ func initializer(id int, n int, m int, clients int, remote int, byzantine_scenar
 		variables.Clients, " | Byzantine scenario:", config.ByzantineScenario, " | Byzantine processor:", variables.Byzantine,
 		" | Self-Stabilization:", self_stabilizing == 1, " | Corruption scenario:", config.CorruptionScenario, " | Remote:",
 		variables.Remote, " | Debug:", variables.Debug, " | Receive processing time:", variables.ReceiveProcessingTime,
-		"\n\n",
+		" | Optimization:", variables.Optimization, "\n\n",
 	)
 
 	threshenc.ReadKeys("./keys/")
@@ -86,7 +86,7 @@ func main() {
 		N, _ := strconv.Atoi(args[1])
 		threshenc.GenerateKeys(N, "./keys/")
 
-	} else if len(args) == 11 {
+	} else if len(args) == 12 {
 		id, _ := strconv.Atoi(args[0])
 		n, _ := strconv.Atoi(args[1])
 		m, _ := strconv.Atoi(args[2])
@@ -97,10 +97,11 @@ func main() {
 		corruption, _ := strconv.Atoi(args[7])
 		debug, _ := strconv.Atoi(args[8])
 		receive_processing_time, _ := strconv.Atoi(args[9])
-		init_value, _ := strconv.Atoi(args[10])
+		optimization, _ := strconv.Atoi(args[10])
+		init_value, _ := strconv.Atoi(args[11])
 
 		initializer(id, n, m, clients, remote, byzantine_scenario, self_stabilizing, corruption, debug,
-			receive_processing_time)
+			receive_processing_time, optimization)
 
 		if variables.Debug {
 			logger.OutLogger.Print("Initial estimate value:", init_value, "\n\n")
@@ -117,6 +118,6 @@ func main() {
 
 	} else {
 		log.Fatal("Arguments should be '<ID> <N> <M> <Clients> <Remote> <Byzantine scenario> <Self-Stabilizing> " +
-			"<Corruption> <Debug> <Receive processing time> <Initial value>'")
+			"<Corruption> <Debug> <Receive processing time> <Optimization> <Initial value>'")
 	}
 }

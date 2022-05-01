@@ -33,6 +33,9 @@ var (
 	// The processing time for receive messages
 	ReceiveProcessingTime int
 
+	// Optimization flag
+	Optimization bool
+
 	// Counter for receiving messages
 	ReceivingMessages int
 
@@ -52,7 +55,7 @@ var (
 // 	variables.Initialize(id, n, m, clients, remote, debug, receive_processing_time)
 
 // Initialize - Variables initializer method
-func Initialize(id int, n int, m int, clients int, remote int, debug int, receive_processing_time int) {
+func Initialize(id int, n int, m int, clients int, remote int, debug int, receive_processing_time int, optimization int) {
 	ID = id
 
 	N = n
@@ -75,6 +78,12 @@ func Initialize(id int, n int, m int, clients int, remote int, debug int, receiv
 	}
 
 	ReceiveProcessingTime = receive_processing_time
+
+	if optimization == 1 {
+		Optimization = true
+	} else {
+		Optimization = false
+	}
 
 	ReceivingMessages = 0
 
