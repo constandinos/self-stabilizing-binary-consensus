@@ -3,10 +3,11 @@
 M=6
 CLIENTS=1
 REMOTE=0
-SELF_STABILIZING=1
+SELF_STABILIZING=0
 CORRUPTION=0
 DEBUG=0
-RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 80 100 150 200 250 400 480)
+#RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200) #SEND ALL
+RECEIVE_PROCESSING_TIME=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400) #SEND%2
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
@@ -31,10 +32,11 @@ else
 	mkdir results
 fi
 
-for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
-	for (( N=4; N<=12; N++ )); do
-		for (( i=0; i<10; i++ )); do
-			echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "i:"$i
+for BYZANTINE_SCENARIO in {0..0}; do
+	for N in {12..16..2}; do
+		for REPEAT in {1..10}; do
+			echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "REPEAT:"$REPEAT
+			
 			# Create keys
 			go run main.go generate_keys $N
 			sleep 4

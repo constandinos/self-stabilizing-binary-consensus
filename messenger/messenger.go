@@ -86,7 +86,7 @@ func InitializeMessenger() {
 		}
 		err = ReceiveSockets[i].Bind(receiveAddr)
 		if err != nil {
-			logger.ErrLogger.Fatal(err)
+			logger.ErrLogger.Fatal(err, receiveAddr)
 		}
 		if variables.Debug {
 			logger.OutLogger.Println("Receive from Server", i, "on", receiveAddr)
@@ -105,7 +105,7 @@ func InitializeMessenger() {
 		}
 		err = SendSockets[i].Connect(sendAddr)
 		if err != nil {
-			logger.ErrLogger.Fatal(err)
+			logger.ErrLogger.Fatal(err, sendAddr)
 		}
 		if variables.Debug {
 			logger.OutLogger.Println("Send to Server", i, "on", sendAddr)
@@ -135,7 +135,7 @@ func InitializeMessenger() {
 		}
 		err = ServerSockets[i].Bind(serverAddr)
 		if err != nil {
-			logger.ErrLogger.Fatal(err)
+			logger.ErrLogger.Fatal(err, serverAddr)
 		}
 		if variables.Debug {
 			logger.OutLogger.Println("Requests from Client", i, "on", serverAddr)
@@ -154,7 +154,7 @@ func InitializeMessenger() {
 		}
 		err = ResponseSockets[i].Bind(responseAddr)
 		if err != nil {
-			logger.ErrLogger.Fatal(err)
+			logger.ErrLogger.Fatal(err, responseAddr)
 		}
 		if variables.Debug {
 			logger.OutLogger.Println("Response to Client", i, "on", responseAddr)

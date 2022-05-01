@@ -6,7 +6,8 @@ REMOTE=1
 SELF_STABILIZING=1
 CORRUPTION=0
 DEBUG=0
-RECEIVE_PROCESSING_TIME=(0 0 0 0 30 40 80 100 150 200 250 400 480)
+#RECEIVE_PROCESSING_TIME=(0 0 0 0 30 0 80 0 150 0 250 0 480 0 670 0 1200) #SEND ALL
+RECEIVE_PROCESSING_TIME=(0 0 0 0 20 0 50 0 70 0 120 0 180 0 300 0 400) #SEND%2
 
 BYZ_STR=("0-Normal" "1-Idle" "2-Inverse" "3-HH" "4-Random")
 
@@ -45,14 +46,15 @@ if [ $MACHINE_ID == 0 ]; then
 fi
 
 # Byzantine Scenario
-for (( BYZANTINE_SCENARIO=0; BYZANTINE_SCENARIO<=4; BYZANTINE_SCENARIO++ )); do
+for BYZANTINE_SCENARIO in {0..4}; do
 	# Network size
-	for (( N=4; N<=12; N++ )); do
+	for N in {4..16..2}; do
 		# Experements
-		for (( i=0; i<10; i++ )); do
+		for REPEAT in {1..10}; do
+		
 			# Create keys
 			if [ $MACHINE_ID == 0 ]; then
-				echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "i:"$i
+				echo "BYZANTINE_SCENARIO:"$BYZANTINE_SCENARIO "N:"$N "REPEAT:"$REPEAT
 				go run main.go generate_keys $N
 				sleep 4
 			fi

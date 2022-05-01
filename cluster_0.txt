@@ -1,0 +1,1812 @@
+BYZANTINE_SCENARIO:0 N:4 REPEAT:1
+Just printf 0 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:27:10.log:INFO: 02:27:35.794159 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 25.6 52 0
+logs/out/1_out_05-01-2022_02:27:10.log:INFO: 02:27:35.806923 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 25.49 55 0
+logs/out/2_out_05-01-2022_02:27:30.log:INFO: 02:27:35.799083 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 5.54 50 0
+logs/out/3_out_05-01-2022_02:27:35.log:INFO: 02:27:35.779215 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.21 41 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:2
+Just printf 1 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:28:37.log:INFO: 02:28:38.197263 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.3 50 0
+logs/out/1_out_05-01-2022_02:28:37.log:INFO: 02:28:38.197575 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.24 48 0
+logs/out/2_out_05-01-2022_02:28:37.log:INFO: 02:28:38.249598 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 55 0
+logs/out/3_out_05-01-2022_02:28:37.log:INFO: 02:28:38.213418 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.39 50 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:3
+Just printf 2 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:29:48.log:INFO: 02:29:48.800178 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.3 48 0
+logs/out/1_out_05-01-2022_02:29:48.log:INFO: 02:29:48.798566 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.19 45 0
+logs/out/2_out_05-01-2022_02:29:48.log:INFO: 02:29:48.787510 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.77 40 0
+logs/out/3_out_05-01-2022_02:29:48.log:INFO: 02:29:48.799288 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.33 45 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:4
+Just printf 3 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:30:59.log:INFO: 02:31:00.291263 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.3 46 0
+logs/out/1_out_05-01-2022_02:31:00.log:INFO: 02:31:00.298823 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.25 48 0
+logs/out/2_out_05-01-2022_02:30:59.log:INFO: 02:31:00.292943 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.77 45 0
+logs/out/3_out_05-01-2022_02:30:59.log:INFO: 02:31:00.307835 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.36 48 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:5
+Just printf 4 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:32:11.log:INFO: 02:32:12.128669 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.35 45 0
+logs/out/1_out_05-01-2022_02:32:11.log:INFO: 02:32:12.122120 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.23 45 0
+logs/out/2_out_05-01-2022_02:32:11.log:INFO: 02:32:12.116266 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.8 43 0
+logs/out/3_out_05-01-2022_02:32:11.log:INFO: 02:32:12.114396 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.42 44 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:6
+Just printf 5 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:33:23.log:INFO: 02:33:23.997975 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.33 49 0
+logs/out/1_out_05-01-2022_02:33:23.log:INFO: 02:33:24.008065 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.26 51 0
+logs/out/2_out_05-01-2022_02:33:23.log:INFO: 02:33:23.982463 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.77 42 0
+logs/out/3_out_05-01-2022_02:33:23.log:INFO: 02:33:23.995048 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.4 50 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:7
+Just printf 6 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:34:35.log:INFO: 02:34:35.886862 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.33 45 0
+logs/out/1_out_05-01-2022_02:34:35.log:INFO: 02:34:35.902720 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.25 49 0
+logs/out/2_out_05-01-2022_02:34:35.log:INFO: 02:34:35.967273 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 60 0
+logs/out/3_out_05-01-2022_02:34:35.log:INFO: 02:34:35.872604 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.33 42 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:8
+Just printf 7 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:35:48.log:INFO: 02:35:48.762385 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.34 52 0
+logs/out/1_out_05-01-2022_02:35:48.log:INFO: 02:35:48.780618 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.31 54 0
+logs/out/2_out_05-01-2022_02:35:47.log:INFO: 02:35:48.785040 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 52 0
+logs/out/3_out_05-01-2022_02:35:48.log:INFO: 02:35:48.770853 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.42 54 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:9
+Just printf 8 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:36:58.log:INFO: 02:36:58.660592 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.44 63 0
+logs/out/1_out_05-01-2022_02:36:58.log:INFO: 02:36:58.655772 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.31 63 0
+logs/out/2_out_05-01-2022_02:36:57.log:INFO: 02:36:58.642709 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 60 0
+logs/out/3_out_05-01-2022_02:36:58.log:INFO: 02:36:58.645114 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.45 63 0
+BYZANTINE_SCENARIO:0 N:4 REPEAT:10
+Just printf 9 @ sync_0.txt
+go run main.go 0 4 6 1 1 0 1 0 0 20 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:38:10.log:INFO: 02:38:10.580504 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.3 45 0
+logs/out/1_out_05-01-2022_02:38:10.log:INFO: 02:38:10.584206 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.23 45 0
+logs/out/2_out_05-01-2022_02:38:09.log:INFO: 02:38:10.620749 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.82 53 0
+logs/out/3_out_05-01-2022_02:38:10.log:INFO: 02:38:10.615619 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.37 51 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:1
+Just printf 10 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:39:23.log:INFO: 02:39:24.149555 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.5 115 0
+logs/out/1_out_05-01-2022_02:39:23.log:INFO: 02:39:24.106862 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.62 108 0
+logs/out/2_out_05-01-2022_02:39:22.log:INFO: 02:39:24.150550 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 115 0
+logs/out/3_out_05-01-2022_02:39:23.log:INFO: 02:39:24.134383 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.79 115 0
+logs/out/4_out_05-01-2022_02:39:22.log:INFO: 02:39:24.106370 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.12 106 0
+logs/out/5_out_05-01-2022_02:39:23.log:INFO: 02:39:24.138155 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.46 115 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:2
+Just printf 11 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:40:36.log:INFO: 02:40:37.087390 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.42 90 0
+logs/out/1_out_05-01-2022_02:40:36.log:INFO: 02:40:37.089410 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.61 90 0
+logs/out/2_out_05-01-2022_02:40:35.log:INFO: 02:40:37.107267 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 90 0
+logs/out/3_out_05-01-2022_02:40:36.log:INFO: 02:40:37.088324 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.75 90 0
+logs/out/4_out_05-01-2022_02:40:36.log:INFO: 02:40:37.088718 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 90 0
+logs/out/5_out_05-01-2022_02:40:36.log:INFO: 02:40:37.081337 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.35 90 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:3
+Just printf 12 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:41:48.log:INFO: 02:41:48.892855 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.42 105 0
+logs/out/1_out_05-01-2022_02:41:48.log:INFO: 02:41:48.891559 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.63 105 0
+logs/out/2_out_05-01-2022_02:41:47.log:INFO: 02:41:48.887215 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 105 0
+logs/out/3_out_05-01-2022_02:41:48.log:INFO: 02:41:48.922680 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 105 0
+logs/out/4_out_05-01-2022_02:41:47.log:INFO: 02:41:48.893377 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 105 0
+logs/out/5_out_05-01-2022_02:41:48.log:INFO: 02:41:48.870232 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.4 101 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:4
+Just printf 13 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:43:02.log:INFO: 02:43:02.554238 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.42 100 0
+logs/out/1_out_05-01-2022_02:43:01.log:INFO: 02:43:02.545807 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.58 100 0
+logs/out/2_out_05-01-2022_02:43:01.log:INFO: 02:43:02.541139 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.12 100 0
+logs/out/3_out_05-01-2022_02:43:01.log:INFO: 02:43:02.560146 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.71 100 0
+logs/out/4_out_05-01-2022_02:43:01.log:INFO: 02:43:02.557732 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 100 0
+logs/out/5_out_05-01-2022_02:43:02.log:INFO: 02:43:02.565231 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.49 100 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:5
+Just printf 14 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:44:14.log:INFO: 02:44:14.632717 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.37 85 0
+logs/out/1_out_05-01-2022_02:44:14.log:INFO: 02:44:14.610794 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.56 85 0
+logs/out/2_out_05-01-2022_02:44:13.log:INFO: 02:44:14.609233 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 85 0
+logs/out/3_out_05-01-2022_02:44:13.log:INFO: 02:44:14.604525 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.61 85 0
+logs/out/4_out_05-01-2022_02:44:13.log:INFO: 02:44:14.611495 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 85 0
+logs/out/5_out_05-01-2022_02:44:14.log:INFO: 02:44:14.631660 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.39 85 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:6
+Just printf 15 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:45:29.log:INFO: 02:45:29.536612 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.36 80 0
+logs/out/1_out_05-01-2022_02:45:28.log:INFO: 02:45:29.530438 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.6 80 0
+logs/out/2_out_05-01-2022_02:45:28.log:INFO: 02:45:29.534987 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 80 0
+logs/out/3_out_05-01-2022_02:45:28.log:INFO: 02:45:29.557634 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.73 80 0
+logs/out/4_out_05-01-2022_02:45:28.log:INFO: 02:45:29.534354 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 79 0
+logs/out/5_out_05-01-2022_02:45:29.log:INFO: 02:45:29.524314 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.44 78 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:7
+Just printf 16 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:46:42.log:INFO: 02:46:42.739987 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.43 95 0
+logs/out/1_out_05-01-2022_02:46:41.log:INFO: 02:46:42.733593 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.74 95 0
+logs/out/2_out_05-01-2022_02:46:41.log:INFO: 02:46:42.747914 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 95 0
+logs/out/3_out_05-01-2022_02:46:41.log:INFO: 02:46:42.735477 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 95 0
+logs/out/4_out_05-01-2022_02:46:41.log:INFO: 02:46:42.748336 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 95 0
+logs/out/5_out_05-01-2022_02:46:42.log:INFO: 02:46:42.769720 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.45 95 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:8
+Just printf 17 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:47:55.log:INFO: 02:47:56.071300 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.43 100 0
+logs/out/1_out_05-01-2022_02:47:55.log:INFO: 02:47:56.072634 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.59 100 0
+logs/out/2_out_05-01-2022_02:47:54.log:INFO: 02:47:56.057240 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 100 0
+logs/out/3_out_05-01-2022_02:47:55.log:INFO: 02:47:56.063487 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.72 100 0
+logs/out/4_out_05-01-2022_02:47:54.log:INFO: 02:47:56.061195 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 100 0
+logs/out/5_out_05-01-2022_02:47:55.log:INFO: 02:47:56.070531 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.48 100 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:9
+Just printf 18 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:49:08.log:INFO: 02:49:08.937975 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.33 85 0
+logs/out/1_out_05-01-2022_02:49:08.log:INFO: 02:49:08.946389 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.56 85 0
+logs/out/2_out_05-01-2022_02:49:07.log:INFO: 02:49:08.972317 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.16 85 0
+logs/out/3_out_05-01-2022_02:49:08.log:INFO: 02:49:08.941838 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.67 85 0
+logs/out/4_out_05-01-2022_02:49:07.log:INFO: 02:49:08.955884 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 85 0
+logs/out/5_out_05-01-2022_02:49:08.log:INFO: 02:49:08.937846 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.35 85 0
+BYZANTINE_SCENARIO:0 N:6 REPEAT:10
+Just printf 19 @ sync_0.txt
+go run main.go 0 6 6 1 1 0 1 0 0 50 0
+go run main.go 5 6 6 1 1 0 1 0 0 50 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:50:23.log:INFO: 02:50:23.513919 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.37 85 0
+logs/out/1_out_05-01-2022_02:50:22.log:INFO: 02:50:23.488327 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.62 85 0
+logs/out/2_out_05-01-2022_02:50:22.log:INFO: 02:50:23.489305 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 82 0
+logs/out/3_out_05-01-2022_02:50:22.log:INFO: 02:50:23.485833 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.75 85 0
+logs/out/4_out_05-01-2022_02:50:22.log:INFO: 02:50:23.491033 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 85 0
+logs/out/5_out_05-01-2022_02:50:23.log:INFO: 02:50:23.498009 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.43 85 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:1
+Just printf 20 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:51:35.log:INFO: 02:51:36.727336 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.02 194 0
+logs/out/1_out_05-01-2022_02:51:35.log:INFO: 02:51:36.784248 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 209 0
+logs/out/2_out_05-01-2022_02:51:36.log:INFO: 02:51:36.780990 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.73 197 0
+logs/out/3_out_05-01-2022_02:51:35.log:INFO: 02:51:36.653169 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 170 0
+logs/out/4_out_05-01-2022_02:51:34.log:INFO: 02:51:36.929495 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.91 253 0
+logs/out/5_out_05-01-2022_02:51:35.log:INFO: 02:51:36.784943 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 204 0
+logs/out/6_out_05-01-2022_02:51:35.log:INFO: 02:51:36.704284 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 184 0
+logs/out/7_out_05-01-2022_02:51:36.log:INFO: 02:51:36.825487 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.77 210 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:2
+Just printf 21 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:52:52.log:INFO: 02:52:53.836947 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 202 0
+logs/out/1_out_05-01-2022_02:52:52.log:INFO: 02:52:53.836182 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 203 0
+logs/out/2_out_05-01-2022_02:52:53.log:INFO: 02:52:53.823121 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.71 193 0
+logs/out/3_out_05-01-2022_02:52:52.log:INFO: 02:52:53.806180 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 188 0
+logs/out/4_out_05-01-2022_02:52:52.log:INFO: 02:52:53.908252 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.84 210 0
+logs/out/5_out_05-01-2022_02:52:52.log:INFO: 02:52:53.807817 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 189 0
+logs/out/6_out_05-01-2022_02:52:52.log:INFO: 02:52:53.835102 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 199 0
+logs/out/7_out_05-01-2022_02:52:53.log:INFO: 02:52:53.876667 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.77 206 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:3
+Just printf 22 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:54:06.log:INFO: 02:54:07.676387 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.02 188 0
+logs/out/1_out_05-01-2022_02:54:06.log:INFO: 02:54:07.732556 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 200 0
+logs/out/2_out_05-01-2022_02:54:07.log:INFO: 02:54:07.842195 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.78 237 0
+logs/out/3_out_05-01-2022_02:54:06.log:INFO: 02:54:07.699289 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 191 0
+logs/out/4_out_05-01-2022_02:54:05.log:INFO: 02:54:07.709796 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 195 0
+logs/out/5_out_05-01-2022_02:54:06.log:INFO: 02:54:07.700502 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 191 0
+logs/out/6_out_05-01-2022_02:54:06.log:INFO: 02:54:07.771002 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.02 209 0
+logs/out/7_out_05-01-2022_02:54:07.log:INFO: 02:54:07.769183 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.7 203 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:4
+Just printf 23 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:55:20.log:INFO: 02:55:21.519833 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 231 0
+logs/out/1_out_05-01-2022_02:55:20.log:INFO: 02:55:21.558199 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 241 0
+logs/out/2_out_05-01-2022_02:55:20.log:INFO: 02:55:21.556551 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.87 238 0
+logs/out/3_out_05-01-2022_02:55:19.log:INFO: 02:55:21.504443 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.49 221 0
+logs/out/4_out_05-01-2022_02:55:19.log:INFO: 02:55:21.647249 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.01 255 0
+logs/out/5_out_05-01-2022_02:55:20.log:INFO: 02:55:21.500810 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 217 0
+logs/out/6_out_05-01-2022_02:55:20.log:INFO: 02:55:21.568672 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 241 0
+logs/out/7_out_05-01-2022_02:55:20.log:INFO: 02:55:21.512565 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 218 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:5
+Just printf 24 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:56:35.log:INFO: 02:56:36.791316 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 258 0
+logs/out/1_out_05-01-2022_02:56:35.log:INFO: 02:56:37.085111 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.62 353 0
+logs/out/2_out_05-01-2022_02:56:35.log:INFO: 02:56:36.771619 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.95 249 0
+logs/out/3_out_05-01-2022_02:56:35.log:INFO: 02:56:36.920497 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.79 296 0
+logs/out/4_out_05-01-2022_02:56:34.log:INFO: 02:56:36.989983 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.26 303 0
+logs/out/5_out_05-01-2022_02:56:35.log:INFO: 02:56:36.686218 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 216 0
+logs/out/6_out_05-01-2022_02:56:35.log:INFO: 02:56:36.914061 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 289 0
+logs/out/7_out_05-01-2022_02:56:35.log:INFO: 02:56:36.865680 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 261 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:6
+Just printf 25 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:57:48.log:INFO: 02:57:49.633677 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.39 257 0
+logs/out/1_out_05-01-2022_02:57:48.log:INFO: 02:57:49.543016 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 234 0
+logs/out/2_out_05-01-2022_02:57:48.log:INFO: 02:57:49.542700 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 226 0
+logs/out/3_out_05-01-2022_02:57:47.log:INFO: 02:57:49.501046 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 218 0
+logs/out/4_out_05-01-2022_02:57:47.log:INFO: 02:57:49.550021 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.91 230 0
+logs/out/5_out_05-01-2022_02:57:48.log:INFO: 02:57:49.642644 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 253 0
+logs/out/6_out_05-01-2022_02:57:48.log:INFO: 02:57:49.757758 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.46 294 0
+logs/out/7_out_05-01-2022_02:57:48.log:INFO: 02:57:49.701080 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 277 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:7
+Just printf 26 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_02:59:02.log:INFO: 02:59:03.359907 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.08 210 0
+logs/out/1_out_05-01-2022_02:59:02.log:INFO: 02:59:03.447259 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.14 243 0
+logs/out/2_out_05-01-2022_02:59:02.log:INFO: 02:59:03.403243 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.75 215 0
+logs/out/3_out_05-01-2022_02:59:01.log:INFO: 02:59:03.329323 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.43 204 0
+logs/out/4_out_05-01-2022_02:59:01.log:INFO: 02:59:03.451423 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.87 247 0
+logs/out/5_out_05-01-2022_02:59:02.log:INFO: 02:59:03.328273 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 202 0
+logs/out/6_out_05-01-2022_02:59:02.log:INFO: 02:59:03.286877 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.95 188 0
+logs/out/7_out_05-01-2022_02:59:02.log:INFO: 02:59:03.410056 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.76 219 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:8
+Just printf 27 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:00:17.log:INFO: 03:00:18.637825 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 213 0
+logs/out/1_out_05-01-2022_03:00:17.log:INFO: 03:00:18.602339 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 195 0
+logs/out/2_out_05-01-2022_03:00:17.log:INFO: 03:00:18.698037 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.81 225 0
+logs/out/3_out_05-01-2022_03:00:17.log:INFO: 03:00:18.638652 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 210 0
+logs/out/4_out_05-01-2022_03:00:16.log:INFO: 03:00:18.765001 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.95 239 0
+logs/out/5_out_05-01-2022_03:00:17.log:INFO: 03:00:18.743174 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 235 0
+logs/out/6_out_05-01-2022_03:00:17.log:INFO: 03:00:18.707319 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 230 0
+logs/out/7_out_05-01-2022_03:00:17.log:INFO: 03:00:18.691651 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.8 208 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:9
+Just printf 28 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:01:31.log:INFO: 03:01:32.714591 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.05 207 0
+logs/out/1_out_05-01-2022_03:01:31.log:INFO: 03:01:32.708562 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.95 204 0
+logs/out/2_out_05-01-2022_03:01:31.log:INFO: 03:01:32.844453 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 248 0
+logs/out/3_out_05-01-2022_03:01:31.log:INFO: 03:01:32.893291 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.64 267 0
+logs/out/4_out_05-01-2022_03:01:30.log:INFO: 03:01:32.772714 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.83 215 0
+logs/out/5_out_05-01-2022_03:01:31.log:INFO: 03:01:32.846572 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 248 0
+logs/out/6_out_05-01-2022_03:01:31.log:INFO: 03:01:32.708961 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 203 0
+logs/out/7_out_05-01-2022_03:01:31.log:INFO: 03:01:33.012691 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.03 292 0
+BYZANTINE_SCENARIO:0 N:8 REPEAT:10
+Just printf 29 @ sync_0.txt
+go run main.go 0 8 6 1 1 0 1 0 0 70 0
+go run main.go 5 8 6 1 1 0 1 0 0 70 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:02:48.log:INFO: 03:02:49.384667 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.12 200 0
+logs/out/1_out_05-01-2022_03:02:48.log:INFO: 03:02:49.396218 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 204 0
+logs/out/2_out_05-01-2022_03:02:48.log:INFO: 03:02:49.648989 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.97 270 0
+logs/out/3_out_05-01-2022_03:02:47.log:INFO: 03:02:49.530182 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 249 0
+logs/out/4_out_05-01-2022_03:02:47.log:INFO: 03:02:49.416770 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.82 211 0
+logs/out/5_out_05-01-2022_03:02:48.log:INFO: 03:02:49.430088 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 211 0
+logs/out/6_out_05-01-2022_03:02:48.log:INFO: 03:02:49.401227 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.03 203 0
+logs/out/7_out_05-01-2022_03:02:48.log:INFO: 03:02:49.501324 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.82 236 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:1
+Just printf 30 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:04:04.log:INFO: 03:04:05.483301 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 293 0
+logs/out/1_out_05-01-2022_03:04:04.log:INFO: 03:04:05.499376 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 292 0
+logs/out/2_out_05-01-2022_03:04:04.log:INFO: 03:04:05.543399 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.08 297 0
+logs/out/3_out_05-01-2022_03:04:04.log:INFO: 03:04:05.512785 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 293 0
+logs/out/4_out_05-01-2022_03:04:04.log:INFO: 03:04:05.507034 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 283 0
+logs/out/5_out_05-01-2022_03:04:04.log:INFO: 03:04:05.533116 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.51 296 0
+logs/out/6_out_05-01-2022_03:04:04.log:INFO: 03:04:05.563633 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 297 0
+logs/out/7_out_05-01-2022_03:04:04.log:INFO: 03:04:05.534362 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.08 295 0
+logs/out/8_out_05-01-2022_03:04:04.log:INFO: 03:04:05.563021 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 297 0
+logs/out/9_out_05-01-2022_03:04:04.log:INFO: 03:04:05.492926 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.93 290 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:2
+Just printf 31 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:05:20.log:INFO: 03:05:22.013310 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.71 347 0
+logs/out/1_out_05-01-2022_03:05:20.log:INFO: 03:05:21.860762 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 292 0
+logs/out/2_out_05-01-2022_03:05:20.log:INFO: 03:05:22.173384 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 397 0
+logs/out/3_out_05-01-2022_03:05:20.log:INFO: 03:05:22.026544 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.49 355 0
+logs/out/4_out_05-01-2022_03:05:20.log:INFO: 03:05:21.969472 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 328 0
+logs/out/5_out_05-01-2022_03:05:20.log:INFO: 03:05:21.954275 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.58 324 0
+logs/out/6_out_05-01-2022_03:05:20.log:INFO: 03:05:22.014669 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.61 350 0
+logs/out/7_out_05-01-2022_03:05:20.log:INFO: 03:05:22.086583 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 365 0
+logs/out/8_out_05-01-2022_03:05:20.log:INFO: 03:05:21.875466 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 297 0
+logs/out/9_out_05-01-2022_03:05:20.log:INFO: 03:05:22.204200 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.46 406 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:3
+Just printf 32 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:06:36.log:INFO: 03:06:38.519843 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 341 0
+logs/out/1_out_05-01-2022_03:06:36.log:INFO: 03:06:38.670441 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.71 383 0
+logs/out/2_out_05-01-2022_03:06:37.log:INFO: 03:06:38.658496 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 374 0
+logs/out/3_out_05-01-2022_03:06:37.log:INFO: 03:06:38.660373 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.6 378 0
+logs/out/4_out_05-01-2022_03:06:37.log:INFO: 03:06:38.609479 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 368 0
+logs/out/5_out_05-01-2022_03:06:36.log:INFO: 03:06:38.429623 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 315 0
+logs/out/6_out_05-01-2022_03:06:36.log:INFO: 03:06:38.479571 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 327 0
+logs/out/7_out_05-01-2022_03:06:37.log:INFO: 03:06:38.727213 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 387 0
+logs/out/8_out_05-01-2022_03:06:36.log:INFO: 03:06:38.687753 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 387 0
+logs/out/9_out_05-01-2022_03:06:37.log:INFO: 03:06:38.662810 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 368 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:4
+Just printf 33 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:07:53.log:INFO: 03:07:54.663553 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 219 0
+logs/out/1_out_05-01-2022_03:07:53.log:INFO: 03:07:54.604634 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 204 0
+logs/out/2_out_05-01-2022_03:07:53.log:INFO: 03:07:54.625186 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.88 205 0
+logs/out/3_out_05-01-2022_03:07:53.log:INFO: 03:07:54.563310 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 196 0
+logs/out/4_out_05-01-2022_03:07:53.log:INFO: 03:07:54.739029 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 236 0
+logs/out/5_out_05-01-2022_03:07:53.log:INFO: 03:07:54.568670 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.27 197 0
+logs/out/6_out_05-01-2022_03:07:53.log:INFO: 03:07:54.569191 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 197 0
+logs/out/7_out_05-01-2022_03:07:53.log:INFO: 03:07:54.801174 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 246 0
+logs/out/8_out_05-01-2022_03:07:53.log:INFO: 03:07:54.653228 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 215 0
+logs/out/9_out_05-01-2022_03:07:53.log:INFO: 03:07:54.709091 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.89 227 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:5
+Just printf 34 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:09:11.log:INFO: 03:09:13.422081 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.7 277 0
+logs/out/1_out_05-01-2022_03:09:11.log:INFO: 03:09:13.482206 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.64 291 0
+logs/out/2_out_05-01-2022_03:09:12.log:INFO: 03:09:13.728706 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 357 0
+logs/out/3_out_05-01-2022_03:09:12.log:INFO: 03:09:13.487907 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.02 289 0
+logs/out/4_out_05-01-2022_03:09:12.log:INFO: 03:09:13.581873 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 298 0
+logs/out/5_out_05-01-2022_03:09:11.log:INFO: 03:09:13.441798 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.7 279 0
+logs/out/6_out_05-01-2022_03:09:11.log:INFO: 03:09:13.513586 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.6 294 0
+logs/out/7_out_05-01-2022_03:09:12.log:INFO: 03:09:13.572179 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.08 300 0
+logs/out/8_out_05-01-2022_03:09:11.log:INFO: 03:09:13.466392 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.01 285 0
+logs/out/9_out_05-01-2022_03:09:12.log:INFO: 03:09:13.716676 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 350 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:6
+Just printf 35 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:10:30.log:INFO: 03:10:33.138634 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.38 314 0
+logs/out/1_out_05-01-2022_03:10:30.log:INFO: 03:10:33.095695 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.33 301 0
+logs/out/2_out_05-01-2022_03:10:31.log:INFO: 03:10:33.341526 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.63 368 0
+logs/out/3_out_05-01-2022_03:10:31.log:INFO: 03:10:33.237396 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 335 0
+logs/out/4_out_05-01-2022_03:10:32.log:INFO: 03:10:33.185639 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 324 0
+logs/out/5_out_05-01-2022_03:10:30.log:INFO: 03:10:33.169489 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.41 318 0
+logs/out/6_out_05-01-2022_03:10:30.log:INFO: 03:10:33.224985 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.46 327 0
+logs/out/7_out_05-01-2022_03:10:31.log:INFO: 03:10:33.208894 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.53 327 0
+logs/out/8_out_05-01-2022_03:10:31.log:INFO: 03:10:33.156688 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 317 0
+logs/out/9_out_05-01-2022_03:10:32.log:INFO: 03:10:33.432342 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 398 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:7
+Just printf 36 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:11:47.log:INFO: 03:11:49.228078 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 281 0
+logs/out/1_out_05-01-2022_03:11:47.log:INFO: 03:11:49.225596 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 281 0
+logs/out/2_out_05-01-2022_03:11:48.log:INFO: 03:11:49.381057 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 330 0
+logs/out/3_out_05-01-2022_03:11:47.log:INFO: 03:11:49.207198 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 276 0
+logs/out/4_out_05-01-2022_03:11:48.log:INFO: 03:11:49.346110 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 307 0
+logs/out/5_out_05-01-2022_03:11:47.log:INFO: 03:11:49.227352 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 279 0
+logs/out/6_out_05-01-2022_03:11:47.log:INFO: 03:11:49.254604 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 286 0
+logs/out/7_out_05-01-2022_03:11:48.log:INFO: 03:11:49.312010 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 295 0
+logs/out/8_out_05-01-2022_03:11:47.log:INFO: 03:11:49.253205 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 286 0
+logs/out/9_out_05-01-2022_03:11:48.log:INFO: 03:11:49.458068 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 338 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:8
+Just printf 37 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:13:03.log:INFO: 03:13:04.426054 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 220 0
+logs/out/1_out_05-01-2022_03:13:03.log:INFO: 03:13:04.493667 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 242 0
+logs/out/2_out_05-01-2022_03:13:03.log:INFO: 03:13:04.534085 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.96 244 0
+logs/out/3_out_05-01-2022_03:13:03.log:INFO: 03:13:04.521759 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 248 0
+logs/out/4_out_05-01-2022_03:13:03.log:INFO: 03:13:04.464763 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 231 0
+logs/out/5_out_05-01-2022_03:13:03.log:INFO: 03:13:04.564612 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 256 0
+logs/out/6_out_05-01-2022_03:13:03.log:INFO: 03:13:04.519309 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 247 0
+logs/out/7_out_05-01-2022_03:13:03.log:INFO: 03:13:04.508591 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.95 241 0
+logs/out/8_out_05-01-2022_03:13:03.log:INFO: 03:13:04.577220 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 261 0
+logs/out/9_out_05-01-2022_03:13:03.log:INFO: 03:13:04.539797 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.88 252 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:9
+Just printf 38 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:14:18.log:INFO: 03:14:20.199990 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.53 316 0
+logs/out/1_out_05-01-2022_03:14:18.log:INFO: 03:14:20.159986 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 310 0
+logs/out/2_out_05-01-2022_03:14:19.log:INFO: 03:14:20.367422 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 366 0
+logs/out/3_out_05-01-2022_03:14:18.log:INFO: 03:14:20.193428 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.57 315 0
+logs/out/4_out_05-01-2022_03:14:19.log:INFO: 03:14:20.177919 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 307 0
+logs/out/5_out_05-01-2022_03:14:18.log:INFO: 03:14:20.173802 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 311 0
+logs/out/6_out_05-01-2022_03:14:18.log:INFO: 03:14:20.173132 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 311 0
+logs/out/7_out_05-01-2022_03:14:19.log:INFO: 03:14:20.255264 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 324 0
+logs/out/8_out_05-01-2022_03:14:18.log:INFO: 03:14:20.244452 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 332 0
+logs/out/9_out_05-01-2022_03:14:19.log:INFO: 03:14:20.170114 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.05 311 0
+BYZANTINE_SCENARIO:0 N:10 REPEAT:10
+Just printf 39 @ sync_0.txt
+go run main.go 0 10 6 1 1 0 1 0 0 120 0
+go run main.go 5 10 6 1 1 0 1 0 0 120 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:15:38.log:INFO: 03:15:40.563158 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.27 234 0
+logs/out/1_out_05-01-2022_03:15:38.log:INFO: 03:15:40.500947 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.24 221 0
+logs/out/2_out_05-01-2022_03:15:39.log:INFO: 03:15:40.565356 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.88 234 0
+logs/out/3_out_05-01-2022_03:15:39.log:INFO: 03:15:40.513551 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 226 0
+logs/out/4_out_05-01-2022_03:15:39.log:INFO: 03:15:40.554083 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 231 0
+logs/out/5_out_05-01-2022_03:15:38.log:INFO: 03:15:40.615166 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.38 234 0
+logs/out/6_out_05-01-2022_03:15:38.log:INFO: 03:15:40.601358 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.31 234 0
+logs/out/7_out_05-01-2022_03:15:39.log:INFO: 03:15:40.532122 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 223 0
+logs/out/8_out_05-01-2022_03:15:39.log:INFO: 03:15:40.564141 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 234 0
+logs/out/9_out_05-01-2022_03:15:39.log:INFO: 03:15:40.559686 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 234 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:1
+Just printf 40 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:16:54.log:INFO: 03:16:55.644535 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 291 0
+logs/out/10_out_05-01-2022_03:16:54.log:INFO: 03:16:55.684820 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 293 0
+logs/out/11_out_05-01-2022_03:16:54.log:INFO: 03:16:55.730145 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 297 0
+logs/out/1_out_05-01-2022_03:16:54.log:INFO: 03:16:55.735384 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 297 0
+logs/out/2_out_05-01-2022_03:16:54.log:INFO: 03:16:55.821125 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 297 0
+logs/out/3_out_05-01-2022_03:16:54.log:INFO: 03:16:55.700394 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.49 296 0
+logs/out/4_out_05-01-2022_03:16:54.log:INFO: 03:16:55.842863 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 298 0
+logs/out/5_out_05-01-2022_03:16:54.log:INFO: 03:16:55.770877 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 297 0
+logs/out/6_out_05-01-2022_03:16:54.log:INFO: 03:16:55.684916 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 296 0
+logs/out/7_out_05-01-2022_03:16:54.log:INFO: 03:16:55.749031 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 297 0
+logs/out/8_out_05-01-2022_03:16:54.log:INFO: 03:16:55.785118 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.53 297 0
+logs/out/9_out_05-01-2022_03:16:54.log:INFO: 03:16:55.721571 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.12 297 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:2
+Just printf 41 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:18:13.log:INFO: 03:18:15.174372 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 329 0
+logs/out/10_out_05-01-2022_03:18:13.log:INFO: 03:18:15.131205 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 314 0
+logs/out/11_out_05-01-2022_03:18:13.log:INFO: 03:18:15.172946 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 326 0
+logs/out/1_out_05-01-2022_03:18:13.log:INFO: 03:18:15.169622 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 330 0
+logs/out/2_out_05-01-2022_03:18:13.log:INFO: 03:18:15.366649 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 383 0
+logs/out/3_out_05-01-2022_03:18:13.log:INFO: 03:18:15.302537 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.76 366 0
+logs/out/4_out_05-01-2022_03:18:13.log:INFO: 03:18:15.479875 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 407 0
+logs/out/5_out_05-01-2022_03:18:13.log:INFO: 03:18:15.055729 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.14 298 0
+logs/out/6_out_05-01-2022_03:18:13.log:INFO: 03:18:15.053174 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 297 0
+logs/out/7_out_05-01-2022_03:18:13.log:INFO: 03:18:15.181906 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 330 0
+logs/out/8_out_05-01-2022_03:18:13.log:INFO: 03:18:15.222726 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.5 339 0
+logs/out/9_out_05-01-2022_03:18:13.log:INFO: 03:18:15.401201 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 392 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:3
+Just printf 42 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:19:30.log:INFO: 03:19:32.197089 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 301 0
+logs/out/10_out_05-01-2022_03:19:30.log:INFO: 03:19:32.145045 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 284 0
+logs/out/11_out_05-01-2022_03:19:30.log:INFO: 03:19:32.144899 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 285 0
+logs/out/1_out_05-01-2022_03:19:31.log:INFO: 03:19:32.198290 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.1 299 0
+logs/out/2_out_05-01-2022_03:19:30.log:INFO: 03:19:32.257102 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.27 308 0
+logs/out/3_out_05-01-2022_03:19:30.log:INFO: 03:19:32.365928 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.68 321 0
+logs/out/4_out_05-01-2022_03:19:30.log:INFO: 03:19:32.361873 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 310 0
+logs/out/5_out_05-01-2022_03:19:30.log:INFO: 03:19:32.298662 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 308 0
+logs/out/6_out_05-01-2022_03:19:31.log:INFO: 03:19:32.261811 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 308 0
+logs/out/7_out_05-01-2022_03:19:30.log:INFO: 03:19:32.382928 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.39 325 0
+logs/out/8_out_05-01-2022_03:19:30.log:INFO: 03:19:32.155461 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.58 288 0
+logs/out/9_out_05-01-2022_03:19:31.log:INFO: 03:19:32.232664 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 304 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:4
+Just printf 43 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:20:51.log:INFO: 03:20:53.078940 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 352 0
+logs/out/10_out_05-01-2022_03:20:51.log:INFO: 03:20:53.097347 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 352 0
+logs/out/11_out_05-01-2022_03:20:51.log:INFO: 03:20:53.078606 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 352 0
+logs/out/1_out_05-01-2022_03:20:51.log:INFO: 03:20:53.097114 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 352 0
+logs/out/2_out_05-01-2022_03:20:51.log:INFO: 03:20:53.165647 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 352 0
+logs/out/3_out_05-01-2022_03:20:51.log:INFO: 03:20:52.990503 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.57 339 0
+logs/out/4_out_05-01-2022_03:20:51.log:INFO: 03:20:53.192685 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 353 0
+logs/out/5_out_05-01-2022_03:20:51.log:INFO: 03:20:53.009933 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 344 0
+logs/out/6_out_05-01-2022_03:20:51.log:INFO: 03:20:52.975524 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 334 0
+logs/out/7_out_05-01-2022_03:20:51.log:INFO: 03:20:53.066869 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 352 0
+logs/out/8_out_05-01-2022_03:20:51.log:INFO: 03:20:53.098685 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.69 352 0
+logs/out/9_out_05-01-2022_03:20:51.log:INFO: 03:20:53.038879 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 349 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:5
+Just printf 44 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:22:11.log:INFO: 03:22:13.206263 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 301 0
+logs/out/10_out_05-01-2022_03:22:11.log:INFO: 03:22:13.284549 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 308 0
+logs/out/11_out_05-01-2022_03:22:12.log:INFO: 03:22:13.285682 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 308 0
+logs/out/1_out_05-01-2022_03:22:12.log:INFO: 03:22:13.209498 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 302 0
+logs/out/2_out_05-01-2022_03:22:11.log:INFO: 03:22:13.378312 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 310 0
+logs/out/3_out_05-01-2022_03:22:11.log:INFO: 03:22:13.166267 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 293 0
+logs/out/4_out_05-01-2022_03:22:12.log:INFO: 03:22:13.173583 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.03 292 0
+logs/out/5_out_05-01-2022_03:22:11.log:INFO: 03:22:13.263036 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 308 0
+logs/out/6_out_05-01-2022_03:22:11.log:INFO: 03:22:13.303048 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 308 0
+logs/out/7_out_05-01-2022_03:22:11.log:INFO: 03:22:13.300456 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 308 0
+logs/out/8_out_05-01-2022_03:22:11.log:INFO: 03:22:13.306608 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.7 308 0
+logs/out/9_out_05-01-2022_03:22:12.log:INFO: 03:22:13.307314 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 308 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:6
+Just printf 45 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:23:32.log:INFO: 03:23:34.153257 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 297 0
+logs/out/10_out_05-01-2022_03:23:32.log:INFO: 03:23:34.070147 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 295 0
+logs/out/11_out_05-01-2022_03:23:32.log:INFO: 03:23:34.011773 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 279 0
+logs/out/1_out_05-01-2022_03:23:32.log:INFO: 03:23:34.056238 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 294 0
+logs/out/2_out_05-01-2022_03:23:32.log:INFO: 03:23:34.152262 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 297 0
+logs/out/3_out_05-01-2022_03:23:32.log:INFO: 03:23:34.157495 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 297 0
+logs/out/4_out_05-01-2022_03:23:32.log:INFO: 03:23:34.152175 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 297 0
+logs/out/5_out_05-01-2022_03:23:32.log:INFO: 03:23:34.211947 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 302 0
+logs/out/6_out_05-01-2022_03:23:32.log:INFO: 03:23:34.073275 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.27 296 0
+logs/out/7_out_05-01-2022_03:23:32.log:INFO: 03:23:34.154798 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 297 0
+logs/out/8_out_05-01-2022_03:23:32.log:INFO: 03:23:34.035359 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 291 0
+logs/out/9_out_05-01-2022_03:23:32.log:INFO: 03:23:34.075324 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.12 297 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:7
+Just printf 46 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:24:52.log:INFO: 03:24:53.229544 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.16 303 0
+logs/out/10_out_05-01-2022_03:24:51.log:INFO: 03:24:53.340577 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 319 0
+logs/out/11_out_05-01-2022_03:24:52.log:INFO: 03:24:53.267323 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 306 0
+logs/out/1_out_05-01-2022_03:24:52.log:INFO: 03:24:53.326422 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 317 0
+logs/out/2_out_05-01-2022_03:24:51.log:INFO: 03:24:53.338444 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 319 0
+logs/out/3_out_05-01-2022_03:24:51.log:INFO: 03:24:53.339785 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.68 319 0
+logs/out/4_out_05-01-2022_03:24:52.log:INFO: 03:24:53.263270 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 301 0
+logs/out/5_out_05-01-2022_03:24:51.log:INFO: 03:24:53.275162 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 310 0
+logs/out/6_out_05-01-2022_03:24:52.log:INFO: 03:24:53.436235 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 328 0
+logs/out/7_out_05-01-2022_03:24:51.log:INFO: 03:24:53.331669 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 317 0
+logs/out/8_out_05-01-2022_03:24:51.log:INFO: 03:24:53.285351 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.57 312 0
+logs/out/9_out_05-01-2022_03:24:52.log:INFO: 03:24:53.391441 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 319 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:8
+Just printf 47 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:26:09.log:INFO: 03:26:11.140179 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 315 0
+logs/out/10_out_05-01-2022_03:26:09.log:INFO: 03:26:11.269735 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 330 0
+logs/out/11_out_05-01-2022_03:26:09.log:INFO: 03:26:11.204603 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 324 0
+logs/out/1_out_05-01-2022_03:26:09.log:INFO: 03:26:11.286556 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 330 0
+logs/out/2_out_05-01-2022_03:26:09.log:INFO: 03:26:11.159899 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 321 0
+logs/out/3_out_05-01-2022_03:26:09.log:INFO: 03:26:11.105434 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.6 302 0
+logs/out/4_out_05-01-2022_03:26:09.log:INFO: 03:26:11.346004 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 352 0
+logs/out/5_out_05-01-2022_03:26:09.log:INFO: 03:26:11.218218 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 326 0
+logs/out/6_out_05-01-2022_03:26:09.log:INFO: 03:26:11.094804 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 297 0
+logs/out/7_out_05-01-2022_03:26:09.log:INFO: 03:26:11.154427 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 310 0
+logs/out/8_out_05-01-2022_03:26:09.log:INFO: 03:26:11.176987 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.61 320 0
+logs/out/9_out_05-01-2022_03:26:09.log:INFO: 03:26:11.222562 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 327 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:9
+Just printf 48 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:27:27.log:INFO: 03:27:29.085377 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 340 0
+logs/out/10_out_05-01-2022_03:27:27.log:INFO: 03:27:29.104175 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 340 0
+logs/out/11_out_05-01-2022_03:27:27.log:INFO: 03:27:29.186390 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 341 0
+logs/out/1_out_05-01-2022_03:27:27.log:INFO: 03:27:29.023139 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 324 0
+logs/out/2_out_05-01-2022_03:27:27.log:INFO: 03:27:29.107460 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.25 341 0
+logs/out/3_out_05-01-2022_03:27:27.log:INFO: 03:27:29.137842 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.53 341 0
+logs/out/4_out_05-01-2022_03:27:27.log:INFO: 03:27:29.215401 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 342 0
+logs/out/5_out_05-01-2022_03:27:27.log:INFO: 03:27:29.015957 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 322 0
+logs/out/6_out_05-01-2022_03:27:27.log:INFO: 03:27:29.086360 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.15 339 0
+logs/out/7_out_05-01-2022_03:27:27.log:INFO: 03:27:29.182885 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 341 0
+logs/out/8_out_05-01-2022_03:27:27.log:INFO: 03:27:29.201637 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.69 341 0
+logs/out/9_out_05-01-2022_03:27:27.log:INFO: 03:27:29.178250 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 341 0
+BYZANTINE_SCENARIO:0 N:12 REPEAT:10
+Just printf 49 @ sync_0.txt
+go run main.go 0 12 6 1 1 0 1 0 0 180 0
+go run main.go 5 12 6 1 1 0 1 0 0 180 0
+go run main.go 10 12 6 1 1 0 1 0 0 180 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:28:47.log:INFO: 03:28:48.645952 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 333 0
+logs/out/10_out_05-01-2022_03:28:47.log:INFO: 03:28:48.732320 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 348 0
+logs/out/11_out_05-01-2022_03:28:47.log:INFO: 03:28:48.590554 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 304 0
+logs/out/1_out_05-01-2022_03:28:47.log:INFO: 03:28:48.847967 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 374 0
+logs/out/2_out_05-01-2022_03:28:47.log:INFO: 03:28:48.776506 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 359 0
+logs/out/3_out_05-01-2022_03:28:47.log:INFO: 03:28:48.671188 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 340 0
+logs/out/4_out_05-01-2022_03:28:47.log:INFO: 03:28:48.701252 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 348 0
+logs/out/5_out_05-01-2022_03:28:47.log:INFO: 03:28:48.705058 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 348 0
+logs/out/6_out_05-01-2022_03:28:47.log:INFO: 03:28:48.772130 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 356 0
+logs/out/7_out_05-01-2022_03:28:47.log:INFO: 03:28:48.809834 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 367 0
+logs/out/8_out_05-01-2022_03:28:47.log:INFO: 03:28:48.691297 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.54 342 0
+logs/out/9_out_05-01-2022_03:28:47.log:INFO: 03:28:48.774451 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 359 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:1
+Just printf 50 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:30:07.log:INFO: 03:30:10.278240 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3 372 0
+logs/out/10_out_05-01-2022_03:30:07.log:INFO: 03:30:10.241914 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.01 367 0
+logs/out/11_out_05-01-2022_03:30:07.log:INFO: 03:30:10.234300 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.86 367 0
+logs/out/12_out_05-01-2022_03:30:08.log:INFO: 03:30:10.375090 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.77 377 0
+logs/out/13_out_05-01-2022_03:30:08.log:INFO: 03:30:10.333085 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.11 377 0
+logs/out/1_out_05-01-2022_03:30:07.log:INFO: 03:30:10.243641 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.81 370 0
+logs/out/2_out_05-01-2022_03:30:08.log:INFO: 03:30:10.399386 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.78 377 0
+logs/out/3_out_05-01-2022_03:30:07.log:INFO: 03:30:10.298741 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.49 374 0
+logs/out/4_out_05-01-2022_03:30:07.log:INFO: 03:30:10.411968 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.94 377 0
+logs/out/5_out_05-01-2022_03:30:07.log:INFO: 03:30:10.331375 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.98 377 0
+logs/out/6_out_05-01-2022_03:30:07.log:INFO: 03:30:10.241059 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.91 368 0
+logs/out/7_out_05-01-2022_03:30:08.log:INFO: 03:30:10.570560 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.96 390 0
+logs/out/8_out_05-01-2022_03:30:07.log:INFO: 03:30:10.167028 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.45 358 0
+logs/out/9_out_05-01-2022_03:30:07.log:INFO: 03:30:10.351761 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.88 377 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:2
+Just printf 51 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:31:29.log:INFO: 03:31:32.426003 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.93 374 0
+logs/out/10_out_05-01-2022_03:31:29.log:INFO: 03:31:32.529543 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.09 377 0
+logs/out/11_out_05-01-2022_03:31:29.log:INFO: 03:31:32.534012 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3 377 0
+logs/out/12_out_05-01-2022_03:31:30.log:INFO: 03:31:32.846474 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.04 390 0
+logs/out/13_out_05-01-2022_03:31:29.log:INFO: 03:31:32.532226 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.6 377 0
+logs/out/1_out_05-01-2022_03:31:29.log:INFO: 03:31:32.500726 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.99 377 0
+logs/out/2_out_05-01-2022_03:31:30.log:INFO: 03:31:32.539983 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.73 377 0
+logs/out/3_out_05-01-2022_03:31:30.log:INFO: 03:31:32.523466 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.34 377 0
+logs/out/4_out_05-01-2022_03:31:29.log:INFO: 03:31:32.572914 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.89 377 0
+logs/out/5_out_05-01-2022_03:31:29.log:INFO: 03:31:32.527906 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3 377 0
+logs/out/6_out_05-01-2022_03:31:29.log:INFO: 03:31:32.391597 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.81 371 0
+logs/out/7_out_05-01-2022_03:31:30.log:INFO: 03:31:32.454918 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.65 377 0
+logs/out/8_out_05-01-2022_03:31:30.log:INFO: 03:31:32.444159 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.15 375 0
+logs/out/9_out_05-01-2022_03:31:29.log:INFO: 03:31:32.597145 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.9 377 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:3
+Just printf 52 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:32:47.log:INFO: 03:32:50.608074 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.26 561 0
+logs/out/10_out_05-01-2022_03:32:47.log:INFO: 03:32:50.773032 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.47 585 0
+logs/out/11_out_05-01-2022_03:32:47.log:INFO: 03:32:50.465097 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 534 0
+logs/out/12_out_05-01-2022_03:32:48.log:INFO: 03:32:50.942129 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.38 611 0
+logs/out/13_out_05-01-2022_03:32:47.log:INFO: 03:32:50.703383 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.77 578 0
+logs/out/1_out_05-01-2022_03:32:47.log:INFO: 03:32:50.634233 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.31 573 0
+logs/out/2_out_05-01-2022_03:32:48.log:INFO: 03:32:50.679756 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.13 575 0
+logs/out/3_out_05-01-2022_03:32:47.log:INFO: 03:32:50.727548 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 581 0
+logs/out/4_out_05-01-2022_03:32:47.log:INFO: 03:32:50.708633 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.27 579 0
+logs/out/5_out_05-01-2022_03:32:47.log:INFO: 03:32:50.468752 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.16 537 0
+logs/out/6_out_05-01-2022_03:32:47.log:INFO: 03:32:50.567648 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.19 555 0
+logs/out/7_out_05-01-2022_03:32:48.log:INFO: 03:32:50.911850 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.36 611 0
+logs/out/8_out_05-01-2022_03:32:47.log:INFO: 03:32:50.696616 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.74 578 0
+logs/out/9_out_05-01-2022_03:32:47.log:INFO: 03:32:50.742211 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.32 583 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:4
+Just printf 53 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:34:10.log:INFO: 03:34:13.606958 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.19 468 0
+logs/out/10_out_05-01-2022_03:34:10.log:INFO: 03:34:13.637810 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.31 468 0
+logs/out/11_out_05-01-2022_03:34:10.log:INFO: 03:34:13.630865 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.15 468 0
+logs/out/12_out_05-01-2022_03:34:11.log:INFO: 03:34:13.801352 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.12 478 0
+logs/out/13_out_05-01-2022_03:34:11.log:INFO: 03:34:13.633828 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.54 468 0
+logs/out/1_out_05-01-2022_03:34:10.log:INFO: 03:34:13.434504 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.11 448 0
+logs/out/2_out_05-01-2022_03:34:11.log:INFO: 03:34:13.775912 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.11 474 0
+logs/out/3_out_05-01-2022_03:34:10.log:INFO: 03:34:13.455720 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.62 451 0
+logs/out/4_out_05-01-2022_03:34:10.log:INFO: 03:34:13.445144 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.88 444 0
+logs/out/5_out_05-01-2022_03:34:10.log:INFO: 03:34:13.631648 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.14 468 0
+logs/out/6_out_05-01-2022_03:34:10.log:INFO: 03:34:13.438587 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.96 446 0
+logs/out/7_out_05-01-2022_03:34:11.log:INFO: 03:34:13.709578 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.03 468 0
+logs/out/8_out_05-01-2022_03:34:11.log:INFO: 03:34:13.711737 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.48 468 0
+logs/out/9_out_05-01-2022_03:34:10.log:INFO: 03:34:13.557857 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.99 461 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:5
+Just printf 54 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:35:28.log:INFO: 03:35:31.233943 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.94 390 0
+logs/out/10_out_05-01-2022_03:35:28.log:INFO: 03:35:31.126026 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.78 381 0
+logs/out/11_out_05-01-2022_03:35:28.log:INFO: 03:35:31.383728 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.05 390 0
+logs/out/12_out_05-01-2022_03:35:29.log:INFO: 03:35:31.476196 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.93 393 0
+logs/out/13_out_05-01-2022_03:35:28.log:INFO: 03:35:31.337992 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.92 390 0
+logs/out/1_out_05-01-2022_03:35:28.log:INFO: 03:35:31.125197 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.79 383 0
+logs/out/2_out_05-01-2022_03:35:29.log:INFO: 03:35:31.401691 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.88 390 0
+logs/out/3_out_05-01-2022_03:35:28.log:INFO: 03:35:31.125135 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.2 381 0
+logs/out/4_out_05-01-2022_03:35:28.log:INFO: 03:35:31.198930 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.78 388 0
+logs/out/5_out_05-01-2022_03:35:28.log:INFO: 03:35:31.233093 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.01 389 0
+logs/out/6_out_05-01-2022_03:35:28.log:INFO: 03:35:31.288333 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.08 390 0
+logs/out/7_out_05-01-2022_03:35:29.log:INFO: 03:35:31.390783 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.86 390 0
+logs/out/8_out_05-01-2022_03:35:28.log:INFO: 03:35:31.237525 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.35 390 0
+logs/out/9_out_05-01-2022_03:35:28.log:INFO: 03:35:31.262663 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.85 390 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:6
+Just printf 55 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:36:46.log:INFO: 03:36:49.802736 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.07 377 0
+logs/out/10_out_05-01-2022_03:36:46.log:INFO: 03:36:49.770761 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.98 377 0
+logs/out/11_out_05-01-2022_03:36:46.log:INFO: 03:36:49.756216 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.93 375 0
+logs/out/12_out_05-01-2022_03:36:48.log:INFO: 03:36:49.826431 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.73 377 0
+logs/out/13_out_05-01-2022_03:36:47.log:INFO: 03:36:49.790460 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.1 377 0
+logs/out/1_out_05-01-2022_03:36:46.log:INFO: 03:36:49.761032 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.88 377 0
+logs/out/2_out_05-01-2022_03:36:48.log:INFO: 03:36:49.813719 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.71 377 0
+logs/out/3_out_05-01-2022_03:36:47.log:INFO: 03:36:49.743351 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.09 375 0
+logs/out/4_out_05-01-2022_03:36:47.log:INFO: 03:36:49.673114 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.44 368 0
+logs/out/5_out_05-01-2022_03:36:46.log:INFO: 03:36:49.760171 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.01 374 0
+logs/out/6_out_05-01-2022_03:36:46.log:INFO: 03:36:49.760474 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.95 375 0
+logs/out/7_out_05-01-2022_03:36:48.log:INFO: 03:36:49.876294 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.77 377 0
+logs/out/8_out_05-01-2022_03:36:47.log:INFO: 03:36:49.794137 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.25 377 0
+logs/out/9_out_05-01-2022_03:36:47.log:INFO: 03:36:49.676366 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.45 368 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:7
+Just printf 56 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:38:06.log:INFO: 03:38:10.226665 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.27 547 0
+logs/out/10_out_05-01-2022_03:38:06.log:INFO: 03:38:10.201770 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.24 540 0
+logs/out/11_out_05-01-2022_03:38:07.log:INFO: 03:38:10.321452 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.28 559 0
+logs/out/12_out_05-01-2022_03:38:08.log:INFO: 03:38:10.482733 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.29 572 0
+logs/out/13_out_05-01-2022_03:38:06.log:INFO: 03:38:10.078198 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.08 517 0
+logs/out/1_out_05-01-2022_03:38:06.log:INFO: 03:38:10.278321 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.3 558 0
+logs/out/2_out_05-01-2022_03:38:08.log:INFO: 03:38:10.546911 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.35 572 0
+logs/out/3_out_05-01-2022_03:38:07.log:INFO: 03:38:10.214092 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.59 543 0
+logs/out/4_out_05-01-2022_03:38:07.log:INFO: 03:38:10.290491 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.26 559 0
+logs/out/5_out_05-01-2022_03:38:07.log:INFO: 03:38:10.202033 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.19 542 0
+logs/out/6_out_05-01-2022_03:38:07.log:INFO: 03:38:10.230908 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.2 546 0
+logs/out/7_out_05-01-2022_03:38:08.log:INFO: 03:38:10.357695 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.17 559 0
+logs/out/8_out_05-01-2022_03:38:07.log:INFO: 03:38:10.277382 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.71 557 0
+logs/out/9_out_05-01-2022_03:38:06.log:INFO: 03:38:10.255741 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.23 552 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:8
+Just printf 57 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:39:24.log:INFO: 03:39:27.174911 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.02 390 0
+logs/out/10_out_05-01-2022_03:39:24.log:INFO: 03:39:27.240144 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 390 0
+logs/out/11_out_05-01-2022_03:39:24.log:INFO: 03:39:27.013083 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.81 384 0
+logs/out/12_out_05-01-2022_03:39:25.log:INFO: 03:39:27.084712 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.72 390 0
+logs/out/13_out_05-01-2022_03:39:24.log:INFO: 03:39:27.175375 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.4 390 0
+logs/out/1_out_05-01-2022_03:39:24.log:INFO: 03:39:27.063849 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.8 389 0
+logs/out/2_out_05-01-2022_03:39:25.log:INFO: 03:39:27.082728 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.69 390 0
+logs/out/3_out_05-01-2022_03:39:24.log:INFO: 03:39:26.973977 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.51 381 0
+logs/out/4_out_05-01-2022_03:39:24.log:INFO: 03:39:27.083144 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.89 390 0
+logs/out/5_out_05-01-2022_03:39:23.log:INFO: 03:39:27.070948 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 390 0
+logs/out/6_out_05-01-2022_03:39:24.log:INFO: 03:39:27.154610 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.89 390 0
+logs/out/7_out_05-01-2022_03:39:25.log:INFO: 03:39:27.059218 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.66 388 0
+logs/out/8_out_05-01-2022_03:39:24.log:INFO: 03:39:27.002491 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.07 382 0
+logs/out/9_out_05-01-2022_03:39:24.log:INFO: 03:39:27.151924 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.94 390 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:9
+Just printf 58 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:40:40.log:INFO: 03:40:43.816707 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.23 526 0
+logs/out/10_out_05-01-2022_03:40:40.log:INFO: 03:40:43.887292 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.28 530 0
+logs/out/11_out_05-01-2022_03:40:40.log:INFO: 03:40:43.761932 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.13 518 0
+logs/out/12_out_05-01-2022_03:40:41.log:INFO: 03:40:44.179282 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.33 559 0
+logs/out/13_out_05-01-2022_03:40:41.log:INFO: 03:40:43.732529 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.64 516 0
+logs/out/1_out_05-01-2022_03:40:40.log:INFO: 03:40:43.916191 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.2 533 0
+logs/out/2_out_05-01-2022_03:40:41.log:INFO: 03:40:43.959418 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.11 533 0
+logs/out/3_out_05-01-2022_03:40:41.log:INFO: 03:40:43.939319 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.58 533 0
+logs/out/4_out_05-01-2022_03:40:40.log:INFO: 03:40:43.909150 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.21 533 0
+logs/out/5_out_05-01-2022_03:40:40.log:INFO: 03:40:43.847059 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.33 528 0
+logs/out/6_out_05-01-2022_03:40:40.log:INFO: 03:40:43.889342 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.14 532 0
+logs/out/7_out_05-01-2022_03:40:41.log:INFO: 03:40:43.795585 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.95 523 0
+logs/out/8_out_05-01-2022_03:40:40.log:INFO: 03:40:43.836458 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.79 526 0
+logs/out/9_out_05-01-2022_03:40:40.log:INFO: 03:40:43.860139 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.18 528 0
+BYZANTINE_SCENARIO:0 N:14 REPEAT:10
+Just printf 59 @ sync_0.txt
+go run main.go 0 14 6 1 1 0 1 0 0 300 0
+go run main.go 5 14 6 1 1 0 1 0 0 300 0
+go run main.go 10 14 6 1 1 0 1 0 0 300 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:42:01.log:INFO: 03:42:04.356953 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.92 377 0
+logs/out/10_out_05-01-2022_03:42:01.log:INFO: 03:42:04.285042 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.81 375 0
+logs/out/11_out_05-01-2022_03:42:01.log:INFO: 03:42:04.243581 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.78 370 0
+logs/out/12_out_05-01-2022_03:42:02.log:INFO: 03:42:04.437459 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.71 377 0
+logs/out/13_out_05-01-2022_03:42:02.log:INFO: 03:42:04.426305 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.33 377 0
+logs/out/1_out_05-01-2022_03:42:01.log:INFO: 03:42:04.392761 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.95 377 0
+logs/out/2_out_05-01-2022_03:42:02.log:INFO: 03:42:04.398642 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.72 377 0
+logs/out/3_out_05-01-2022_03:42:02.log:INFO: 03:42:04.353281 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.26 377 0
+logs/out/4_out_05-01-2022_03:42:01.log:INFO: 03:42:04.455344 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.86 377 0
+logs/out/5_out_05-01-2022_03:42:01.log:INFO: 03:42:04.349299 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 377 0
+logs/out/6_out_05-01-2022_03:42:01.log:INFO: 03:42:04.280237 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.92 374 0
+logs/out/7_out_05-01-2022_03:42:02.log:INFO: 03:42:04.480524 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.78 377 0
+logs/out/8_out_05-01-2022_03:42:01.log:INFO: 03:42:04.436019 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.52 377 0
+logs/out/9_out_05-01-2022_03:42:01.log:INFO: 03:42:04.437208 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.85 377 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:1
+Just printf 60 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:43:20.log:INFO: 03:43:23.568525 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.49 671 0
+logs/out/10_out_05-01-2022_03:43:19.log:INFO: 03:43:23.701816 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.7 701 0
+logs/out/11_out_05-01-2022_03:43:19.log:INFO: 03:43:23.694327 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.81 698 0
+logs/out/12_out_05-01-2022_03:43:20.log:INFO: 03:43:23.981180 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.02 706 0
+logs/out/13_out_05-01-2022_03:43:20.log:INFO: 03:43:23.664984 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.32 689 0
+logs/out/14_out_05-01-2022_03:43:20.log:INFO: 03:43:24.059929 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.01 728 0
+logs/out/15_out_05-01-2022_03:43:19.log:INFO: 03:43:23.560345 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.64 666 0
+logs/out/1_out_05-01-2022_03:43:19.log:INFO: 03:43:23.701883 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.82 702 0
+logs/out/2_out_05-01-2022_03:43:20.log:INFO: 03:43:23.688296 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 688 0
+logs/out/3_out_05-01-2022_03:43:20.log:INFO: 03:43:23.653977 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.25 689 0
+logs/out/4_out_05-01-2022_03:43:20.log:INFO: 03:43:23.749619 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.71 705 0
+logs/out/5_out_05-01-2022_03:43:19.log:INFO: 03:43:23.738189 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.87 705 0
+logs/out/6_out_05-01-2022_03:43:19.log:INFO: 03:43:23.693871 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.9 701 0
+logs/out/7_out_05-01-2022_03:43:20.log:INFO: 03:43:23.907008 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.95 705 0
+logs/out/8_out_05-01-2022_03:43:19.log:INFO: 03:43:23.585932 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.66 676 0
+logs/out/9_out_05-01-2022_03:43:20.log:INFO: 03:43:23.725408 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.68 704 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:2
+Just printf 61 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:44:40.log:INFO: 03:44:43.246753 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.18 569 0
+logs/out/10_out_05-01-2022_03:44:39.log:INFO: 03:44:43.227635 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.35 556 0
+logs/out/11_out_05-01-2022_03:44:39.log:INFO: 03:44:43.530767 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.67 600 0
+logs/out/12_out_05-01-2022_03:44:40.log:INFO: 03:44:43.440613 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.5 600 0
+logs/out/13_out_05-01-2022_03:44:40.log:INFO: 03:44:43.689751 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.39 618 0
+logs/out/14_out_05-01-2022_03:44:40.log:INFO: 03:44:43.492240 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.5 600 0
+logs/out/15_out_05-01-2022_03:44:39.log:INFO: 03:44:43.530503 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.58 600 0
+logs/out/1_out_05-01-2022_03:44:39.log:INFO: 03:44:43.272469 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.52 573 0
+logs/out/2_out_05-01-2022_03:44:40.log:INFO: 03:44:43.600722 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.66 600 0
+logs/out/3_out_05-01-2022_03:44:39.log:INFO: 03:44:43.625583 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.65 600 0
+logs/out/4_out_05-01-2022_03:44:40.log:INFO: 03:44:43.550462 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.56 600 0
+logs/out/5_out_05-01-2022_03:44:39.log:INFO: 03:44:43.566242 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.54 600 0
+logs/out/6_out_05-01-2022_03:44:39.log:INFO: 03:44:43.525917 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.67 600 0
+logs/out/7_out_05-01-2022_03:44:40.log:INFO: 03:44:43.495279 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.53 600 0
+logs/out/8_out_05-01-2022_03:44:40.log:INFO: 03:44:43.525039 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.05 600 0
+logs/out/9_out_05-01-2022_03:44:40.log:INFO: 03:44:43.463734 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.47 600 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:3
+Just printf 62 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:46:03.log:INFO: 03:46:06.885653 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.79 660 0
+logs/out/10_out_05-01-2022_03:46:03.log:INFO: 03:46:06.816439 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.6 654 0
+logs/out/11_out_05-01-2022_03:46:02.log:INFO: 03:46:06.881268 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.89 660 0
+logs/out/12_out_05-01-2022_03:46:04.log:INFO: 03:46:06.823212 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.66 656 0
+logs/out/13_out_05-01-2022_03:46:03.log:INFO: 03:46:06.808131 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.49 653 0
+logs/out/14_out_05-01-2022_03:46:04.log:INFO: 03:46:06.906755 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 660 0
+logs/out/15_out_05-01-2022_03:46:03.log:INFO: 03:46:06.808816 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.66 652 0
+logs/out/1_out_05-01-2022_03:46:03.log:INFO: 03:46:06.712699 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.69 639 0
+logs/out/2_out_05-01-2022_03:46:04.log:INFO: 03:46:07.098717 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.93 660 0
+logs/out/3_out_05-01-2022_03:46:03.log:INFO: 03:46:06.711807 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.29 639 0
+logs/out/4_out_05-01-2022_03:46:04.log:INFO: 03:46:06.901059 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 660 0
+logs/out/5_out_05-01-2022_03:46:03.log:INFO: 03:46:06.715374 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.66 638 0
+logs/out/6_out_05-01-2022_03:46:02.log:INFO: 03:46:06.877911 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.91 660 0
+logs/out/7_out_05-01-2022_03:46:04.log:INFO: 03:46:06.823005 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.66 657 0
+logs/out/8_out_05-01-2022_03:46:03.log:INFO: 03:46:06.814067 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.21 655 0
+logs/out/9_out_05-01-2022_03:46:04.log:INFO: 03:46:06.812044 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.61 654 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:4
+Just printf 63 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:47:27.log:INFO: 03:47:30.884019 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.54 721 0
+logs/out/10_out_05-01-2022_03:47:27.log:INFO: 03:47:30.870764 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.65 712 0
+logs/out/11_out_05-01-2022_03:47:27.log:INFO: 03:47:30.959296 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.9 728 0
+logs/out/12_out_05-01-2022_03:47:28.log:INFO: 03:47:31.258177 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.06 735 0
+logs/out/13_out_05-01-2022_03:47:27.log:INFO: 03:47:30.972843 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.24 731 0
+logs/out/14_out_05-01-2022_03:47:28.log:INFO: 03:47:30.948964 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 725 0
+logs/out/15_out_05-01-2022_03:47:27.log:INFO: 03:47:30.903187 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.52 718 0
+logs/out/1_out_05-01-2022_03:47:27.log:INFO: 03:47:31.154558 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 4.07 735 0
+logs/out/2_out_05-01-2022_03:47:28.log:INFO: 03:47:31.239936 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.03 735 0
+logs/out/3_out_05-01-2022_03:47:27.log:INFO: 03:47:31.205506 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.7 735 0
+logs/out/4_out_05-01-2022_03:47:28.log:INFO: 03:47:30.968359 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 734 0
+logs/out/5_out_05-01-2022_03:47:27.log:INFO: 03:47:30.978980 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.76 733 0
+logs/out/6_out_05-01-2022_03:47:26.log:INFO: 03:47:30.887274 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.87 719 0
+logs/out/7_out_05-01-2022_03:47:28.log:INFO: 03:47:30.993904 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.76 728 0
+logs/out/8_out_05-01-2022_03:47:27.log:INFO: 03:47:30.965311 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.55 728 0
+logs/out/9_out_05-01-2022_03:47:28.log:INFO: 03:47:31.013223 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.77 735 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:5
+Just printf 64 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:48:51.log:INFO: 03:48:54.538513 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.09 574 0
+logs/out/10_out_05-01-2022_03:48:51.log:INFO: 03:48:54.884675 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.41 600 0
+logs/out/11_out_05-01-2022_03:48:51.log:INFO: 03:48:54.818849 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.66 600 0
+logs/out/12_out_05-01-2022_03:48:52.log:INFO: 03:48:54.851643 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.54 600 0
+logs/out/13_out_05-01-2022_03:48:51.log:INFO: 03:48:54.640744 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.96 589 0
+logs/out/14_out_05-01-2022_03:48:52.log:INFO: 03:48:54.695056 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.34 594 0
+logs/out/15_out_05-01-2022_03:48:51.log:INFO: 03:48:54.950045 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.69 601 0
+logs/out/1_out_05-01-2022_03:48:51.log:INFO: 03:48:54.888831 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.74 600 0
+logs/out/2_out_05-01-2022_03:48:52.log:INFO: 03:48:54.996141 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.67 609 0
+logs/out/3_out_05-01-2022_03:48:51.log:INFO: 03:48:54.706595 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.37 596 0
+logs/out/4_out_05-01-2022_03:48:52.log:INFO: 03:48:54.870023 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.58 600 0
+logs/out/5_out_05-01-2022_03:48:51.log:INFO: 03:48:54.533225 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.24 570 0
+logs/out/6_out_05-01-2022_03:48:51.log:INFO: 03:48:54.853199 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.66 600 0
+logs/out/7_out_05-01-2022_03:48:52.log:INFO: 03:48:55.030050 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.72 628 0
+logs/out/8_out_05-01-2022_03:48:51.log:INFO: 03:48:54.940626 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.17 600 0
+logs/out/9_out_05-01-2022_03:48:52.log:INFO: 03:48:54.929160 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.6 600 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:6
+Just printf 65 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+Assertion failed: pfd.revents & POLLIN (src/signaler.cpp:261)
+Assertion failed: pfd.revents & POLLIN (src/signaler.cpp:261)
+kill processes
+logs/out/0_out_05-01-2022_03:50:14.log:INFO: 03:50:17.662810 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.5 645 0
+logs/out/10_out_05-01-2022_03:50:14.log:INFO: 03:50:17.553511 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.51 627 0
+logs/out/11_out_05-01-2022_03:50:13.log:INFO: 03:50:17.736785 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.95 645 0
+logs/out/12_out_05-01-2022_03:50:14.log:INFO: 03:50:17.705890 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.69 645 0
+logs/out/13_out_05-01-2022_03:50:14.log:INFO: 03:50:17.631035 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.16 641 0
+logs/out/14_out_05-01-2022_03:50:15.log:INFO: 03:50:17.835117 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.71 645 0
+logs/out/15_out_05-01-2022_03:50:14.log:INFO: 03:50:17.701333 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.55 645 0
+logs/out/1_out_05-01-2022_03:50:13.log:INFO: 03:50:17.837435 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.93 645 0
+logs/out/2_out_05-01-2022_03:50:15.log:INFO: 03:50:17.829016 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.79 645 0
+logs/out/3_out_05-01-2022_03:50:14.log:INFO: 03:50:17.707539 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.51 645 0
+logs/out/4_out_05-01-2022_03:50:15.log:INFO: 03:50:17.732082 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.61 645 0
+logs/out/5_out_05-01-2022_03:50:14.log:INFO: 03:50:17.738749 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.58 644 0
+logs/out/6_out_05-01-2022_03:50:13.log:INFO: 03:50:17.715429 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.85 645 0
+logs/out/7_out_05-01-2022_03:50:15.log:INFO: 03:50:17.607692 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.56 638 0
+logs/out/8_out_05-01-2022_03:50:14.log:INFO: 03:50:17.771374 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.38 645 0
+logs/out/9_out_05-01-2022_03:50:15.log:INFO: 03:50:17.826771 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.71 645 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:7
+Just printf 66 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:51:35.log:INFO: 03:51:38.828643 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.76 694 0
+logs/out/10_out_05-01-2022_03:51:35.log:INFO: 03:51:38.721104 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.44 654 0
+logs/out/11_out_05-01-2022_03:51:34.log:INFO: 03:51:39.051912 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 4.15 733 0
+logs/out/12_out_05-01-2022_03:51:36.log:INFO: 03:51:38.840652 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.72 690 0
+logs/out/13_out_05-01-2022_03:51:35.log:INFO: 03:51:38.728967 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.17 658 0
+logs/out/14_out_05-01-2022_03:51:36.log:INFO: 03:51:39.124490 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.04 735 0
+logs/out/15_out_05-01-2022_03:51:35.log:INFO: 03:51:38.822939 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.55 684 0
+logs/out/1_out_05-01-2022_03:51:34.log:INFO: 03:51:38.760963 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.82 674 0
+logs/out/2_out_05-01-2022_03:51:36.log:INFO: 03:51:39.116759 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.98 735 0
+logs/out/3_out_05-01-2022_03:51:34.log:INFO: 03:51:39.174962 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 4.2 752 0
+logs/out/4_out_05-01-2022_03:51:36.log:INFO: 03:51:38.774477 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.64 667 0
+logs/out/5_out_05-01-2022_03:51:35.log:INFO: 03:51:38.785876 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.65 678 0
+logs/out/6_out_05-01-2022_03:51:34.log:INFO: 03:51:38.717657 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.77 655 0
+logs/out/7_out_05-01-2022_03:51:36.log:INFO: 03:51:39.224451 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.09 760 0
+logs/out/8_out_05-01-2022_03:51:35.log:INFO: 03:51:38.742922 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.25 664 0
+logs/out/9_out_05-01-2022_03:51:36.log:INFO: 03:51:39.346759 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.25 788 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:8
+Just printf 67 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:52:59.log:INFO: 03:53:02.694913 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.32 568 0
+logs/out/10_out_05-01-2022_03:52:59.log:INFO: 03:53:02.935586 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.71 609 0
+logs/out/11_out_05-01-2022_03:52:59.log:INFO: 03:53:03.032913 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.77 615 0
+logs/out/12_out_05-01-2022_03:53:00.log:INFO: 03:53:02.969684 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.65 611 0
+logs/out/13_out_05-01-2022_03:52:59.log:INFO: 03:53:03.073221 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.43 615 0
+logs/out/14_out_05-01-2022_03:53:00.log:INFO: 03:53:03.030151 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.59 615 0
+logs/out/15_out_05-01-2022_03:52:59.log:INFO: 03:53:02.994797 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.68 614 0
+logs/out/1_out_05-01-2022_03:52:59.log:INFO: 03:53:02.724971 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.45 573 0
+logs/out/2_out_05-01-2022_03:53:00.log:INFO: 03:53:03.014034 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.7 615 0
+logs/out/3_out_05-01-2022_03:52:59.log:INFO: 03:53:03.076203 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.21 615 0
+logs/out/4_out_05-01-2022_03:53:00.log:INFO: 03:53:02.961267 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.52 614 0
+logs/out/5_out_05-01-2022_03:52:59.log:INFO: 03:53:03.057966 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.8 615 0
+logs/out/6_out_05-01-2022_03:52:59.log:INFO: 03:53:02.942215 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.9 610 0
+logs/out/7_out_05-01-2022_03:53:00.log:INFO: 03:53:02.979012 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.67 615 0
+logs/out/8_out_05-01-2022_03:52:59.log:INFO: 03:53:03.064529 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.49 615 0
+logs/out/9_out_05-01-2022_03:53:00.log:INFO: 03:53:03.033305 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.6 615 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:9
+Just printf 68 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:54:21.log:INFO: 03:54:25.089225 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.55 669 0
+logs/out/10_out_05-01-2022_03:54:21.log:INFO: 03:54:25.084746 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.65 667 0
+logs/out/11_out_05-01-2022_03:54:21.log:INFO: 03:54:25.139061 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.9 675 0
+logs/out/12_out_05-01-2022_03:54:22.log:INFO: 03:54:25.093927 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.67 668 0
+logs/out/13_out_05-01-2022_03:54:21.log:INFO: 03:54:25.245252 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.45 675 0
+logs/out/14_out_05-01-2022_03:54:22.log:INFO: 03:54:25.419020 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.96 677 0
+logs/out/15_out_05-01-2022_03:54:21.log:INFO: 03:54:25.010655 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.43 646 0
+logs/out/1_out_05-01-2022_03:54:21.log:INFO: 03:54:25.146194 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.84 675 0
+logs/out/2_out_05-01-2022_03:54:22.log:INFO: 03:54:25.159370 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.74 675 0
+logs/out/3_out_05-01-2022_03:54:21.log:INFO: 03:54:25.059672 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.77 664 0
+logs/out/4_out_05-01-2022_03:54:22.log:INFO: 03:54:25.100247 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.66 669 0
+logs/out/5_out_05-01-2022_03:54:21.log:INFO: 03:54:25.120537 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.72 674 0
+logs/out/6_out_05-01-2022_03:54:21.log:INFO: 03:54:24.992092 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.68 645 0
+logs/out/7_out_05-01-2022_03:54:22.log:INFO: 03:54:25.411754 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.98 676 0
+logs/out/8_out_05-01-2022_03:54:21.log:INFO: 03:54:25.173638 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.26 675 0
+logs/out/9_out_05-01-2022_03:54:22.log:INFO: 03:54:25.153531 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 2.68 675 0
+BYZANTINE_SCENARIO:0 N:16 REPEAT:10
+Just printf 69 @ sync_0.txt
+go run main.go 0 16 6 1 1 0 1 0 0 400 0
+go run main.go 5 16 6 1 1 0 1 0 0 400 0
+go run main.go 10 16 6 1 1 0 1 0 0 400 0
+go run main.go 15 16 6 1 1 0 1 0 0 400 0
+sleep 60
+kill processes
+logs/out/0_out_05-01-2022_03:55:47.log:INFO: 03:55:50.690527 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.62 765 0
+logs/out/10_out_05-01-2022_03:55:47.log:INFO: 03:55:50.620974 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.53 745 0
+logs/out/11_out_05-01-2022_03:55:46.log:INFO: 03:55:50.918646 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 4.18 802 0
+logs/out/12_out_05-01-2022_03:55:47.log:INFO: 03:55:51.068779 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.16 822 0
+logs/out/13_out_05-01-2022_03:55:46.log:INFO: 03:55:50.986285 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.96 809 0
+logs/out/14_out_05-01-2022_03:55:47.log:INFO: 03:55:51.081688 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.11 822 0
+logs/out/15_out_05-01-2022_03:55:46.log:INFO: 03:55:50.600881 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.77 738 0
+logs/out/1_out_05-01-2022_03:55:46.log:INFO: 03:55:50.668743 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.84 762 0
+logs/out/2_out_05-01-2022_03:55:47.log:INFO: 03:55:51.158017 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.24 847 0
+logs/out/3_out_05-01-2022_03:55:47.log:INFO: 03:55:50.829105 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.55 790 0
+logs/out/4_out_05-01-2022_03:55:47.log:INFO: 03:55:51.085110 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.15 826 0
+logs/out/5_out_05-01-2022_03:55:46.log:INFO: 03:55:50.668280 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.65 756 0
+logs/out/6_out_05-01-2022_03:55:46.log:INFO: 03:55:50.903185 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 4.09 801 0
+logs/out/7_out_05-01-2022_03:55:47.log:INFO: 03:55:50.897530 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3 798 0
+logs/out/8_out_05-01-2022_03:55:47.log:INFO: 03:55:51.015876 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.69 811 0
+logs/out/9_out_05-01-2022_03:55:47.log:INFO: 03:55:51.220004 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 3.29 863 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:1
+Just printf 70 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_03:56:58.log:INFO: 03:56:59.275551 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.29 30 0
+logs/out/2_out_05-01-2022_03:56:58.log:INFO: 03:56:59.292421 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 32 0
+logs/out/3_out_05-01-2022_03:56:58.log:INFO: 03:56:59.288505 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.46 32 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:2
+Just printf 71 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_03:58:10.log:INFO: 03:58:10.280076 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.26 30 0
+logs/out/2_out_05-01-2022_03:58:09.log:INFO: 03:58:10.279966 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.82 29 0
+logs/out/3_out_05-01-2022_03:58:09.log:INFO: 03:58:10.291231 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.36 30 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:3
+Just printf 72 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_03:59:20.log:INFO: 03:59:20.884683 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.3 30 0
+logs/out/2_out_05-01-2022_03:59:20.log:INFO: 03:59:20.881597 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.85 28 0
+logs/out/3_out_05-01-2022_03:59:20.log:INFO: 03:59:20.896523 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.46 30 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:4
+Just printf 73 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:00:31.log:INFO: 04:00:32.015861 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.32 36 0
+logs/out/2_out_05-01-2022_04:00:31.log:INFO: 04:00:32.009083 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.85 34 0
+logs/out/3_out_05-01-2022_04:00:31.log:INFO: 04:00:32.013542 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.43 36 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:5
+Just printf 74 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:01:43.log:INFO: 04:01:43.767930 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.31 32 0
+logs/out/2_out_05-01-2022_04:01:42.log:INFO: 04:01:43.752290 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.88 30 0
+logs/out/3_out_05-01-2022_04:01:43.log:INFO: 04:01:43.759527 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.49 32 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:6
+Just printf 75 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:02:54.log:INFO: 04:02:55.053149 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.28 30 0
+logs/out/2_out_05-01-2022_04:02:54.log:INFO: 04:02:55.059204 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 30 0
+logs/out/3_out_05-01-2022_04:02:54.log:INFO: 04:02:55.064349 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.37 30 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:7
+Just printf 76 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:04:08.log:INFO: 04:04:08.437581 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.25 26 0
+logs/out/2_out_05-01-2022_04:04:07.log:INFO: 04:04:08.442031 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 26 0
+logs/out/3_out_05-01-2022_04:04:07.log:INFO: 04:04:08.435103 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.44 26 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:8
+Just printf 77 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:05:19.log:INFO: 04:05:19.622148 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.32 38 0
+logs/out/2_out_05-01-2022_04:05:18.log:INFO: 04:05:19.623687 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.81 37 0
+logs/out/3_out_05-01-2022_04:05:19.log:INFO: 04:05:19.636203 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.46 38 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:9
+Just printf 78 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:06:30.log:INFO: 04:06:31.184498 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.29 30 0
+logs/out/2_out_05-01-2022_04:06:30.log:INFO: 04:06:31.188999 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.87 30 0
+logs/out/3_out_05-01-2022_04:06:30.log:INFO: 04:06:31.169834 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.46 29 0
+BYZANTINE_SCENARIO:1 N:4 REPEAT:10
+Just printf 79 @ sync_0.txt
+go run main.go 0 4 6 1 1 1 1 0 0 20 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:07:41.log:INFO: 04:07:42.202284 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.34 34 0
+logs/out/2_out_05-01-2022_04:07:41.log:INFO: 04:07:42.196125 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 34 0
+logs/out/3_out_05-01-2022_04:07:41.log:INFO: 04:07:42.199286 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.4 34 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:1
+Just printf 80 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:08:57.log:INFO: 04:08:58.605620 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.72 84 0
+logs/out/2_out_05-01-2022_04:08:57.log:INFO: 04:08:58.589264 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 84 0
+logs/out/3_out_05-01-2022_04:08:57.log:INFO: 04:08:58.581933 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 84 0
+logs/out/4_out_05-01-2022_04:08:57.log:INFO: 04:08:58.573937 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.2 84 0
+logs/out/5_out_05-01-2022_04:08:58.log:INFO: 04:08:58.580943 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.5 84 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:2
+Just printf 81 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:10:12.log:INFO: 04:10:13.166456 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.67 72 0
+logs/out/2_out_05-01-2022_04:10:11.log:INFO: 04:10:13.175704 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.24 72 0
+logs/out/3_out_05-01-2022_04:10:12.log:INFO: 04:10:13.149000 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.79 72 0
+logs/out/4_out_05-01-2022_04:10:12.log:INFO: 04:10:13.143951 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 72 0
+logs/out/5_out_05-01-2022_04:10:12.log:INFO: 04:10:13.146634 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.48 72 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:3
+Just printf 82 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:11:25.log:INFO: 04:11:26.579454 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.67 72 0
+logs/out/2_out_05-01-2022_04:11:25.log:INFO: 04:11:26.574734 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 72 0
+logs/out/3_out_05-01-2022_04:11:25.log:INFO: 04:11:26.557036 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.8 72 0
+logs/out/4_out_05-01-2022_04:11:25.log:INFO: 04:11:26.556098 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.03 72 0
+logs/out/5_out_05-01-2022_04:11:26.log:INFO: 04:11:26.557386 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.44 72 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:4
+Just printf 83 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:12:37.log:INFO: 04:12:37.988573 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.6 65 0
+logs/out/2_out_05-01-2022_04:12:36.log:INFO: 04:12:38.022675 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 68 0
+logs/out/3_out_05-01-2022_04:12:37.log:INFO: 04:12:37.995283 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.73 68 0
+logs/out/4_out_05-01-2022_04:12:36.log:INFO: 04:12:38.034076 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 68 0
+logs/out/5_out_05-01-2022_04:12:37.log:INFO: 04:12:37.995257 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.44 67 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:5
+Just printf 84 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:13:49.log:INFO: 04:13:50.546848 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.68 84 0
+logs/out/2_out_05-01-2022_04:13:49.log:INFO: 04:13:50.571576 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 84 0
+logs/out/3_out_05-01-2022_04:13:49.log:INFO: 04:13:50.570698 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.82 84 0
+logs/out/4_out_05-01-2022_04:13:49.log:INFO: 04:13:50.565192 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 84 0
+logs/out/5_out_05-01-2022_04:13:50.log:INFO: 04:13:50.568240 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.48 84 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:6
+Just printf 85 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:15:03.log:INFO: 04:15:04.499416 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.7 72 0
+logs/out/2_out_05-01-2022_04:15:03.log:INFO: 04:15:04.518446 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 72 0
+logs/out/3_out_05-01-2022_04:15:03.log:INFO: 04:15:04.459603 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.75 68 0
+logs/out/4_out_05-01-2022_04:15:03.log:INFO: 04:15:04.474524 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 69 0
+logs/out/5_out_05-01-2022_04:15:03.log:INFO: 04:15:04.481666 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.48 72 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:7
+Just printf 86 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:16:21.log:INFO: 04:16:22.499673 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.65 72 0
+logs/out/2_out_05-01-2022_04:16:21.log:INFO: 04:16:22.484019 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 71 0
+logs/out/3_out_05-01-2022_04:16:21.log:INFO: 04:16:22.478546 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.76 71 0
+logs/out/4_out_05-01-2022_04:16:21.log:INFO: 04:16:22.489286 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 72 0
+logs/out/5_out_05-01-2022_04:16:21.log:INFO: 04:16:22.498981 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.49 72 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:8
+Just printf 87 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:17:34.log:INFO: 04:17:35.513047 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.61 60 0
+logs/out/2_out_05-01-2022_04:17:34.log:INFO: 04:17:35.540994 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.16 60 0
+logs/out/3_out_05-01-2022_04:17:34.log:INFO: 04:17:35.530900 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.68 60 0
+logs/out/4_out_05-01-2022_04:17:34.log:INFO: 04:17:35.509886 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.02 60 0
+logs/out/5_out_05-01-2022_04:17:35.log:INFO: 04:17:35.502437 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.38 60 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:9
+Just printf 88 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:18:48.log:INFO: 04:18:49.524362 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.62 72 0
+logs/out/2_out_05-01-2022_04:18:48.log:INFO: 04:18:49.606308 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 84 0
+logs/out/3_out_05-01-2022_04:18:48.log:INFO: 04:18:49.558554 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.8 77 0
+logs/out/4_out_05-01-2022_04:18:48.log:INFO: 04:18:49.566553 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.14 79 0
+logs/out/5_out_05-01-2022_04:18:49.log:INFO: 04:18:49.575660 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.49 80 0
+BYZANTINE_SCENARIO:1 N:6 REPEAT:10
+Just printf 89 @ sync_0.txt
+go run main.go 0 6 6 1 1 1 1 0 0 50 0
+go run main.go 5 6 6 1 1 1 1 0 0 50 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/1_out_05-01-2022_04:20:01.log:INFO: 04:20:02.403427 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.67 80 0
+logs/out/2_out_05-01-2022_04:20:01.log:INFO: 04:20:02.427939 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 80 0
+logs/out/3_out_05-01-2022_04:20:01.log:INFO: 04:20:02.430738 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 80 0
+logs/out/4_out_05-01-2022_04:20:01.log:INFO: 04:20:02.412321 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 80 0
+logs/out/5_out_05-01-2022_04:20:01.log:INFO: 04:20:02.412479 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.49 80 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:1
+Just printf 90 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:21:15.log:INFO: 04:21:16.725009 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.73 130 0
+logs/out/3_out_05-01-2022_04:21:15.log:INFO: 04:21:16.718798 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.51 130 0
+logs/out/4_out_05-01-2022_04:21:14.log:INFO: 04:21:16.753276 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.89 130 0
+logs/out/5_out_05-01-2022_04:21:15.log:INFO: 04:21:16.682909 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.08 122 0
+logs/out/6_out_05-01-2022_04:21:15.log:INFO: 04:21:16.742483 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 130 0
+logs/out/7_out_05-01-2022_04:21:15.log:INFO: 04:21:16.734963 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.74 124 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:2
+Just printf 91 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:22:31.log:INFO: 04:22:32.136195 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.59 101 0
+logs/out/3_out_05-01-2022_04:22:30.log:INFO: 04:22:32.143151 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 105 0
+logs/out/4_out_05-01-2022_04:22:30.log:INFO: 04:22:32.119353 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.66 98 0
+logs/out/5_out_05-01-2022_04:22:31.log:INFO: 04:22:32.103794 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.98 97 0
+logs/out/6_out_05-01-2022_04:22:31.log:INFO: 04:22:32.125189 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 100 0
+logs/out/7_out_05-01-2022_04:22:31.log:INFO: 04:22:32.209872 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.67 106 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:3
+Just printf 92 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:23:43.log:INFO: 04:23:44.459014 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.69 115 0
+logs/out/3_out_05-01-2022_04:23:43.log:INFO: 04:23:44.444018 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 115 0
+logs/out/4_out_05-01-2022_04:23:42.log:INFO: 04:23:44.433508 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.67 115 0
+logs/out/5_out_05-01-2022_04:23:43.log:INFO: 04:23:44.390364 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 111 0
+logs/out/6_out_05-01-2022_04:23:43.log:INFO: 04:23:44.416904 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 114 0
+logs/out/7_out_05-01-2022_04:23:43.log:INFO: 04:23:44.416092 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.64 114 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:4
+Just printf 93 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:24:57.log:INFO: 04:24:58.230029 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.66 122 0
+logs/out/3_out_05-01-2022_04:24:56.log:INFO: 04:24:58.203915 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 117 0
+logs/out/4_out_05-01-2022_04:24:56.log:INFO: 04:24:58.237473 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 125 0
+logs/out/5_out_05-01-2022_04:24:57.log:INFO: 04:24:58.206751 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 116 0
+logs/out/6_out_05-01-2022_04:24:57.log:INFO: 04:24:58.243363 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.93 125 0
+logs/out/7_out_05-01-2022_04:24:57.log:INFO: 04:24:58.297794 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.79 127 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:5
+Just printf 94 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:26:12.log:INFO: 04:26:13.150698 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.64 110 0
+logs/out/3_out_05-01-2022_04:26:11.log:INFO: 04:26:13.140794 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 110 0
+logs/out/4_out_05-01-2022_04:26:11.log:INFO: 04:26:13.165007 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.72 110 0
+logs/out/5_out_05-01-2022_04:26:12.log:INFO: 04:26:13.189175 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.01 110 0
+logs/out/6_out_05-01-2022_04:26:12.log:INFO: 04:26:13.118419 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.91 107 0
+logs/out/7_out_05-01-2022_04:26:12.log:INFO: 04:26:13.124964 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.61 109 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:6
+Just printf 95 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:27:27.log:INFO: 04:27:28.367796 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.59 115 0
+logs/out/3_out_05-01-2022_04:27:27.log:INFO: 04:27:28.366135 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 114 0
+logs/out/4_out_05-01-2022_04:27:26.log:INFO: 04:27:28.354178 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.69 114 0
+logs/out/5_out_05-01-2022_04:27:27.log:INFO: 04:27:28.373086 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.97 115 0
+logs/out/6_out_05-01-2022_04:27:27.log:INFO: 04:27:28.399078 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 115 0
+logs/out/7_out_05-01-2022_04:27:27.log:INFO: 04:27:28.398173 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.62 115 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:7
+Just printf 96 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:28:40.log:INFO: 04:28:41.678073 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.68 134 0
+logs/out/3_out_05-01-2022_04:28:40.log:INFO: 04:28:41.668088 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 131 0
+logs/out/4_out_05-01-2022_04:28:39.log:INFO: 04:28:41.697728 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.78 134 0
+logs/out/5_out_05-01-2022_04:28:40.log:INFO: 04:28:41.679245 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.13 133 0
+logs/out/6_out_05-01-2022_04:28:40.log:INFO: 04:28:41.699199 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 134 0
+logs/out/7_out_05-01-2022_04:28:40.log:INFO: 04:28:41.689398 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.69 129 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:8
+Just printf 97 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:29:56.log:INFO: 04:29:56.859018 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.57 101 0
+logs/out/3_out_05-01-2022_04:29:55.log:INFO: 04:29:56.907505 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 105 0
+logs/out/4_out_05-01-2022_04:29:55.log:INFO: 04:29:56.869358 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.7 105 0
+logs/out/5_out_05-01-2022_04:29:55.log:INFO: 04:29:56.895756 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.09 105 0
+logs/out/6_out_05-01-2022_04:29:55.log:INFO: 04:29:56.853527 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.89 102 0
+logs/out/7_out_05-01-2022_04:29:56.log:INFO: 04:29:56.883463 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.62 105 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:9
+Just printf 98 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:31:11.log:INFO: 04:31:12.416687 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.66 120 0
+logs/out/3_out_05-01-2022_04:31:10.log:INFO: 04:31:12.361069 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 111 0
+logs/out/4_out_05-01-2022_04:31:10.log:INFO: 04:31:12.356905 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.66 109 0
+logs/out/5_out_05-01-2022_04:31:11.log:INFO: 04:31:12.400896 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.99 120 0
+logs/out/6_out_05-01-2022_04:31:11.log:INFO: 04:31:12.398562 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 120 0
+logs/out/7_out_05-01-2022_04:31:11.log:INFO: 04:31:12.458962 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.7 123 0
+BYZANTINE_SCENARIO:1 N:8 REPEAT:10
+Just printf 99 @ sync_0.txt
+go run main.go 0 8 6 1 1 1 1 0 0 70 0
+go run main.go 5 8 6 1 1 1 1 0 0 70 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/2_out_05-01-2022_04:32:29.log:INFO: 04:32:29.949187 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.64 107 0
+logs/out/3_out_05-01-2022_04:32:28.log:INFO: 04:32:29.968855 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 111 0
+logs/out/4_out_05-01-2022_04:32:28.log:INFO: 04:32:29.942455 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 110 0
+logs/out/5_out_05-01-2022_04:32:28.log:INFO: 04:32:29.983574 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.14 115 0
+logs/out/6_out_05-01-2022_04:32:28.log:INFO: 04:32:29.950379 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.96 110 0
+logs/out/7_out_05-01-2022_04:32:29.log:INFO: 04:32:29.887976 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.58 97 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:1
+Just printf 100 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:33:46.log:INFO: 04:33:47.524834 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 146 0
+logs/out/4_out_05-01-2022_04:33:46.log:INFO: 04:33:47.549164 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.95 147 0
+logs/out/5_out_05-01-2022_04:33:46.log:INFO: 04:33:47.631666 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.52 150 0
+logs/out/6_out_05-01-2022_04:33:46.log:INFO: 04:33:47.598323 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 150 0
+logs/out/7_out_05-01-2022_04:33:46.log:INFO: 04:33:47.576320 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 150 0
+logs/out/8_out_05-01-2022_04:33:46.log:INFO: 04:33:47.536475 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 149 0
+logs/out/9_out_05-01-2022_04:33:46.log:INFO: 04:33:47.589771 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1 150 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:2
+Just printf 101 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:35:02.log:INFO: 04:35:04.248835 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 150 0
+logs/out/4_out_05-01-2022_04:35:03.log:INFO: 04:35:04.203161 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.93 150 0
+logs/out/5_out_05-01-2022_04:35:02.log:INFO: 04:35:04.167245 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 147 0
+logs/out/6_out_05-01-2022_04:35:02.log:INFO: 04:35:04.147035 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 142 0
+logs/out/7_out_05-01-2022_04:35:03.log:INFO: 04:35:04.204139 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.96 150 0
+logs/out/8_out_05-01-2022_04:35:02.log:INFO: 04:35:04.209907 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 150 0
+logs/out/9_out_05-01-2022_04:35:03.log:INFO: 04:35:04.252668 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.98 150 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:3
+Just printf 102 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:36:16.log:INFO: 04:36:18.138992 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 108 0
+logs/out/4_out_05-01-2022_04:36:17.log:INFO: 04:36:18.072645 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.76 108 0
+logs/out/5_out_05-01-2022_04:36:16.log:INFO: 04:36:18.122800 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 108 0
+logs/out/6_out_05-01-2022_04:36:16.log:INFO: 04:36:18.051335 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 107 0
+logs/out/7_out_05-01-2022_04:36:17.log:INFO: 04:36:18.123037 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.91 108 0
+logs/out/8_out_05-01-2022_04:36:16.log:INFO: 04:36:18.054095 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 108 0
+logs/out/9_out_05-01-2022_04:36:17.log:INFO: 04:36:18.123188 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 108 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:4
+Just printf 103 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:37:33.log:INFO: 04:37:35.006810 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 120 0
+logs/out/4_out_05-01-2022_04:37:34.log:INFO: 04:37:35.035040 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.87 120 0
+logs/out/5_out_05-01-2022_04:37:33.log:INFO: 04:37:34.991060 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 120 0
+logs/out/6_out_05-01-2022_04:37:33.log:INFO: 04:37:34.941557 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.17 120 0
+logs/out/7_out_05-01-2022_04:37:34.log:INFO: 04:37:34.962625 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.88 120 0
+logs/out/8_out_05-01-2022_04:37:33.log:INFO: 04:37:34.937081 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.11 120 0
+logs/out/9_out_05-01-2022_04:37:34.log:INFO: 04:37:35.008257 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.84 120 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:5
+Just printf 104 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:38:52.log:INFO: 04:38:53.268613 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 121 0
+logs/out/4_out_05-01-2022_04:38:52.log:INFO: 04:38:53.308778 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.83 126 0
+logs/out/5_out_05-01-2022_04:38:51.log:INFO: 04:38:53.388350 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 126 0
+logs/out/6_out_05-01-2022_04:38:52.log:INFO: 04:38:53.350153 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 126 0
+logs/out/7_out_05-01-2022_04:38:52.log:INFO: 04:38:53.329638 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.94 126 0
+logs/out/8_out_05-01-2022_04:38:52.log:INFO: 04:38:53.339551 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 126 0
+logs/out/9_out_05-01-2022_04:38:52.log:INFO: 04:38:53.332579 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.87 126 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:6
+Just printf 105 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:40:12.log:INFO: 04:40:13.555005 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 162 0
+logs/out/4_out_05-01-2022_04:40:12.log:INFO: 04:40:13.541565 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.01 162 0
+logs/out/5_out_05-01-2022_04:40:12.log:INFO: 04:40:13.473552 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 151 0
+logs/out/6_out_05-01-2022_04:40:12.log:INFO: 04:40:13.488534 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 156 0
+logs/out/7_out_05-01-2022_04:40:12.log:INFO: 04:40:13.594714 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.07 162 0
+logs/out/8_out_05-01-2022_04:40:12.log:INFO: 04:40:13.582779 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 162 0
+logs/out/9_out_05-01-2022_04:40:12.log:INFO: 04:40:13.533354 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1 162 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:7
+Just printf 106 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:41:27.log:INFO: 04:41:28.829624 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.19 114 0
+logs/out/4_out_05-01-2022_04:41:28.log:INFO: 04:41:28.904888 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.86 114 0
+logs/out/5_out_05-01-2022_04:41:27.log:INFO: 04:41:28.915308 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 114 0
+logs/out/6_out_05-01-2022_04:41:27.log:INFO: 04:41:28.866229 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 114 0
+logs/out/7_out_05-01-2022_04:41:27.log:INFO: 04:41:28.874689 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.89 114 0
+logs/out/8_out_05-01-2022_04:41:27.log:INFO: 04:41:28.910338 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 114 0
+logs/out/9_out_05-01-2022_04:41:27.log:INFO: 04:41:28.874425 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.85 114 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:8
+Just printf 107 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:42:45.log:INFO: 04:42:47.076950 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 144 0
+logs/out/4_out_05-01-2022_04:42:46.log:INFO: 04:42:46.987227 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 144 0
+logs/out/5_out_05-01-2022_04:42:45.log:INFO: 04:42:46.974644 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 144 0
+logs/out/6_out_05-01-2022_04:42:45.log:INFO: 04:42:46.971974 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 144 0
+logs/out/7_out_05-01-2022_04:42:46.log:INFO: 04:42:47.036990 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.98 144 0
+logs/out/8_out_05-01-2022_04:42:45.log:INFO: 04:42:47.038382 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 144 0
+logs/out/9_out_05-01-2022_04:42:46.log:INFO: 04:42:46.969955 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.9 144 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:9
+Just printf 108 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:44:02.log:INFO: 04:44:04.264621 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 162 0
+logs/out/4_out_05-01-2022_04:44:03.log:INFO: 04:44:04.344492 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.06 162 0
+logs/out/5_out_05-01-2022_04:44:02.log:INFO: 04:44:04.266814 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 162 0
+logs/out/6_out_05-01-2022_04:44:02.log:INFO: 04:44:04.214702 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 154 0
+logs/out/7_out_05-01-2022_04:44:03.log:INFO: 04:44:04.273917 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.98 162 0
+logs/out/8_out_05-01-2022_04:44:02.log:INFO: 04:44:04.309069 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 162 0
+logs/out/9_out_05-01-2022_04:44:03.log:INFO: 04:44:04.255223 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 0.96 162 0
+BYZANTINE_SCENARIO:1 N:10 REPEAT:10
+Just printf 109 @ sync_0.txt
+go run main.go 0 10 6 1 1 1 1 0 0 120 0
+go run main.go 5 10 6 1 1 1 1 0 0 120 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/3_out_05-01-2022_04:45:21.log:INFO: 04:45:23.001653 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.27 162 0
+logs/out/4_out_05-01-2022_04:45:21.log:INFO: 04:45:23.044839 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.1 162 0
+logs/out/5_out_05-01-2022_04:45:21.log:INFO: 04:45:22.967830 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.43 162 0
+logs/out/6_out_05-01-2022_04:45:21.log:INFO: 04:45:22.917718 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 155 0
+logs/out/7_out_05-01-2022_04:45:21.log:INFO: 04:45:22.949775 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.04 162 0
+logs/out/8_out_05-01-2022_04:45:21.log:INFO: 04:45:22.938256 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 161 0
+logs/out/9_out_05-01-2022_04:45:21.log:INFO: 04:45:22.978875 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.03 162 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:1
+Just printf 110 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:46:39.log:INFO: 04:46:40.855337 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 240 0
+logs/out/11_out_05-01-2022_04:46:39.log:INFO: 04:46:40.851149 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.47 239 0
+logs/out/3_out_05-01-2022_04:46:39.log:INFO: 04:46:40.917614 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 240 0
+logs/out/4_out_05-01-2022_04:46:39.log:INFO: 04:46:40.767047 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.28 235 0
+logs/out/5_out_05-01-2022_04:46:39.log:INFO: 04:46:40.823795 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 239 0
+logs/out/6_out_05-01-2022_04:46:39.log:INFO: 04:46:40.762525 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 239 0
+logs/out/7_out_05-01-2022_04:46:39.log:INFO: 04:46:40.826613 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 240 0
+logs/out/8_out_05-01-2022_04:46:39.log:INFO: 04:46:40.830245 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.77 240 0
+logs/out/9_out_05-01-2022_04:46:39.log:INFO: 04:46:40.910062 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 240 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:2
+Just printf 111 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:47:59.log:INFO: 04:48:00.923288 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 224 0
+logs/out/11_out_05-01-2022_04:47:59.log:INFO: 04:48:00.826378 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 203 0
+logs/out/3_out_05-01-2022_04:47:59.log:INFO: 04:48:00.889749 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.58 224 0
+logs/out/4_out_05-01-2022_04:47:59.log:INFO: 04:48:01.024872 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 225 0
+logs/out/5_out_05-01-2022_04:47:59.log:INFO: 04:48:00.879323 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 221 0
+logs/out/6_out_05-01-2022_04:47:59.log:INFO: 04:48:00.918639 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 224 0
+logs/out/7_out_05-01-2022_04:47:59.log:INFO: 04:48:00.965381 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 224 0
+logs/out/8_out_05-01-2022_04:47:59.log:INFO: 04:48:00.919313 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.72 224 0
+logs/out/9_out_05-01-2022_04:47:59.log:INFO: 04:48:01.040541 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 226 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:3
+Just printf 112 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:49:16.log:INFO: 04:49:18.059136 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.45 208 0
+logs/out/11_out_05-01-2022_04:49:16.log:INFO: 04:49:18.040960 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 208 0
+logs/out/3_out_05-01-2022_04:49:16.log:INFO: 04:49:18.081685 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.77 208 0
+logs/out/4_out_05-01-2022_04:49:16.log:INFO: 04:49:17.941418 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 203 0
+logs/out/5_out_05-01-2022_04:49:16.log:INFO: 04:49:17.982757 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 208 0
+logs/out/6_out_05-01-2022_04:49:16.log:INFO: 04:49:18.117510 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 208 0
+logs/out/7_out_05-01-2022_04:49:16.log:INFO: 04:49:18.057318 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.39 208 0
+logs/out/8_out_05-01-2022_04:49:16.log:INFO: 04:49:18.059678 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.65 208 0
+logs/out/9_out_05-01-2022_04:49:16.log:INFO: 04:49:17.977284 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 208 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:4
+Just printf 113 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:50:38.log:INFO: 04:50:40.161411 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.66 239 0
+logs/out/11_out_05-01-2022_04:50:38.log:INFO: 04:50:40.206489 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 240 0
+logs/out/3_out_05-01-2022_04:50:38.log:INFO: 04:50:40.036263 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.65 237 0
+logs/out/4_out_05-01-2022_04:50:38.log:INFO: 04:50:40.119022 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 240 0
+logs/out/5_out_05-01-2022_04:50:38.log:INFO: 04:50:40.124343 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.49 240 0
+logs/out/6_out_05-01-2022_04:50:38.log:INFO: 04:50:40.169044 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.51 239 0
+logs/out/7_out_05-01-2022_04:50:38.log:INFO: 04:50:40.079459 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 240 0
+logs/out/8_out_05-01-2022_04:50:38.log:INFO: 04:50:40.053431 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.7 239 0
+logs/out/9_out_05-01-2022_04:50:38.log:INFO: 04:50:40.128577 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 240 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:5
+Just printf 114 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:51:59.log:INFO: 04:52:01.185505 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.49 216 0
+logs/out/11_out_05-01-2022_04:51:59.log:INFO: 04:52:01.187074 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 216 0
+logs/out/3_out_05-01-2022_04:51:59.log:INFO: 04:52:01.121616 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.59 216 0
+logs/out/4_out_05-01-2022_04:51:59.log:INFO: 04:52:01.262944 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 218 0
+logs/out/5_out_05-01-2022_04:51:59.log:INFO: 04:52:01.155598 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 216 0
+logs/out/6_out_05-01-2022_04:51:59.log:INFO: 04:52:01.184717 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.4 216 0
+logs/out/7_out_05-01-2022_04:51:59.log:INFO: 04:52:01.063981 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 208 0
+logs/out/8_out_05-01-2022_04:51:59.log:INFO: 04:52:01.225366 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.75 216 0
+logs/out/9_out_05-01-2022_04:51:59.log:INFO: 04:52:01.090898 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.18 209 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:6
+Just printf 115 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:53:18.log:INFO: 04:53:19.885588 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 224 0
+logs/out/11_out_05-01-2022_04:53:18.log:INFO: 04:53:19.892628 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.34 224 0
+logs/out/3_out_05-01-2022_04:53:18.log:INFO: 04:53:19.843726 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.58 220 0
+logs/out/4_out_05-01-2022_04:53:18.log:INFO: 04:53:19.995889 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 224 0
+logs/out/5_out_05-01-2022_04:53:18.log:INFO: 04:53:19.885951 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 224 0
+logs/out/6_out_05-01-2022_04:53:18.log:INFO: 04:53:19.817222 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 208 0
+logs/out/7_out_05-01-2022_04:53:18.log:INFO: 04:53:19.995693 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 224 0
+logs/out/8_out_05-01-2022_04:53:18.log:INFO: 04:53:19.847823 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 221 0
+logs/out/9_out_05-01-2022_04:53:18.log:INFO: 04:53:19.953400 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 224 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:7
+Just printf 116 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:54:33.log:INFO: 04:54:35.061672 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 184 0
+logs/out/11_out_05-01-2022_04:54:33.log:INFO: 04:54:34.954282 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.14 184 0
+logs/out/3_out_05-01-2022_04:54:33.log:INFO: 04:54:34.972406 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.5 184 0
+logs/out/4_out_05-01-2022_04:54:33.log:INFO: 04:54:35.073002 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.26 184 0
+logs/out/5_out_05-01-2022_04:54:33.log:INFO: 04:54:35.086326 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 184 0
+logs/out/6_out_05-01-2022_04:54:33.log:INFO: 04:54:35.107555 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.36 183 0
+logs/out/7_out_05-01-2022_04:54:33.log:INFO: 04:54:34.986755 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.21 184 0
+logs/out/8_out_05-01-2022_04:54:33.log:INFO: 04:54:35.075621 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.56 184 0
+logs/out/9_out_05-01-2022_04:54:33.log:INFO: 04:54:35.046066 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.22 184 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:8
+Just printf 117 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:55:51.log:INFO: 04:55:52.490589 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 217 0
+logs/out/11_out_05-01-2022_04:55:51.log:INFO: 04:55:52.637496 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 232 0
+logs/out/3_out_05-01-2022_04:55:50.log:INFO: 04:55:52.655621 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.74 232 0
+logs/out/4_out_05-01-2022_04:55:51.log:INFO: 04:55:52.578306 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.3 232 0
+logs/out/5_out_05-01-2022_04:55:51.log:INFO: 04:55:52.543453 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 231 0
+logs/out/6_out_05-01-2022_04:55:51.log:INFO: 04:55:52.523021 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 222 0
+logs/out/7_out_05-01-2022_04:55:51.log:INFO: 04:55:52.608392 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.38 232 0
+logs/out/8_out_05-01-2022_04:55:50.log:INFO: 04:55:52.601972 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.67 232 0
+logs/out/9_out_05-01-2022_04:55:51.log:INFO: 04:55:52.710803 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.42 240 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:9
+Just printf 118 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:57:09.log:INFO: 04:57:11.121341 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.43 224 0
+logs/out/11_out_05-01-2022_04:57:09.log:INFO: 04:57:11.165931 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.32 224 0
+logs/out/3_out_05-01-2022_04:57:09.log:INFO: 04:57:11.257221 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.82 224 0
+logs/out/4_out_05-01-2022_04:57:09.log:INFO: 04:57:11.230015 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.43 224 0
+logs/out/5_out_05-01-2022_04:57:09.log:INFO: 04:57:11.192637 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 224 0
+logs/out/6_out_05-01-2022_04:57:09.log:INFO: 04:57:11.196664 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.29 224 0
+logs/out/7_out_05-01-2022_04:57:09.log:INFO: 04:57:11.159454 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.37 224 0
+logs/out/8_out_05-01-2022_04:57:09.log:INFO: 04:57:11.125865 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.58 224 0
+logs/out/9_out_05-01-2022_04:57:09.log:INFO: 04:57:11.174015 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.39 224 0
+BYZANTINE_SCENARIO:1 N:12 REPEAT:10
+Just printf 119 @ sync_0.txt
+go run main.go 0 12 6 1 1 1 1 0 0 180 0
+go run main.go 5 12 6 1 1 1 1 0 0 180 0
+go run main.go 10 12 6 1 1 1 1 0 0 180 0
+sleep 60
+kill processes
+signal: terminated
+logs/out/10_out_05-01-2022_04:58:27.log:INFO: 04:58:29.471760 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.48 224 0
+logs/out/11_out_05-01-2022_04:58:28.log:INFO: 04:58:29.446932 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.35 224 0
+logs/out/3_out_05-01-2022_04:58:27.log:INFO: 04:58:29.393785 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.69 224 0
+logs/out/4_out_05-01-2022_04:58:28.log:INFO: 04:58:29.334362 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.23 224 0
+logs/out/5_out_05-01-2022_04:58:28.log:INFO: 04:58:29.353317 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.33 224 0
+logs/out/6_out_05-01-2022_04:58:27.log:INFO: 04:58:29.321494 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.31 223 0
+logs/out/7_out_05-01-2022_04:58:27.log:INFO: 04:58:29.472946 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.44 224 0
+logs/out/8_out_05-01-2022_04:58:27.log:INFO: 04:58:29.393336 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.57 224 0
+logs/out/9_out_05-01-2022_04:58:28.log:INFO: 04:58:29.501803 self-stabilizing-binary-consensus.go:402: stats<byzantine,decision_time,messages,decision>: false 1.41 224 0
+BYZANTINE_SCENARIO:1 N:14 REPEAT:1
+Just printf 120 @ sync_0.txt
+go run main.go 0 14 6 1 1 1 1 0 0 300 0
+go run main.go 5 14 6 1 1 1 1 0 0 300 0
+go run main.go 10 14 6 1 1 1 1 0 0 300 0
+sleep 60
+kill processes
+signal: terminated
+BYZANTINE_SCENARIO:1 N:14 REPEAT:2
+Just printf 121 @ sync_0.txt

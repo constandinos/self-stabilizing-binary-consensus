@@ -33,7 +33,8 @@ func InitializeIP() {
 		ReqAddressesIP[i] = "tcp://" + address[i%len(address)] + ":" + strconv.Itoa(27000+variables.ID+(i*variables.N))
 	}
 	for i := 0; i < variables.Clients; i++ {
-		ServerAddressesIP[i] = "tcp://*:" + strconv.Itoa(27250+i+(variables.ID*variables.Clients))
+		//ServerAddressesIP[i] = "tcp://*:" + strconv.Itoa(27250+i+(variables.ID*variables.Clients))
+		ServerAddressesIP[i] = "tcp://*:" + strconv.Itoa(27450+i+(variables.ID*variables.Clients))
 		ResponseAddressesIP[i] = "tcp://*:" + strconv.Itoa(27625+i+(variables.ID*variables.Clients))
 	}
 }
