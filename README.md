@@ -32,7 +32,7 @@ chmod +x scripts/*
 ./scripts/run.sh <N> <M> <CLIENTS> <REMOTE> <BYZANTINE_SCENARIO> <SELF_STABILIZING> <CORRUPTION> <DEBUG> <OPTIMIZATION>
 ```
 Arguments explanation:
-- `N` Number of processors (tested with N=4 to N=16)
+- `N` Number of processors (tested with N=4 to N=16, do not set N>16)
 - `M` Predefined system parameter that ensures that round r bounded by M (tested with M=6)
 - `CLIENTS` Number of clients (tested with CLIENTS=1)
 - `REMOTE` REMOTE=0: Execution on localhost | REMOTE=1: Execution on cluster
@@ -69,9 +69,3 @@ Arguments explanation:
 ## References
 - [Loosely-self-stabilizing Byzantine-tolerant Binary Consensus for Signature-free Message-passing Systems (studied algorithm)](https://arxiv.org/pdf/2103.14649.pdf)
 - [BFTWithoutSignatures (baseline project)](https://github.com/v-petrou/BFTWithoutSignatures)
-
-
-
-
-
-
