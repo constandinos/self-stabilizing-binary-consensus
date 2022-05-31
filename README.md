@@ -64,7 +64,7 @@ Arguments explanation:
 
 **Notes:**
 - For better experimental results please use `clustercg0` machine as localhost
-- You can find the output on `logs/out` and error on `logs/error`
+- You can find the output in `logs/out` and error in `logs/error`
 
 ## References
 - [Loosely-self-stabilizing Byzantine-tolerant Binary Consensus for Signature-free Message-passing Systems (studied algorithm)](https://arxiv.org/pdf/2103.14649.pdf)
