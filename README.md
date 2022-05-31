@@ -63,7 +63,7 @@ Arguments explanation:
 ```
 
 **Notes:**
-- For best experimental results please use `clustercg0` machine as localhost
+- For better experimental results please use `clustercg0` machine as localhost
 - You can find the output on `logs/out` and error on `logs/error`
 
 ## References
