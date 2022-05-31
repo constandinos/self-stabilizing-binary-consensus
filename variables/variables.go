@@ -30,9 +30,6 @@ var (
 	// If the logger will print all debug messages
 	Debug bool
 
-	// The processing time for receive messages
-	ReceiveProcessingTime int
-
 	// Optimization flag
 	Optimization bool
 
@@ -40,7 +37,8 @@ var (
 	ReceivingMessages int
 
 	// Random number generator
-	RandomGenerator *rand.Rand
+	RandomGenerator            *rand.Rand
+	RandomGeneratorCorruptions *rand.Rand
 
 	/* From Vasilis implentation */
 	// DEFAULT - The default value that is used in the algorithms
@@ -52,10 +50,8 @@ var (
 	MsgMutex      sync.RWMutex
 )
 
-// 	variables.Initialize(id, n, m, clients, remote, debug, receive_processing_time)
-
 // Initialize - Variables initializer method
-func Initialize(id int, n int, m int, clients int, remote int, debug int, receive_processing_time int, optimization int) {
+func Initialize(id int, n int, m int, clients int, remote int, debug int, optimization int) {
 	ID = id
 
 	N = n
@@ -77,8 +73,6 @@ func Initialize(id int, n int, m int, clients int, remote int, debug int, receiv
 		Debug = false
 	}
 
-	ReceiveProcessingTime = receive_processing_time
-
 	if optimization == 1 {
 		Optimization = true
 	} else {
@@ -88,6 +82,7 @@ func Initialize(id int, n int, m int, clients int, remote int, debug int, receiv
 	ReceivingMessages = 0
 
 	RandomGenerator = rand.New(rand.NewSource(int64(ID)))
+	RandomGeneratorCorruptions = rand.New(rand.NewSource(int64(ID)))
 
 	/* From Vasilis implentation */
 	DEFAULT = []byte("")

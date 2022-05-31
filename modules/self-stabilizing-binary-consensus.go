@@ -16,20 +16,22 @@ import (
 )
 
 var (
-	est               [][][]int
-	aux               [][][]int
-	mutex_est         [][]sync.RWMutex
-	mutex_aux         [][]sync.RWMutex
-	N                 int
-	M                 int
-	F                 int
-	ID                int
-	r                 int
-	debug             bool
-	decision_timer    time.Time
-	convergence_timer time.Time
-	decided           bool = false
-	msg_corruption    bool = false
+	est            [][][]int
+	aux            [][][]int
+	mutex_est      [][]sync.RWMutex
+	mutex_aux      [][]sync.RWMutex
+	N              int
+	M              int
+	F              int
+	ID             int
+	r              int
+	debug          bool
+	decision_timer time.Time
+	decided        bool = false
+	msg_corruption bool = false
+
+	RCVProcessingTime    = [17]int{0, 5, 10, 20, 30, 50, 80, 120, 150, 200, 250, 360, 480, 580, 670, 1000, 1200}
+	RCVProcessingTimeOpt = [17]int{0, 5, 10, 15, 20, 35, 50, 60, 70, 100, 120, 140, 180, 220, 300, 350, 400}
 )
 
 /* Operations */
@@ -91,6 +93,18 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 	// Start timer for aglorithm decision time
 	decision_timer = time.Now()
 
+	// Corruption initial state
+	if config.CorruptionScenario == "INITIAL" {
+		mutex_est[0][ID].Lock()
+		if debug {
+			logger.OutLogger.Println("CORRUPTION INIT est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
+				"->{0,1}")
+		}
+		append_val(est[0][ID], 0)
+		append_val(est[0][ID], 1)
+		mutex_est[0][ID].Unlock()
+	}
+
 	// do forever begin
 	for {
 		// if ((r, est, aux) != initState) then
@@ -100,6 +114,17 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 
 			// r ← min{r+1, M+1};
 			r = min(r+1, M+1)
+
+			if variables.ID == 3 {
+				mutex_est[0][ID].Lock()
+				if debug {
+					logger.OutLogger.Println("CORRUPTION 1 est[0][" + strconv.Itoa(ID) + "]=" + arr2set(est[0][ID]) +
+						"->{0,1}")
+				}
+				append_val(est[0][ID], 0)
+				append_val(est[0][ID], 1)
+				mutex_est[0][ID].Unlock()
+			}
 
 			// repeat
 			for {
@@ -113,7 +138,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 				// CORRUPTIONS (apply a random corruption)
 				if config.CorruptionScenario == "RANDOM" {
 					random_corruption := variables.RandomGenerator.Intn(5)
-					//random_corruption := variables.RandomGenerator.Intn(6)
 					switch random_corruption {
 					// [Unit test 0] Corruption of est[0][ID]: the variable est[0][ID] loses its value
 					case 0:
@@ -124,7 +148,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 						}
 						clear(est[0][ID])
 						mutex_est[0][ID].Unlock()
-						convergence_timer = time.Now()
 
 					// [Unit test 1] Corruption of est[0][ID]: setting variable est[0][ID] with {0,1}
 					case 1:
@@ -136,7 +159,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 						append_val(est[0][ID], 0)
 						append_val(est[0][ID], 1)
 						mutex_est[0][ID].Unlock()
-						convergence_timer = time.Now()
 
 					// [Unit test 2] Corruption of est[r'][ID] and aux[r'][ID]: the variables est[r'][ID] and aux[r'][ID]
 					// lose their value
@@ -154,7 +176,6 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 							mutex_est[rr][ID].Unlock()
 							mutex_aux[rr][ID].Unlock()
 						}
-						convergence_timer = time.Now()
 
 					// [Unit test 3] Corruption of est[M+1][ID] and aux[M+1][ID]: the variables est[M+1][ID] and aux[M+1][ID]
 					case 3:
@@ -169,21 +190,10 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 						clear(aux[M+1][ID])
 						mutex_est[M+1][ID].Unlock()
 						mutex_aux[M+1][ID].Unlock()
-						convergence_timer = time.Now()
 
 					// [Unit test 4] Corruption of SEND message: the variable r suddenly changes value
 					case 4:
 						msg_corruption = true
-						convergence_timer = time.Now()
-
-						// [Unit test 5] Corruption of r: the variable r suddenly changes value
-						/*case 5:
-						if debug {
-							logger.OutLogger.Println("CORRUPTION 5 r=" + strconv.Itoa(r) + "->1")
-						}
-						r = 1
-						convergence_timer = time.Now()*/
-
 					} // end switch
 				} // end corruptions if
 
@@ -249,7 +259,11 @@ func SelfStabilizingBinaryConsensus(identifier int, v int) {
 				}
 
 				// Process receive messages
-				time.Sleep(time.Duration(variables.ReceiveProcessingTime) * time.Millisecond)
+				if !variables.Optimization {
+					time.Sleep(time.Duration(RCVProcessingTime[N]) * time.Millisecond)
+				} else {
+					time.Sleep(time.Duration(RCVProcessingTimeOpt[N]) * time.Millisecond)
+				}
 
 				// until infoResult() != ∅
 				infoResults := info_results()
@@ -397,17 +411,10 @@ func decide(x int) {
 	if (size(est[M+1][ID]) > 0) && (size(aux[M+1][ID]) > 0) {
 		// Get decision time
 		if !decided {
-			if config.CorruptionScenario == "NORMAL" {
-				duration := float64(time.Since(decision_timer).Seconds())
-				duration = math.Round(duration*100) / 100
-				logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
-					variables.ReceivingMessages, x)
-			} else {
-				duration := float64(time.Since(convergence_timer).Seconds())
-				duration = math.Round(duration*100) / 100
-				logger.OutLogger.Println("stats<byzantine,convergence_time,messages,decision>:", variables.Byzantine, duration,
-					variables.ReceivingMessages, x)
-			}
+			duration := float64(time.Since(decision_timer).Seconds())
+			duration = math.Round(duration*100) / 100
+			logger.OutLogger.Println("stats<byzantine,decision_time,messages,decision>:", variables.Byzantine, duration,
+				variables.ReceivingMessages, x)
 
 			decided = true
 		}

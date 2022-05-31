@@ -19,8 +19,9 @@ var (
 	CorruptionScenario string
 
 	corruption_scenarios = map[int]string{
-		0: "NORMAL", // Normal execution
-		1: "RANDOM", // Apply random corruptions
+		0: "NORMAL",  // Normal execution
+		1: "INITIAL", // Start algorithm with an arbitary (corrupted) state
+		2: "RANDOM",  // Apply random corruptions
 	}
 )
 
